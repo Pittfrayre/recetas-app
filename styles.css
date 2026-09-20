@@ -265,3 +265,14 @@ button.item-p.edited{color:var(--accent)}
 .alert-acts button:active{background:var(--chip)}
 .alert-acts button+button{border-left:1px solid var(--sep);font-weight:700}
 .alert-acts button.danger{color:var(--danger)}
+
+/* ---------- Comensales del día ---------- */
+.quienes{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.pill{font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;
+  background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.pill.inv{background:var(--tag-warn-bg);color:var(--tag-warn-fg)}
+.check.off{background:transparent;border-color:var(--sep-strong)}
+.check.off svg{opacity:0}
+.item [data-comensal],.item.sel .check{background:var(--accent)}
+.card .item .check:not(.off){background:var(--accent);border-color:var(--accent)}
+.card .item .check:not(.off) svg{opacity:1}

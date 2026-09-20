@@ -144,11 +144,20 @@ let RECETAS = [
 const S = {
   vista:'recetas', filtro:'Todas', busqueda:'',
   personas:[
-    { nombre:'Persona 1', nota:'Embarazo',       factor:1.0, on:true },
-    { nombre:'Persona 2', nota:'Entrenamiento',  factor:1.3, on:true }
+    { id:'p1', nombre:'Persona 1', nota:'Embarazo',      factor:1.0 },
+    { id:'p2', nombre:'Persona 2', nota:'Entrenamiento', factor:1.3 }
   ],
-  semana:{ lun:'wrap-pollo', mar:'bowl-carne', mie:'wrap-pollo',
-           jue:'bowl-carne', vie:'tilapia-horno', sab:null, dom:null },
+  // Cada día: qué se cocina y quiénes comen ese día en particular
+  semana:{
+    lun:{ receta:'wrap-pollo',    comensales:['p1','p2'], invitados:[] },
+    mar:{ receta:'bowl-carne',    comensales:['p1','p2'], invitados:[] },
+    mie:{ receta:'wrap-pollo',    comensales:['p1','p2'], invitados:[] },
+    jue:{ receta:'bowl-carne',    comensales:['p1','p2'], invitados:[] },
+    vie:{ receta:'tilapia-horno', comensales:['p1','p2'], invitados:[] },
+    sab:null, dom:null
+  },
+  pasoDia:'receta',      // 'receta' | 'comensales'
+  nuevoInvitado:null,    // {nombre, factor} mientras se captura
   precios:{},        // { ingrediente: precio por unidad }  ← lo que tú corriges a mano
   profeco:{},        // { ingrediente: {precio_unidad, mas_barato, ...} } ← robot semanal
   sync:{ estado:'local', fecha:null, sha:null },
@@ -232,29 +241,46 @@ const precioIng  = (i,m=1) => precioUnit(i) * i.c * m;
 const editado    = n => S.precios[n] !== undefined;
 
 /* --- plan semanal --- */
-const activas    = () => S.personas.filter(p => p.on);
-const factorTotal= () => activas().reduce((a,p)=>a+p.factor,0);
-const diasDe     = id => DIAS.filter(d => S.semana[d.k] === id).length;
-const diasTotal  = () => DIAS.filter(d => S.semana[d.k]).length;
+const persona    = id => S.personas.find(p => p.id === id);
+const nuevoId    = () => 'p' + Date.now().toString(36);
+
+/* Quién come tal día: los de casa que marcaste, más los invitados de ese día */
+function comensales(k){
+  const d = S.semana[k];
+  if (!d) return [];
+  return [
+    ...(d.comensales || []).map(persona).filter(Boolean),
+    ...(d.invitados  || []).map(g => ({ ...g, invitado:true }))
+  ];
+}
+const factorDia  = k  => comensales(k).reduce((a,p)=>a+p.factor, 0);
+const diasDeRec  = id => DIAS.filter(d => S.semana[d.k] && S.semana[d.k].receta === id);
+const diasDe     = id => diasDeRec(id).length;
+const diasTotal  = () => DIAS.filter(d => S.semana[d.k] && S.semana[d.k].receta).length;
 const enPlan     = () => RECETAS.filter(r => diasDe(r.id) > 0);
-const multDe     = r => (diasDe(r.id) * factorTotal()) / r.porciones;
+/* Porciones que hay que cocinar: suma de los factores de todos los que comen */
+const porcionesDe= r  => diasDeRec(r.id).reduce((a,d)=>a+factorDia(d.k), 0);
+const multDe     = r  => porcionesDe(r) / r.porciones;
 const costoRec   = (r,m=1) => r.ingredientes.reduce((a,i)=>a+precioIng(i,m),0);
 
-/* --- reparto por persona, por lonche --- */
+/* Cada quien recibe exactamente 'su factor' de porciones base, así que la
+   cantidad por lonche no depende de cuántos días se repita la receta. */
 function reparto(r){
-  const d  = diasDe(r.id) || 1;
-  const on = activas();
-  const sf = on.reduce((a,p)=>a+p.factor,0);
-  const m  = (d*sf)/r.porciones;
-  return {
-    dias:d, personas:on, mult:m,
-    filas: r.ingredientes.map(i => ({
-      n:i.n, u:i.u, total:i.c*m,
-      por: on.map(p => i.c*m*p.factor/(d*sf))
-    // Solo lo que vale la pena pesar: nada de "0.1 pz de cebolla"
-    })).filter(f => Math.max(...f.por) >= (f.u==='pz' ? 0.5 : 10))
-  };
+  return diasDeRec(r.id).map(d => {
+    const gente = comensales(d.k);
+    return {
+      dia: d,
+      comensales: gente,
+      filas: r.ingredientes.map(i => ({
+        n:i.n, u:i.u,
+        por: gente.map(p => i.c * p.factor / r.porciones)
+      // Nada de "0.1 pz de cebolla": solo lo que vale la pena pesar
+      })).filter(f => f.por.length && Math.max(...f.por) >= (f.u==='pz' ? 0.5 : 10))
+    };
+  });
 }
+/* Firma para saber si todos los días comen los mismos */
+const firmaComensales = g => g.comensales.map(p=>p.nombre+':'+p.factor).join('|');
 
 /* ============================================================
    Vista: Recetas
@@ -303,16 +329,16 @@ function renderRecetas(){
    Vista: Plan (calendario semanal)
    ============================================================ */
 function renderPlan(){
-  const ft    = factorTotal();
   const dias  = diasTotal();
   const recs  = enPlan();
   const costo = recs.reduce((a,r)=>a+costoRec(r,multDe(r)),0);
   const prot  = dias ? recs.reduce((a,r)=>a+r.proteina*diasDe(r.id),0)/dias : 0;
-  const hoy   = (new Date().getDay()+6)%7;   // 0 = lunes
+  const porc  = DIAS.reduce((a,d)=>a+factorDia(d.k), 0);
+  const hoy   = (new Date().getDay()+6)%7;
 
   $('#planSummary').innerHTML = `
     <div class="big">${dias} ${dias===1?'comida':'comidas'}</div>
-    <div class="lbl">${activas().length} personas · ${(dias*ft).toFixed(1).replace('.0','')} porciones en total</div>
+    <div class="lbl">${porc.toFixed(1).replace('.0','')} porciones en total esta semana</div>
     <div class="sgrid">
       <div><b>${mxn(costo)}</b><span>Costo</span></div>
       <div><b>${Math.round(prot)} g</b><span>Proteína</span></div>
@@ -320,47 +346,131 @@ function renderPlan(){
     </div>`;
 
   $('#semana').innerHTML = DIAS.map((d,ix) => {
-    const r = rec(S.semana[d.k]);
+    const dd = S.semana[d.k];
+    const r  = dd && rec(dd.receta);
+    const g  = comensales(d.k);
     return `<button class="day ${ix===hoy?'today':''}" data-dia="${d.k}">
       <div class="day-n"><b>${d.n}</b><span>${ix===hoy?'hoy':''}</span></div>
       ${r ? `<div class="thumb"><img src="img/${r.id}-sq.jpg" alt="" loading="lazy"></div>`
           : `<div class="dash">+</div>`}
       <div class="day-t ${r?'':'off'}">
         <strong>${r?esc(r.nombre):'Sin asignar'}</strong>
-        <span>${r?`${r.proteina} g proteína · ${ft.toFixed(1).replace('.0','')} porciones`:'Toca para elegir receta'}</span>
+        ${r ? (g.length
+                ? `<div class="quienes">${g.map(p=>
+                     `<span class="pill ${p.invitado?'inv':''}">${esc(p.nombre)}</span>`).join('')}</div>`
+                : `<span style="color:var(--danger)">Falta elegir quién come</span>`)
+            : `<span>Toca para elegir receta</span>`}
       </div>
       <div class="chev"></div>
     </button>`;
   }).join('');
 
-  $('#people').innerHTML = S.personas.map((p,i)=>`
-    <div class="row">
-      <div class="row-t"><strong>${esc(p.nombre)}</strong><span>${esc(p.nota)} · porción ×${p.factor}</span></div>
-      <div class="sw ${p.on?'on':''}" data-per="${i}"></div>
-    </div>`).join('');
-
-  $('#genList').disabled = dias === 0;
+  $('#genList').disabled = !DIAS.some(d => S.semana[d.k] && S.semana[d.k].receta && factorDia(d.k) > 0);
 }
 
-/* --- selector de receta para un día --- */
-function pickerDia(k){
+/* ============================================================
+   Hoja del día: primero la receta, luego quién come
+   ============================================================ */
+function sheetDia(k, paso){
   S.diaEditando = k;
-  const d = DIAS.find(x=>x.k===k);
-  const actual = S.semana[k];
+  if (paso) S.pasoDia = paso;
+  const d  = DIAS.find(x=>x.k===k);
+  const dd = S.semana[k];
+
+  if (S.pasoDia === 'receta' || !dd){
+    abrirSheet(d.l, `
+      <p class="price-hint" style="text-align:left;padding:0 4px 12px">Paso 1 de 2 · ¿Qué se cocina?</p>
+      <div class="card">
+        ${RECETAS.map(r=>`
+          <button class="day" data-pick="${r.id}">
+            <div class="thumb"><img src="img/${r.id}-sq.jpg" alt="" loading="lazy"></div>
+            <div class="day-t">
+              <strong>${esc(r.nombre)}</strong>
+              <span>${r.tiempo} min · ${r.proteina} g proteína · ${mxn(costoRec(r)/r.porciones)}/porción</span>
+            </div>
+            ${dd && dd.receta===r.id ? `<span class="tag p">Elegida</span>` : `<div class="chev"></div>`}
+          </button>`).join('')}
+      </div>
+      ${dd?`<div style="margin-top:16px"><button class="btn ghost sm" data-pick="">Dejar el día libre</button></div>`:''}
+    `);
+    return;
+  }
+
+  /* --- paso 2: comensales --- */
+  const r = rec(dd.receta);
+  const total = factorDia(k);
   abrirSheet(d.l, `
+    <p class="price-hint" style="text-align:left;padding:0 4px 12px">Paso 2 de 2 · ¿Quién come?</p>
+
     <div class="card">
-      ${RECETAS.map(r=>`
-        <button class="day" data-pick="${r.id}">
-          <div class="thumb"><img src="img/${r.id}-sq.jpg" alt="" loading="lazy"></div>
-          <div class="day-t">
-            <strong>${esc(r.nombre)}</strong>
-            <span>${r.tiempo} min · ${r.proteina} g proteína · ${mxn(costoRec(r)/r.porciones)}/porción</span>
-          </div>
-          ${actual===r.id?`<span class="tag p">Elegida</span>`:`<div class="chev"></div>`}
-        </button>`).join('')}
+      <button class="day" data-paso="receta">
+        <div class="thumb"><img src="img/${r.id}-sq.jpg" alt="" loading="lazy"></div>
+        <div class="day-t"><strong>${esc(r.nombre)}</strong><span>Toca para cambiar la receta</span></div>
+        <div class="chev"></div>
+      </button>
     </div>
-    ${actual?`<div style="margin-top:16px"><button class="btn ghost sm" data-pick="">Dejar el día libre</button></div>`:''}
+
+    <div class="sec"><h2>De casa</h2></div>
+    <div class="card">
+      ${S.personas.length ? S.personas.map(p=>{
+        const on = dd.comensales.includes(p.id);
+        return `<div class="item" data-comensal="${p.id}">
+          <div class="check ${on?'':'off'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></div>
+          <div class="item-b">
+            <div class="item-n">${esc(p.nombre)}</div>
+            <div class="item-s">${esc(p.nota||'')}${p.nota?' · ':''}porción ×${p.factor}</div>
+          </div>
+        </div>`;
+      }).join('') : `<div class="row"><div class="row-t"><span>No tienes personas dadas de alta. Agrégalas en Ajustes.</span></div></div>`}
+    </div>
+
+    ${dd.invitados.length ? `
+      <div class="sec"><h2>Invitados de este día</h2></div>
+      <div class="card">
+        ${dd.invitados.map((g,ix)=>`
+          <div class="row">
+            <div class="row-t"><strong>${esc(g.nombre)}</strong><span>porción ×${g.factor}</span></div>
+            <button class="act" data-quitainv="${ix}" style="color:var(--danger)">Quitar</button>
+          </div>`).join('')}
+      </div>` : ''}
+
+    ${S.nuevoInvitado ? `
+      <div class="sec"><h2>Nuevo invitado</h2></div>
+      <div class="card">
+        <div class="field">
+          <label>Nombre</label>
+          <input id="invNombre" type="text" placeholder="Ej. Mi mamá" value="${esc(S.nuevoInvitado.nombre)}" autocomplete="off">
+        </div>
+        <div class="row">
+          <div class="row-t"><strong>Factor de consumo</strong><span>${textoFactor(S.nuevoInvitado.factor)}</span></div>
+          <div class="stepper">
+            <button data-invf="-1">−</button><span>${S.nuevoInvitado.factor.toFixed(1)}</span><button data-invf="1">+</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:10px">
+        <button class="btn ghost sm" id="invCancel">Cancelar</button>
+        <button class="btn sm" id="invOk">Agregar invitado</button>
+      </div>`
+    : `<div style="margin-top:14px"><button class="btn ghost sm" id="invNuevo">+ Agregar invitado para este día</button></div>`}
+
+    <div class="note" style="margin-top:18px">
+      <b>${total.toFixed(1).replace('.0','')} porciones</b> para este día.
+      ${total ? `Se cocina la receta ×${(total/r.porciones).toFixed(2).replace(/\.?0+$/,'')}.` : 'Marca al menos a una persona.'}
+    </div>
+
+    <div style="margin-top:16px"><button class="btn" id="diaListo">Listo</button></div>
   `);
+}
+
+const corto = n => n.length <= 8 ? n : n.replace(/^Persona\s+/i,'P').slice(0,8);
+
+function textoFactor(f){
+  if (f <= 0.6) return 'Porción de niño';
+  if (f <  0.95) return 'Porción ligera';
+  if (f <= 1.05) return 'Porción normal';
+  if (f <= 1.35) return 'Porción grande';
+  return 'Porción muy grande';
 }
 
 /* ============================================================
@@ -504,7 +614,7 @@ function verReceta(id){
     <div class="macros">
       <div class="macro"><b>${r.kcal}</b><span>kcal</span></div>
       <div class="macro"><b>${r.proteina} g</b><span>Proteína</span></div>
-      <div class="macro"><b>${d?(d*factorTotal()).toFixed(1).replace('.0',''):r.porciones}</b><span>Porciones</span></div>
+      <div class="macro"><b>${d?porcionesDe(r).toFixed(1).replace('.0',''):r.porciones}</b><span>Porciones</span></div>
     </div>
 
     ${diasTxt?`<div class="note" style="margin-bottom:6px"><b>En tu semana:</b> ${esc(diasTxt)}</div>`:''}
@@ -520,27 +630,36 @@ function verReceta(id){
       </div>`).join('')}
     </div>
 
-    <div class="sec"><h2>Reparto por lonche</h2><span class="act">báscula</span></div>
-    <div class="card">
-      <table class="split">
-        <thead><tr><th>Ingrediente</th>${rp.personas.map(p=>`<th>${esc(p.nombre.replace('Persona ','P'))}</th>`).join('')}</tr></thead>
-        <tbody>
-          ${rp.filas.map(f=>`<tr>
-            <td>${esc(f.n)}</td>
-            ${f.por.map(v=>`<td>${fmtBascula(v,f.u)}</td>`).join('')}
-          </tr>`).join('')}
-          <tr class="tot"><td>Proteína</td>
-            ${rp.personas.map(p=>`<td>${Math.round(r.proteina*p.factor)} g</td>`).join('')}</tr>
-          <tr class="tot"><td>Calorías</td>
-            ${rp.personas.map(p=>`<td>${Math.round(r.kcal*p.factor)}</td>`).join('')}</tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="price-hint" style="text-align:left;padding:9px 4px 0">
-      Cantidades <strong>por lonche</strong>, ya divididas entre ${rp.personas.map(p=>`${esc(p.nombre)} (×${p.factor})`).join(' y ')}.
-      ${rp.dias>1?`La receta rinde para ${rp.dias} días, así que pesa esto mismo en cada táper.`:''}
-      Se omiten condimentos y cantidades muy chicas.
-    </p>
+    ${rp.length ? (() => {
+      const iguales = new Set(rp.map(firmaComensales)).size === 1;
+      const bloques = iguales ? [rp[0]] : rp;
+      return `
+        <div class="sec"><h2>Reparto por lonche</h2><span class="act">báscula</span></div>
+        ${bloques.map(b => `
+          ${iguales ? '' : `<p class="price-hint" style="text-align:left;padding:2px 4px 6px"><strong>${esc(b.dia.l)}</strong></p>`}
+          <div class="card" ${iguales?'':'style="margin-bottom:12px"'}>
+            <table class="split">
+              <thead><tr><th>Ingrediente</th>
+                ${b.comensales.map(p=>`<th>${esc(corto(p.nombre))}</th>`).join('')}</tr></thead>
+              <tbody>
+                ${b.filas.map(fl=>`<tr><td>${esc(fl.n)}</td>
+                  ${fl.por.map(v=>`<td>${fmtBascula(v,fl.u)}</td>`).join('')}</tr>`).join('')}
+                <tr class="tot"><td>Proteína</td>
+                  ${b.comensales.map(p=>`<td>${Math.round(r.proteina*p.factor)} g</td>`).join('')}</tr>
+                <tr class="tot"><td>Calorías</td>
+                  ${b.comensales.map(p=>`<td>${Math.round(r.kcal*p.factor)}</td>`).join('')}</tr>
+              </tbody>
+            </table>
+          </div>`).join('')}
+        <p class="price-hint" style="text-align:left;padding:9px 4px 0">
+          Cantidades <strong>por lonche</strong>. ${iguales && rp.length>1
+            ? `Los ${rp.length} días comen los mismos, así que pesa esto en cada táper.`
+            : (rp.length>1 ? 'Cada día come gente distinta, por eso va una tabla por día.' : '')}
+          Se omiten condimentos y cantidades muy chicas.
+        </p>`;
+    })() : `
+      <div class="sec"><h2>Reparto por lonche</h2></div>
+      <div class="note">Asigna esta receta a un día del plan y elige quién come, y aquí te digo cuántos gramos van en cada táper.</div>`}
 
     <div class="sec"><h2>Preparación</h2></div>
     <div class="card"><ol class="steps">${r.pasos.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></div>
@@ -585,18 +704,28 @@ function nuevaReceta(){
    Ajustes
    ============================================================ */
 function renderAjustes(){
-  $('#setPeople').innerHTML = S.personas.map((p,i)=>`
+  $('#setPeople').innerHTML = (S.personas.length ? S.personas.map((p,i)=>`
     <div class="field">
-      <label>${esc(p.nota)}</label>
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:6px">
+        <input value="${esc(p.nombre)}" data-pname="${p.id}" placeholder="Nombre"
+               style="flex:1;font-weight:600" autocomplete="off">
+        <button class="act" data-borrap="${p.id}" style="color:var(--danger);flex:none">Quitar</button>
+      </div>
       <div style="display:flex;gap:12px;align-items:center">
-        <input value="${esc(p.nombre)}" data-pname="${i}" style="flex:1">
+        <input value="${esc(p.nota||'')}" data-pnota="${p.id}" placeholder="Nota (embarazo, entrena…)"
+               style="flex:1;font-size:14px;color:var(--text-2)" autocomplete="off">
         <div class="stepper">
-          <button data-pf="-1" data-i="${i}">−</button>
+          <button data-pf="-1" data-i="${p.id}">−</button>
           <span>${p.factor.toFixed(1)}</span>
-          <button data-pf="1" data-i="${i}">+</button>
+          <button data-pf="1" data-i="${p.id}">+</button>
         </div>
       </div>
-    </div>`).join('');
+      <div style="font-size:12px;color:var(--text-3);margin-top:5px">${textoFactor(p.factor)}</div>
+    </div>`).join('') : `<div class="row"><div class="row-t"><span>Todavía no hay personas. Agrega la primera abajo.</span></div></div>`)
+    + `<button class="row" id="addPersona" style="width:100%;text-align:left">
+         <div class="row-t"><strong style="color:var(--accent)">+ Agregar persona</strong>
+         <span>Se podrá elegir en cualquier día de la semana</span></div>
+       </button>`;
 
   const n  = Object.keys(S.precios).length;
   const np = Object.keys(S.profeco).length;
@@ -671,31 +800,94 @@ document.addEventListener('click', e=>{
   if(t.closest('#sheetClose')||t.closest('#scrim')) return cerrarSheet();
 
   // Día del calendario → selector
-  const day=t.closest('[data-dia]');      if(day) return pickerDia(day.dataset.dia);
+  const day=t.closest('[data-dia]');      if(day) return sheetDia(day.dataset.dia,'receta');
 
   // Elegir receta para el día
   const pick=t.closest('[data-pick]');
   if(pick){
-    S.semana[S.diaEditando] = pick.dataset.pick || null;
-    cerrarSheet(); renderPlan(); renderRecetas();
-    toast(pick.dataset.pick ? 'Asignado' : 'Día libre');
-    return planCambio();
+    const k=S.diaEditando, id=pick.dataset.pick;
+    if(!id){                                  // dejar el día libre
+      S.semana[k]=null; cerrarSheet(); renderPlan(); renderRecetas();
+      toast('Día libre'); return planCambio();
+    }
+    const previo = S.semana[k];
+    S.semana[k] = {
+      receta:id,
+      // por defecto comen todos los de casa; si ya había elección, se respeta
+      comensales: previo ? previo.comensales : S.personas.map(p=>p.id),
+      invitados:  previo ? previo.invitados  : []
+    };
+    renderPlan(); renderRecetas();
+    return sheetDia(k,'comensales');          // paso 2
   }
 
-  // Personas (Plan)
-  const sw=t.closest('[data-per]');
-  if(sw){
-    const p=S.personas[+sw.dataset.per];
-    if(activas().length===1 && p.on) return toast('Deja al menos una persona');
-    p.on=!p.on; renderPlan(); return planCambio();
+  // volver al paso de receta
+  const paso=t.closest('[data-paso]');        if(paso) return sheetDia(S.diaEditando, paso.dataset.paso);
+
+  // marcar / desmarcar a alguien de casa en ese día
+  const cm=t.closest('[data-comensal]');
+  if(cm){
+    const d=S.semana[S.diaEditando], id=cm.dataset.comensal;
+    const ix=d.comensales.indexOf(id);
+    if(ix>=0) d.comensales.splice(ix,1); else d.comensales.push(id);
+    sheetDia(S.diaEditando); renderPlan(); return planCambio();
   }
 
-  // Factor (Ajustes)
+  // invitados del día
+  if(t.closest('#invNuevo')){ S.nuevoInvitado={nombre:'',factor:1.0}; return sheetDia(S.diaEditando); }
+  if(t.closest('#invCancel')){ S.nuevoInvitado=null; return sheetDia(S.diaEditando); }
+  const invf=t.closest('[data-invf]');
+  if(invf){
+    S.nuevoInvitado.nombre = $('#invNombre').value;
+    S.nuevoInvitado.factor = Math.min(2.5, Math.max(0.3,
+      Math.round((S.nuevoInvitado.factor + Number(invf.dataset.invf)*0.1)*10)/10));
+    return sheetDia(S.diaEditando);
+  }
+  if(t.closest('#invOk')){
+    const nom=($('#invNombre').value||'').trim();
+    if(!nom) return toast('Ponle nombre al invitado');
+    S.semana[S.diaEditando].invitados.push({ nombre:nom, factor:S.nuevoInvitado.factor });
+    S.nuevoInvitado=null;
+    sheetDia(S.diaEditando); renderPlan();
+    toast('Invitado agregado'); return planCambio();
+  }
+  const qi=t.closest('[data-quitainv]');
+  if(qi){
+    S.semana[S.diaEditando].invitados.splice(+qi.dataset.quitainv,1);
+    sheetDia(S.diaEditando); renderPlan(); return planCambio();
+  }
+  if(t.closest('#diaListo')){
+    const d=S.semana[S.diaEditando];
+    if(d && factorDia(S.diaEditando)===0) return toast('Elige al menos una persona');
+    cerrarSheet(); renderPlan(); renderRecetas(); return planCambio();
+  }
+
+  // Factor de porción (Ajustes)
   const pf=t.closest('[data-pf]');
   if(pf){
-    const p=S.personas[+pf.dataset.i];
-    p.factor=Math.min(2.5,Math.max(0.5,Math.round((p.factor+Number(pf.dataset.pf)*0.1)*10)/10));
+    const p=persona(pf.dataset.i);
+    p.factor=Math.min(2.5,Math.max(0.3,Math.round((p.factor+Number(pf.dataset.pf)*0.1)*10)/10));
     renderAjustes(); return planCambio();
+  }
+
+  // Alta de persona
+  if(t.closest('#addPersona')){
+    S.personas.push({ id:nuevoId(), nombre:'Persona '+(S.personas.length+1), nota:'', factor:1.0 });
+    renderAjustes(); return;
+  }
+
+  // Baja de persona: también sale de todos los días
+  const bp=t.closest('[data-borrap]');
+  if(bp){
+    const id=bp.dataset.borrap, p=persona(id);
+    confirmar('Quitar a '+p.nombre, 'Saldrá también de los días de la semana donde estaba comiendo.',
+      'Quitar', ()=>{
+        S.personas = S.personas.filter(x=>x.id!==id);
+        DIAS.forEach(d=>{ const dd=S.semana[d.k];
+          if(dd) dd.comensales = dd.comensales.filter(x=>x!==id); });
+        renderAjustes(); renderPlan(); planCambio();
+      }, { destructivo:true });
+    return;
   }
 
   // Agregar al plan → primer día libre
@@ -703,7 +895,7 @@ document.addEventListener('click', e=>{
   if(ap){
     const libre=DIAS.find(d=>!S.semana[d.k]);
     if(!libre){ return toast('La semana ya está llena'); }
-    S.semana[libre.k]=ap.dataset.addplan;
+    S.semana[libre.k]={ receta:ap.dataset.addplan, comensales:S.personas.map(p=>p.id), invitados:[] };
     cerrarSheet(); renderRecetas();
     toast('Agregado el '+libre.l.toLowerCase());
     return planCambio();
@@ -737,6 +929,7 @@ document.addEventListener('click', e=>{
 
   if(t.closest('#genList')){ generarLista(); ir('mandado'); return; }
   if(t.closest('#clearWeek')){ DIAS.forEach(d=>S.semana[d.k]=null); renderPlan(); renderRecetas(); return planCambio(); }
+  if(t.closest('#hoyPlan')) return ir('plan');
 
   // Marcar artículo
   const ck=t.closest('[data-check]');
@@ -758,6 +951,14 @@ document.addEventListener('click', e=>{
 });
 
 $('#q').addEventListener('input', e=>{ S.busqueda=e.target.value; renderRecetas(); });
+
+// Nombre y nota de cada persona, sin volver a dibujar (para no perder el foco)
+document.addEventListener('input', e=>{
+  const n=e.target.dataset.pname, t=e.target.dataset.pnota;
+  if(n){ persona(n).nombre = e.target.value; renderPlan(); }
+  if(t){ persona(t).nota   = e.target.value; }
+  if(e.target.id==='invNombre' && S.nuevoInvitado) S.nuevoInvitado.nombre = e.target.value;
+});
 $('#setBudget').addEventListener('input', e=>{
   S.presupuesto=Number(e.target.value)||0;
   if(S.vista==='mandado') renderMandado();
@@ -825,7 +1026,21 @@ async function guardarRecetasEnGitHub(){
   }
 }
 
+/* Las semanas guardadas antes traían solo el id de la receta */
+function normalizarSemana(){
+  DIAS.forEach(d=>{
+    const v = S.semana[d.k];
+    if (typeof v === 'string') {
+      S.semana[d.k] = { receta:v, comensales:S.personas.map(p=>p.id), invitados:[] };
+    } else if (v && typeof v === 'object') {
+      v.comensales = (v.comensales||[]).filter(id => persona(id));
+      v.invitados  = v.invitados || [];
+    }
+  });
+}
+
 function arrancar(){
+  normalizarSemana();
   // 1. lo que haya en caché, para que abra al instante y sin internet
   const rc = Cache.leer('recetas'), pc = Cache.leer('precios');
   if (pc) S.profecoMeta = pc;
