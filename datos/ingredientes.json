@@ -40,6 +40,16 @@
     "contiene": "KG"
    }
   },
+  "Ajo en polvo": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.75,
+   "profeco": {
+    "busqueda": "ajo",
+    "tipo": "AJO",
+    "contiene": "POLVO"
+   }
+  },
   "Ajo en polvo, comino y paprika": {
    "unidad": "g",
    "pasillo": "Especias",
@@ -54,6 +64,13 @@
    "profeco": null,
    "nota": "Mezcla de especias, sin equivalente en el catálogo público"
   },
+  "Ajonjolí": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.25,
+   "profeco": null,
+   "nota": "PROFECO no levanta ajonjolí en Cd. Juárez. La bolsa de 100 g ronda los $25."
+  },
   "Arroz": {
    "unidad": "g",
    "pasillo": "Abarrotes",
@@ -61,6 +78,24 @@
    "profeco": {
     "busqueda": "arroz",
     "tipo": "ARROZ"
+   }
+  },
+  "Atún en lata": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.1571,
+   "profeco": {
+    "busqueda": "atun",
+    "tipo": "ATÚN"
+   }
+  },
+  "Avena": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.0925,
+   "profeco": {
+    "busqueda": "avena",
+    "tipo": "AVENA"
    }
   },
   "Brócoli": {
@@ -91,6 +126,13 @@
     "g_por_pieza": 150
    }
   },
+  "Cebolla en polvo": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.9,
+   "profeco": null,
+   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 40 g ronda los $36."
+  },
   "Cebolla morada": {
    "unidad": "pz",
    "pasillo": "Frutas y verduras",
@@ -101,12 +143,54 @@
     "g_por_pieza": 150
    }
   },
-  "Comino, orégano y ajo en polvo": {
+  "Chile chipotle adobado": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.17,
+   "profeco": null,
+   "nota": "PROFECO levanta chiles secos pero no el chipotle en adobo. La lata de 105 g ronda los $18."
+  },
+  "Chile en polvo": {
    "unidad": "g",
    "pasillo": "Especias",
-   "precio_referencia": 0.833333,
+   "precio_referencia": 0.8,
    "profeco": null,
-   "nota": "Mezcla de especias, sin equivalente en el catálogo público"
+   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 45 g ronda los $36."
+  },
+  "Chile jalapeño": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.05,
+   "profeco": {
+    "busqueda": "chile",
+    "tipo": "CHILE FRESCO"
+   }
+  },
+  "Chícharos": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.06,
+   "profeco": {
+    "busqueda": "chicharo",
+    "tipo": "CHÍCHAROS EN LATA"
+   }
+  },
+  "Cilantro": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.2,
+   "profeco": {
+    "busqueda": "cilantro",
+    "tipo": "CILANTRO",
+    "g_por_pieza": 60
+   }
+  },
+  "Comino": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.9,
+   "profeco": null,
+   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 35 g ronda los $32."
   },
   "Ejotes": {
    "unidad": "g",
@@ -143,6 +227,40 @@
     "tipo": "FRIJOLES"
    }
   },
+  "Fécula de maíz": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.12,
+   "profeco": null,
+   "nota": "PROFECO no levanta fécula de maíz en Cd. Juárez. La caja de 95 g ronda los $12."
+  },
+  "Garbanzo": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.076,
+   "profeco": {
+    "busqueda": "garbanzo",
+    "tipo": "GARBANZO"
+   }
+  },
+  "Huevo": {
+   "unidad": "pz",
+   "pasillo": "Lácteos",
+   "precio_referencia": 2.75,
+   "profeco": {
+    "busqueda": "huevo",
+    "tipo": "HUEVO",
+    "unidad_tienda": "pz",
+    "g_por_pieza": 55
+   }
+  },
+  "Jengibre fresco": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.09,
+   "profeco": null,
+   "nota": "PROFECO no levanta jengibre en Cd. Juárez. El kilo ronda los $90 y con un trozo chico sobra."
+  },
   "Jitomate": {
    "unidad": "pz",
    "pasillo": "Frutas y verduras",
@@ -153,13 +271,13 @@
     "g_por_pieza": 120
    }
   },
-  "Jitomate cherry": {
-   "unidad": "g",
-   "pasillo": "Frutas y verduras",
-   "precio_referencia": 0.166667,
+  "Leche": {
+   "unidad": "ml",
+   "pasillo": "Lácteos",
+   "precio_referencia": 0.027,
    "profeco": {
-    "busqueda": "jitomate",
-    "tipo": "JITOMATE"
+    "busqueda": "leche",
+    "tipo": "LECHE ULTRAPASTEURIZADA"
    }
   },
   "Lechuga romana": {
@@ -170,6 +288,15 @@
     "busqueda": "lechuga",
     "tipo": "LECHUGA",
     "g_por_pieza": 500
+   }
+  },
+  "Lenteja": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.05,
+   "profeco": {
+    "busqueda": "lenteja",
+    "tipo": "LENTEJA"
    }
   },
   "Limón": {
@@ -189,6 +316,16 @@
    "profeco": null,
    "nota": "PROFECO no levanta pescado fresco en Cd. Juárez"
   },
+  "Maíz en grano": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.055,
+   "profeco": {
+    "busqueda": "elote",
+    "tipo": "ELOTE",
+    "contiene": "LATA"
+   }
+  },
   "Miel": {
    "unidad": "g",
    "pasillo": "Abarrotes",
@@ -198,12 +335,46 @@
     "tipo": "MIEL DE ABEJA"
    }
   },
+  "Nopal": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.046,
+   "profeco": {
+    "busqueda": "nopal",
+    "tipo": "NOPAL"
+   }
+  },
   "Orégano": {
    "unidad": "g",
    "pasillo": "Especias",
    "precio_referencia": 1.5,
    "profeco": null,
    "nota": "Mezcla de especias, sin equivalente en el catálogo público"
+  },
+  "Papa": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.035,
+   "profeco": {
+    "busqueda": "papa",
+    "tipo": "PAPA"
+   }
+  },
+  "Paprika": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.9,
+   "profeco": null,
+   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 40 g ronda los $36."
+  },
+  "Pasta para sopa": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.0588,
+   "profeco": {
+    "busqueda": "pasta",
+    "tipo": "PASTA PARA SOPA"
+   }
   },
   "Pechuga de pollo": {
    "unidad": "g",
@@ -224,6 +395,22 @@
     "g_por_pieza": 250
    }
   },
+  "Perejil seco": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 1.5,
+   "profeco": null,
+   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 18 g ronda los $28."
+  },
+  "Pierna con muslo de pollo": {
+   "unidad": "g",
+   "pasillo": "Carnes y pescado",
+   "precio_referencia": 0.027,
+   "profeco": {
+    "busqueda": "pierna",
+    "tipo": "PIERNA CON MUSLO"
+   }
+  },
   "Pimiento morrón": {
    "unidad": "pz",
    "pasillo": "Frutas y verduras",
@@ -241,6 +428,39 @@
    "profeco": {
     "busqueda": "queso panela",
     "tipo": "QUESO PANELA"
+   }
+  },
+  "Queso parmesano": {
+   "unidad": "g",
+   "pasillo": "Lácteos",
+   "precio_referencia": 0.45,
+   "profeco": null,
+   "nota": "PROFECO no levanta quesos madurados en Cd. Juárez. El trozo de 100 g ronda los $45."
+  },
+  "Salsa de soya": {
+   "unidad": "ml",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.09,
+   "profeco": null,
+   "nota": "PROFECO no levanta salsa de soya en Cd. Juárez. La botella de 500 ml reducida en sodio ronda los $45."
+  },
+  "Sardina en lata": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.1012,
+   "profeco": {
+    "busqueda": "sardina",
+    "tipo": "SARDINA"
+   }
+  },
+  "Tortilla de maíz": {
+   "unidad": "pz",
+   "pasillo": "Panadería",
+   "precio_referencia": 0.9,
+   "profeco": {
+    "busqueda": "tortilla",
+    "tipo": "TORTILLA DE MAÍZ",
+    "g_por_pieza": 30
    }
   },
   "Tortilla integral grande": {

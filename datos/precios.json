@@ -3,14 +3,24 @@
  "fuente_url": "https://qqp.profeco.gob.mx/",
  "ciudad": "Ciudad Juárez",
  "estrategia": "mediana entre cadenas",
- "actualizado": "2026-09-20T18:04:15+00:00",
+ "actualizado": "2026-09-20T21:10:45+00:00",
  "sin_fuente": [
   "Ajo en polvo, comino y paprika",
   "Ajo en polvo, paprika y perejil",
-  "Comino, orégano y ajo en polvo",
+  "Ajonjolí",
+  "Cebolla en polvo",
+  "Chile chipotle adobado",
+  "Chile en polvo",
+  "Comino",
   "Filete de tilapia",
+  "Fécula de maíz",
+  "Jengibre fresco",
   "Lomo de atún",
-  "Orégano"
+  "Orégano",
+  "Paprika",
+  "Perejil seco",
+  "Queso parmesano",
+  "Salsa de soya"
  ],
  "fallos": {},
  "alertas": [],
@@ -76,6 +86,26 @@
    ],
    "fecha_observacion": "2026-09-17"
   },
+  "Ajo en polvo": {
+   "precio_unidad": 0.584286,
+   "unidad": "g",
+   "observaciones": 5,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "SUPERMERCADO GONZALEZ",
+    "precio_unidad": 0.577922,
+    "producto": "AJO, MC CORMICK, FRASCO 77 GR. EN POLVO"
+   },
+   "rango": [
+    0.577922,
+    0.584416
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
   "Arroz": {
    "precio_unidad": 0.03,
    "unidad": "g",
@@ -95,6 +125,51 @@
    "rango": [
     0.015556,
     0.039444
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Atún en lata": {
+   "precio_unidad": 0.157143,
+   "unidad": "g",
+   "observaciones": 161,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "FARMACIA GUADALAJARA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "OXXO",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "SUPERMERCADO GONZALEZ",
+    "precio_unidad": 0.098462,
+    "producto": "ATÚN, EL DORADO, LATA 130 GR. CON 30% DE SOYA EN AGUA CON ACEITE"
+   },
+   "rango": [
+    0.098462,
+    0.256757
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Avena": {
+   "precio_unidad": 0.092475,
+   "unidad": "g",
+   "observaciones": 17,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "FARMACIA GUADALAJARA",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.03,
+    "producto": "AVENA, GRANVITA, BOLSA 400 GR."
+   },
+   "rango": [
+    0.03,
+    0.157895
    ],
    "fecha_observacion": "2026-09-17"
   },
@@ -184,6 +259,73 @@
    ],
    "fecha_observacion": "2026-09-17"
   },
+  "Chile jalapeño": {
+   "precio_unidad": 0.04999,
+   "unidad": "g",
+   "observaciones": 38,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "SUPERMERCADO GONZALEZ",
+    "precio_unidad": 0.0219,
+    "producto": "CHILE FRESCO, S/M, 1 KG. JALAPEÑO O CUARESMEÑO"
+   },
+   "rango": [
+    0.0219,
+    0.21999
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Chícharos": {
+   "precio_unidad": 0.056634,
+   "unidad": "g",
+   "observaciones": 26,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "FARMACIA GUADALAJARA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.045455,
+    "producto": "CHÍCHAROS EN LATA, LA COSTEÑA, LATA 220 GR."
+   },
+   "rango": [
+    0.045455,
+    0.0625
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Cilantro": {
+   "precio_unidad": 0.183333,
+   "unidad": "g",
+   "observaciones": 9,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "MINISUPER",
+    "precio_unidad": 0.183167,
+    "producto": "CILANTRO, S/M, MANOJO"
+   },
+   "rango": [
+    0.183167,
+    0.25
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
   "Ejotes": {
    "precio_unidad": 0.075,
    "unidad": "g",
@@ -250,6 +392,45 @@
    ],
    "fecha_observacion": "2026-09-17"
   },
+  "Garbanzo": {
+   "precio_unidad": 0.07598,
+   "unidad": "g",
+   "observaciones": 5,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "S MART"
+   ],
+   "mas_barato": {
+    "cadena": "MERCADO PUBLICO",
+    "precio_unidad": 0.049,
+    "producto": "GARBANZO, S/M, 1 KG. GRANEL"
+   },
+   "rango": [
+    0.049,
+    0.084
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Huevo": {
+   "precio_unidad": 2.749167,
+   "unidad": "pz",
+   "observaciones": 14,
+   "cadenas": [
+    "MINISUPER",
+    "S MART"
+   ],
+   "mas_barato": {
+    "cadena": "S MART",
+    "precio_unidad": 2.333,
+    "producto": "HUEVO, SAN JUAN, PAQUETE CON 30 BLANCO"
+   },
+   "rango": [
+    2.333,
+    2.958333
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
   "Jitomate": {
    "precio_unidad": 3.588,
    "unidad": "pz",
@@ -271,24 +452,26 @@
    ],
    "fecha_observacion": "2026-09-17"
   },
-  "Jitomate cherry": {
-   "precio_unidad": 0.0299,
-   "unidad": "g",
-   "observaciones": 14,
+  "Leche": {
+   "precio_unidad": 0.031,
+   "unidad": "ml",
+   "observaciones": 55,
    "cadenas": [
-    "MERCADO PUBLICO",
+    "BODEGA AURRERA",
+    "FARMACIA GUADALAJARA",
     "MINISUPER",
+    "OXXO",
     "S MART",
     "SUPERMERCADO GONZALEZ"
    ],
    "mas_barato": {
-    "cadena": "MERCADO PUBLICO",
-    "precio_unidad": 0.022,
-    "producto": "JITOMATE, S/M, 1 KG. SALADETTE/ HUAJE O TOMATE SALADETTE/ HUAJE"
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.018,
+    "producto": "LECHE ULTRAPASTEURIZADA, GREAT VALUE, ENVASE O CAJA 1 LT. ENTERA"
    },
    "rango": [
-    0.022,
-    0.04599
+    0.018,
+    0.04995
    ],
    "fecha_observacion": "2026-09-17"
   },
@@ -314,6 +497,28 @@
    ],
    "fecha_observacion": "2026-09-17"
   },
+  "Lenteja": {
+   "precio_unidad": 0.05,
+   "unidad": "g",
+   "observaciones": 13,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.03,
+    "producto": "LENTEJA, SCHETTINO, BOLSA 500 GR."
+   },
+   "rango": [
+    0.03,
+    0.07398
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
   "Limón": {
    "precio_unidad": 3.213,
    "unidad": "pz",
@@ -336,6 +541,30 @@
    ],
    "fecha_observacion": "2026-09-17"
   },
+  "Maíz en grano": {
+   "precio_unidad": 0.055,
+   "unidad": "g",
+   "observaciones": 55,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "FARMACIA GUADALAJARA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "OXXO",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "SUPERMERCADO GONZALEZ",
+    "precio_unidad": 0.03975,
+    "producto": "ELOTE, HERDEZ, LATA 400 GR. EN GRANO"
+   },
+   "rango": [
+    0.03975,
+    0.068182
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
   "Miel": {
    "precio_unidad": 0.216667,
    "unidad": "g",
@@ -353,6 +582,71 @@
    "rango": [
     0.19,
     0.2433
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Nopal": {
+   "precio_unidad": 0.04599,
+   "unidad": "g",
+   "observaciones": 9,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "S MART",
+    "precio_unidad": 0.03999,
+    "producto": "NOPAL, S/M, 1 KG. SIN ESPINAS"
+   },
+   "rango": [
+    0.03999,
+    0.055
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Papa": {
+   "precio_unidad": 0.035,
+   "unidad": "g",
+   "observaciones": 7,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "S MART"
+   ],
+   "mas_barato": {
+    "cadena": "S MART",
+    "precio_unidad": 0.00999,
+    "producto": "PAPA, S/M, 1 KG. MORENA AMERICANA"
+   },
+   "rango": [
+    0.00999,
+    0.045
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Pasta para sopa": {
+   "precio_unidad": 0.05875,
+   "unidad": "g",
+   "observaciones": 44,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "FARMACIA GUADALAJARA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.0275,
+    "producto": "PASTA PARA SOPA, AURRERA, PAQUETE 200 GR. FIDEO MEDIANO"
+   },
+   "rango": [
+    0.0275,
+    0.07395
    ],
    "fecha_observacion": "2026-09-17"
   },
@@ -400,6 +694,25 @@
    ],
    "fecha_observacion": "2026-09-17"
   },
+  "Pierna con muslo de pollo": {
+   "precio_unidad": 0.02699,
+   "unidad": "g",
+   "observaciones": 3,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "S MART"
+   ],
+   "mas_barato": {
+    "cadena": "S MART",
+    "precio_unidad": 0.02699,
+    "producto": "PIERNA CON MUSLO, S/M, 1 KG. GRANEL. PIERNA CON MUSLO"
+   },
+   "rango": [
+    0.02699,
+    0.03
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
   "Pimiento morrón": {
    "precio_unidad": 13.5,
    "unidad": "pz",
@@ -438,6 +751,49 @@
    "rango": [
     0.175,
     0.229975
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Sardina en lata": {
+   "precio_unidad": 0.101176,
+   "unidad": "g",
+   "observaciones": 20,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "FARMACIA GUADALAJARA",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.04,
+    "producto": "SARDINA, AURRERA, LATA 425 GR. EN TOMATE"
+   },
+   "rango": [
+    0.04,
+    0.115271
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Tortilla de maíz": {
+   "precio_unidad": 0.78,
+   "unidad": "pz",
+   "observaciones": 30,
+   "cadenas": [
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "SUPERMERCADO GONZALEZ",
+    "TORTILLERIAS TRADICIONALES"
+   ],
+   "mas_barato": {
+    "cadena": "MINISUPER",
+    "precio_unidad": 0.51,
+    "producto": "TORTILLA DE MAÍZ, S/M, 1 KG. GRANEL"
+   },
+   "rango": [
+    0.51,
+    0.84
    ],
    "fecha_observacion": "2026-09-17"
   },

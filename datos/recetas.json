@@ -71,13 +71,13 @@
   },
   {
    "id": "bowl-carne",
-   "nombre": "Bowl de carne estilo burrito",
+   "nombre": "Bowl mexicano de carne, arroz y frijoles",
    "emoji": "🥙",
    "categoria": "Comida",
-   "porciones": 4,
-   "tiempo": 35,
-   "kcal": 620,
-   "proteina": 38,
+   "porciones": 2,
+   "tiempo": 40,
+   "kcal": 920,
+   "proteina": 50,
    "tags": [
     "Alto en hierro",
     "Económico"
@@ -85,49 +85,70 @@
    "ingredientes": [
     {
      "n": "Carne molida de res 80/20",
-     "c": 550
+     "c": 320
+    },
+    {
+     "n": "Comino",
+     "c": 1
+    },
+    {
+     "n": "Paprika",
+     "c": 2
+    },
+    {
+     "n": "Ajo en polvo",
+     "c": 1.5
+    },
+    {
+     "n": "Orégano",
+     "c": 0.5
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 5
     },
     {
      "n": "Arroz",
-     "c": 200
+     "c": 100
     },
     {
      "n": "Frijoles cocidos",
      "c": 250
     },
     {
-     "n": "Jitomate",
-     "c": 2
-    },
-    {
-     "n": "Cebolla blanca",
-     "c": 0.5
-    },
-    {
-     "n": "Limón",
-     "c": 2
+     "n": "Lechuga romana",
+     "c": 0.2
     },
     {
      "n": "Aguacate",
      "c": 1
     },
     {
-     "n": "Queso panela",
-     "c": 100
+     "n": "Jitomate",
+     "c": 1.7
     },
     {
-     "n": "Comino, orégano y ajo en polvo",
-     "c": 6
+     "n": "Cebolla blanca",
+     "c": 0.35
+    },
+    {
+     "n": "Cilantro",
+     "c": 15
+    },
+    {
+     "n": "Limón",
+     "c": 2
     }
    ],
    "pasos": [
-    "Cuece el arroz según las instrucciones del paquete.",
-    "Dora la carne molida a fuego medio-alto desmenuzando bien, hasta que no quede nada rosa. Sazona con las especias.",
-    "Pica finamente el jitomate y la cebolla, mezcla con jugo de limón para el pico de gallo.",
-    "Calienta los frijoles en una olla pequeña.",
-    "Arma el bowl: base de arroz, carne, frijoles, pico de gallo, aguacate en cubos y queso panela rallado."
+    "Cuece el arroz.",
+    "Para el pico de gallo pica el jitomate, la cebolla y el cilantro, mezcla con el jugo de limón, pimienta y una pizca de sal, y deja reposar 15 minutos.",
+    "Calienta el aceite, agrega la carne y sepárala con la espátula. Cuando empiece a dorar añade el comino, la paprika, el ajo en polvo, el orégano, pimienta y sal.",
+    "Cocina hasta que no quede nada rosa y alcance al menos 71 °C.",
+    "Calienta los frijoles aparte.",
+    "Arma cada bowl con la mitad de la carne, la mitad del arroz, 125 g de frijoles, 50 g de lechuga, pico de gallo y medio aguacate."
    ],
-   "notas": "Embarazo: la carne debe quedar completamente cocida y el queso panela pasteurizado. El hierro de la res se absorbe mejor con el limón del pico de gallo."
+   "notas": "Embarazo: la carne debe quedar sin nada rosa, al menos 71 °C, y las hojas bien lavadas. El limón del pico de gallo ayuda a absorber el hierro de la res. Guarda pico, lechuga y aguacate separados de lo que vas a recalentar. Pedro pidió carne magra: con la 90/10 baja unas 125 kcal por porción."
   },
   {
    "id": "tilapia-horno",
@@ -248,13 +269,13 @@
   },
   {
    "id": "ensalada-pollo",
-   "nombre": "Ensalada de pollo marinado",
+   "nombre": "Ensalada completa de pollo con ranch casero",
    "emoji": "🥗",
    "categoria": "Comida",
    "porciones": 2,
-   "tiempo": 25,
-   "kcal": 380,
-   "proteina": 40,
+   "tiempo": 30,
+   "kcal": 583,
+   "proteina": 68,
    "tags": [
     "Alto en proteína",
     "Ligero"
@@ -265,28 +286,338 @@
      "c": 350
     },
     {
-     "n": "Lechuga romana",
+     "n": "Aceite de oliva",
+     "c": 10
+    },
+    {
+     "n": "Paprika",
+     "c": 2
+    },
+    {
+     "n": "Ajo en polvo",
+     "c": 1.5
+    },
+    {
+     "n": "Cebolla en polvo",
      "c": 1
     },
     {
-     "n": "Jitomate cherry",
-     "c": 150
+     "n": "Orégano",
+     "c": 1
+    },
+    {
+     "n": "Limón",
+     "c": 2
+    },
+    {
+     "n": "Lechuga romana",
+     "c": 0.4
+    },
+    {
+     "n": "Espinaca fresca",
+     "c": 80
     },
     {
      "n": "Pepino",
-     "c": 1
+     "c": 0.6
     },
     {
-     "n": "Cebolla morada",
-     "c": 0.5
+     "n": "Jitomate",
+     "c": 1.7
+    },
+    {
+     "n": "Maíz en grano",
+     "c": 100
     },
     {
      "n": "Aguacate",
      "c": 1
     },
     {
+     "n": "Yogur griego natural",
+     "c": 150
+    },
+    {
+     "n": "Perejil seco",
+     "c": 0.5
+    }
+   ],
+   "pasos": [
+    "Mezcla la paprika, el ajo en polvo, la cebolla en polvo, el orégano, pimienta, sal, el jugo de medio limón y el aceite. Cubre el pollo y refrigera 30 minutos.",
+    "Cocina el pollo en sartén a fuego medio-alto, 5 a 7 minutos por lado, hasta 74 °C al centro. Deja reposar 5 minutos y córtalo en tiras.",
+    "Para el ranch mezcla el yogur griego con el jugo del limón restante, ajo en polvo, cebolla en polvo, el perejil, orégano, pimienta y una pizca de sal. Empieza con una cucharada de agua y agrega otra solo si lo quieres más líquido. Refrigera.",
+    "Divide la lechuga, la espinaca, el pepino, el jitomate y el maíz entre dos recipientes.",
+    "Reparte el pollo y medio aguacate en cada uno."
+   ],
+   "notas": "Embarazo: el pollo a 74 °C y las hojas lavadas y desinfectadas. El ranch va aparte y se agrega al momento de comer, o la ensalada se aguada para el miércoles."
+  },
+  {
+   "id": "lentejas-huevo",
+   "nombre": "Lentejas guisadas con huevo",
+   "emoji": "🍲",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 40,
+   "kcal": 491,
+   "proteina": 31,
+   "tags": [
+    "Alto en hierro",
+    "Económico",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Lenteja",
+     "c": 400
+    },
+    {
+     "n": "Huevo",
+     "c": 4
+    },
+    {
+     "n": "Jitomate",
+     "c": 3
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 1
+    },
+    {
+     "n": "Zanahoria",
+     "c": 2
+    },
+    {
+     "n": "Ajo",
+     "c": 3
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
      "n": "Limón",
      "c": 2
+    }
+   ],
+   "pasos": [
+    "Enjuaga la lenteja. No hace falta remojarla.",
+    "Pica la cebolla, el ajo, la zanahoria y el jitomate. Sofríe en aceite de oliva hasta que la cebolla esté transparente.",
+    "Agrega la lenteja y agua que la cubra dos dedos. Cuece 25 minutos a fuego medio, hasta que esté suave pero entera.",
+    "Aparte, cuece los huevos 9 minutos para que la yema quede firme. Pélalos y pártelos por la mitad.",
+    "Sirve la lenteja con el huevo encima y exprime limón al momento de comer."
+   ],
+   "notas": "Embarazo: cuece el huevo hasta que la yema quede firme, nunca tierna. El limón al final no es adorno: la vitamina C multiplica la absorción del hierro de la lenteja, y aquí hay unos 7.5 mg por porción."
+  },
+  {
+   "id": "tinga-pollo-frijoles",
+   "nombre": "Tinga de pollo con frijoles",
+   "emoji": "🌶️",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 50,
+   "kcal": 418,
+   "proteina": 35,
+   "tags": [
+    "Alto en proteína",
+    "Económico",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pierna con muslo de pollo",
+     "c": 900
+    },
+    {
+     "n": "Jitomate",
+     "c": 5
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 1
+    },
+    {
+     "n": "Chile jalapeño",
+     "c": 50
+    },
+    {
+     "n": "Ajo",
+     "c": 3
+    },
+    {
+     "n": "Frijoles cocidos",
+     "c": 400
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Limón",
+     "c": 2
+    }
+   ],
+   "pasos": [
+    "Cuece la pierna con muslo en agua con media cebolla y un diente de ajo, 30 minutos. Guarda un poco del caldo.",
+    "Deshebra el pollo cuando puedas tocarlo y desecha huesos y piel.",
+    "Licúa el jitomate con el ajo restante y el chile jalapeño sin semillas.",
+    "Sofríe la cebolla en rebanadas, agrega la salsa y deja que espese 10 minutos.",
+    "Incorpora el pollo deshebrado con un chorrito del caldo y cuece 5 minutos más.",
+    "Calienta los frijoles aparte y sirve junto, con limón."
+   ],
+   "notas": "Embarazo: el pollo debe quedar completamente cocido, sin partes rosadas junto al hueso. La pierna con muslo cuesta $27 el kilo contra $95 la pechuga, y en el táper se reseca menos al recalentar."
+  },
+  {
+   "id": "pasta-atun-espinaca",
+   "nombre": "Pasta con atún, jitomate y espinaca",
+   "emoji": "🍝",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 30,
+   "kcal": 558,
+   "proteina": 31,
+   "tags": [
+    "Alto en proteína",
+    "Económico",
+    "Omega 3"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pasta para sopa",
+     "c": 400
+    },
+    {
+     "n": "Atún en lata",
+     "c": 260
+    },
+    {
+     "n": "Jitomate",
+     "c": 4
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 1
+    },
+    {
+     "n": "Ajo",
+     "c": 3
+    },
+    {
+     "n": "Espinaca fresca",
+     "c": 150
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 20
+    },
+    {
+     "n": "Queso panela",
+     "c": 80
+    }
+   ],
+   "pasos": [
+    "Pon a hervir agua con sal y cuece la pasta al dente, dos minutos menos de lo que diga el paquete: va a terminar de cocerse en la salsa.",
+    "Mientras, pica la cebolla y el ajo y sofríe en aceite de oliva.",
+    "Agrega el jitomate picado y deja 10 minutos a fuego medio hasta que suelte su jugo y espese.",
+    "Escurre el atún e incorpóralo. Apaga y agrega la espinaca lavada: con el calor de la salsa se marchita sola.",
+    "Mezcla con la pasta escurrida y ralla el queso panela encima."
+   ],
+   "notas": "Embarazo: el atún en lata claro o de aleta amarilla es de bajo mercurio y se puede comer 2 o 3 veces por semana, pero no más. Si esa semana ya hay tilapia o sardina, cuéntalas dentro de ese límite."
+  },
+  {
+   "id": "garbanzo-sardina",
+   "nombre": "Garbanzos con sardina y espinaca",
+   "emoji": "🐟",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 45,
+   "kcal": 560,
+   "proteina": 32,
+   "tags": [
+    "Omega 3",
+    "Alto en hierro",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Garbanzo",
+     "c": 350
+    },
+    {
+     "n": "Sardina en lata",
+     "c": 425
+    },
+    {
+     "n": "Jitomate",
+     "c": 3
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 1
+    },
+    {
+     "n": "Ajo",
+     "c": 3
+    },
+    {
+     "n": "Espinaca fresca",
+     "c": 150
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Limón",
+     "c": 2
+    }
+   ],
+   "pasos": [
+    "Remoja el garbanzo desde la noche anterior y cuécelo 45 minutos, o usa garbanzo de lata bien enjuagado si andas con prisa.",
+    "Sofríe la cebolla y el ajo picados en aceite de oliva.",
+    "Agrega el jitomate picado y cuece 8 minutos hasta que se deshaga.",
+    "Incorpora el garbanzo cocido y la sardina con todo y su salsa de tomate, deshaciéndola un poco con la cuchara.",
+    "Apaga, agrega la espinaca y tápalo 2 minutos. Sirve con limón."
+   ],
+   "notas": "Embarazo: la sardina es de bajo mercurio y, como se come con todo y espinas, es de las mejores fuentes de calcio que hay. Aporta omega-3 sin el riesgo de los pescados grandes. Si no les gusta, se cambia por atún y queda casi igual."
+  },
+  {
+   "id": "nopales-huevo",
+   "nombre": "Nopales con huevo y frijoles",
+   "emoji": "🌵",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 35,
+   "kcal": 493,
+   "proteina": 30,
+   "tags": [
+    "Económico",
+    "Ligero",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Nopal",
+     "c": 600
+    },
+    {
+     "n": "Huevo",
+     "c": 10
+    },
+    {
+     "n": "Frijoles cocidos",
+     "c": 400
+    },
+    {
+     "n": "Jitomate",
+     "c": 3
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 1
+    },
+    {
+     "n": "Chile jalapeño",
+     "c": 40
     },
     {
      "n": "Ajo",
@@ -297,18 +628,799 @@
      "c": 15
     },
     {
-     "n": "Orégano",
-     "c": 2
+     "n": "Tortilla integral grande",
+     "c": 4
     }
    ],
    "pasos": [
-    "Marina la pechuga con jugo de limón, ajo machacado, orégano, sal, pimienta y aceite de oliva. Deja reposar 20 minutos (mejor 1 hora en el refri).",
-    "Cocina a la plancha a fuego medio hasta que esté bien cocida por dentro, volteando a la mitad.",
-    "Pica la lechuga, parte los cherry por la mitad y rebana el pepino y la cebolla morada.",
-    "Rebana el pollo en tiras y colócalo sobre la ensalada con el aguacate en gajos.",
-    "Adereza con un chorrito de limón y aceite de oliva."
+    "Corta el nopal en tiras y cuécelo 10 minutos en agua con sal y media cebolla. Enjuágalo bien para quitarle la baba.",
+    "Sofríe la cebolla restante, el ajo y el chile picados en aceite de oliva.",
+    "Agrega el jitomate picado y cuece 5 minutos.",
+    "Incorpora el nopal escurrido y deja que se integre 3 minutos.",
+    "Bate los huevos y viértelos encima. Revuelve a fuego bajo hasta que cuajen por completo.",
+    "Sirve con los frijoles calientes y las tortillas."
    ],
-   "notas": "Embarazo: lava y desinfecta muy bien las hojas de lechuga antes de servir."
+   "notas": "Embarazo: el huevo debe quedar totalmente cuajado, nada baboso. El nopal es de lo más barato que hay en Juárez y aporta mucha fibra; enjuágalo bien después de cocerlo o queda baboso."
+  },
+  {
+   "id": "arroz-con-pollo",
+   "nombre": "Arroz con pollo y verduras",
+   "emoji": "🍚",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 50,
+   "kcal": 641,
+   "proteina": 33,
+   "tags": [
+    "Alto en proteína",
+    "Económico",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pierna con muslo de pollo",
+     "c": 900
+    },
+    {
+     "n": "Arroz",
+     "c": 350
+    },
+    {
+     "n": "Zanahoria",
+     "c": 2
+    },
+    {
+     "n": "Ejotes",
+     "c": 150
+    },
+    {
+     "n": "Jitomate",
+     "c": 3
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 1
+    },
+    {
+     "n": "Ajo",
+     "c": 3
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 20
+    }
+   ],
+   "pasos": [
+    "Sazona la pierna con muslo con sal y pimienta y dórala en aceite de oliva por los dos lados. Sácala y resérvala.",
+    "En la misma olla, fríe el arroz seco hasta que suene y tome color dorado claro. Ese paso es el que hace que no se apelmace.",
+    "Licúa el jitomate con la cebolla y el ajo, y vierte sobre el arroz. Deja que se absorba.",
+    "Agrega dos tazas de agua caliente, la zanahoria en rodajas y los ejotes.",
+    "Acomoda el pollo encima, tapa y cuece 20 minutos a fuego bajo sin destapar.",
+    "Apaga y deja reposar 10 minutos tapado antes de servir."
+   ],
+   "notas": "Embarazo: el pollo debe quedar completamente cocido, sin partes rosadas junto al hueso. Es la receta de pollo más barata del recetario: sale a menos de $20 la porción."
+  },
+  {
+   "id": "frittata-papa-espinaca",
+   "nombre": "Frittata de papa, espinaca y panela",
+   "emoji": "🍳",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 35,
+   "kcal": 468,
+   "proteina": 30,
+   "tags": [
+    "Alto en proteína",
+    "Ligero",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Huevo",
+     "c": 12
+    },
+    {
+     "n": "Papa",
+     "c": 500
+    },
+    {
+     "n": "Espinaca fresca",
+     "c": 200
+    },
+    {
+     "n": "Queso panela",
+     "c": 150
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 1
+    },
+    {
+     "n": "Ajo",
+     "c": 2
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 20
+    }
+   ],
+   "pasos": [
+    "Corta la papa en rodajas delgadas y cuécela 8 minutos en agua con sal, hasta que se deje atravesar con un tenedor.",
+    "Sofríe la cebolla en rebanadas y el ajo picado en aceite de oliva, en un sartén que pueda ir al horno.",
+    "Agrega la papa escurrida y acomódala pareja. Encima pon la espinaca lavada y el queso panela en cubos.",
+    "Bate los huevos con sal y pimienta y viértelos sobre todo.",
+    "Cuece a fuego bajo 8 minutos, hasta que las orillas cuajen, y termina 10 minutos en el horno a 180 °C.",
+    "Deja enfriar antes de partir: se corta mucho mejor y así va al táper."
+   ],
+   "notas": "Embarazo: hornea hasta que el centro quede firme, sin nada líquido. Los huevos aportan colina, clave para el desarrollo cerebral del bebé y de los nutrientes que menos se alcanzan a cubrir en el embarazo."
+  },
+  {
+   "id": "pasta-pollo-brocoli",
+   "nombre": "Pasta con pollo y brócoli",
+   "emoji": "🥦",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 35,
+   "kcal": 636,
+   "proteina": 43,
+   "tags": [
+    "Alto en proteína",
+    "Económico"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pasta para sopa",
+     "c": 350
+    },
+    {
+     "n": "Pierna con muslo de pollo",
+     "c": 800
+    },
+    {
+     "n": "Brócoli",
+     "c": 300
+    },
+    {
+     "n": "Yogur griego natural",
+     "c": 200
+    },
+    {
+     "n": "Ajo",
+     "c": 4
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 20
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    },
+    {
+     "n": "Queso panela",
+     "c": 60
+    }
+   ],
+   "pasos": [
+    "Deshuesa la pierna con muslo y corta la carne en cubos. Sazona con sal, pimienta y ajo.",
+    "Dórala en aceite de oliva a fuego alto hasta que esté bien cocida por dentro.",
+    "Cuece la pasta al dente y, en los últimos 3 minutos, echa el brócoli en la misma agua. Guarda una taza del agua de cocción antes de escurrir.",
+    "Apaga el fuego y mezcla el yogur griego con un poco del agua de cocción y jugo de limón. Fuera del fuego, o se corta.",
+    "Junta pasta, brócoli, pollo y la salsa de yogur. Ralla el panela encima."
+   ],
+   "notas": "Embarazo: el pollo debe quedar completamente cocido. El yogur da cremosidad sin crema y suma proteína: esta receta llega a 43 g por porción, la más alta del recetario, buena para el día que toque entrenar fuerte."
+  },
+  {
+   "id": "pollo-limon-arroz",
+   "nombre": "Pollo al limón y ajo con arroz y verduras",
+   "emoji": "🍗",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 40,
+   "kcal": 646,
+   "proteina": 63,
+   "tags": [
+    "Alto en proteína",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 350
+    },
+    {
+     "n": "Limón",
+     "c": 2
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Ajo",
+     "c": 2
+    },
+    {
+     "n": "Paprika",
+     "c": 2
+    },
+    {
+     "n": "Orégano",
+     "c": 1
+    },
+    {
+     "n": "Comino",
+     "c": 0.5
+    },
+    {
+     "n": "Arroz",
+     "c": 120
+    },
+    {
+     "n": "Brócoli",
+     "c": 250
+    },
+    {
+     "n": "Zanahoria",
+     "c": 2
+    },
+    {
+     "n": "Ajo en polvo",
+     "c": 1
+    }
+   ],
+   "pasos": [
+    "Corta la pechuga en dos filetes del mismo grosor para que se cuezan parejo.",
+    "Mezcla el jugo de limón, el aceite de oliva, el ajo picado, la paprika, el orégano, el comino, sal y pimienta. Cubre el pollo y refrigera de 30 minutos a 2 horas. No lo dejes toda la noche: con tanto limón la carne se vuelve harinosa.",
+    "Enjuaga el arroz y cuécelo con unos 240 ml de agua: hierve, baja el fuego, tapa y deja 15 a 20 minutos.",
+    "Corta el brócoli y la zanahoria, mézclalos con una cucharadita de aceite, el ajo en polvo y pimienta, y hornéalos 20 a 25 minutos a 210 °C moviéndolos a la mitad.",
+    "Calienta bien el sartén y cocina el pollo 5 a 7 minutos por lado, hasta 74 °C al centro.",
+    "Deja reposar el pollo 5 minutos antes de cortarlo o se le sale todo el jugo."
+   ],
+   "notas": "Embarazo: el pollo debe llegar a 74 °C al centro, sin nada rosa. Cada lonche lleva la mitad del pollo, la mitad del arroz, 125 g de brócoli y 75 g de zanahoria."
+  },
+  {
+   "id": "pasta-mediterranea-pollo",
+   "nombre": "Pasta mediterránea con pollo y verduras",
+   "emoji": "🍝",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 35,
+   "kcal": 767,
+   "proteina": 68,
+   "tags": [
+    "Alto en proteína"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 320
+    },
+    {
+     "n": "Pasta para sopa",
+     "c": 180
+    },
+    {
+     "n": "Pimiento morrón",
+     "c": 0.8
+    },
+    {
+     "n": "Ejotes",
+     "c": 150
+    },
+    {
+     "n": "Jitomate",
+     "c": 1.25
+    },
+    {
+     "n": "Espinaca fresca",
+     "c": 80
+    },
+    {
+     "n": "Ajo",
+     "c": 3
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Limón",
+     "c": 1.5
+    },
+    {
+     "n": "Orégano",
+     "c": 1.5
+    },
+    {
+     "n": "Paprika",
+     "c": 1
+    },
+    {
+     "n": "Ajo en polvo",
+     "c": 1.5
+    },
+    {
+     "n": "Queso parmesano",
+     "c": 20
+    }
+   ],
+   "pasos": [
+    "Corta el pollo en cubos y mézclalo con una cucharadita de aceite, la paprika, la mitad del orégano, el ajo en polvo, pimienta y sal. Refrigera 20 a 30 minutos.",
+    "Hierve la pasta al dente y, antes de escurrirla, reserva 120 ml del agua de cocción.",
+    "Calienta dos cucharaditas de aceite y dora el pollo 6 a 8 minutos hasta que no quede nada rosa. Retíralo.",
+    "En el mismo sartén cocina el pimiento y los ejotes 4 a 5 minutos. Agrega el ajo fresco 30 segundos y luego el jitomate picado 2 minutos más.",
+    "Regresa el pollo, añade la pasta, la espinaca, el limón y unos 60 ml del agua de la pasta. Mezcla 1 a 2 minutos y agrega más agua si se ve seca.",
+    "Termina con el resto del orégano y el parmesano rallado encima."
+   ],
+   "notas": "La receta original llevaba champiñones: van fuera por la lista de la casa y se cambiaron por 150 g de ejotes, que aguantan el salteado igual y no compiten de sabor. Embarazo: el pollo bien cocido y el parmesano que sea pasteurizado (el de bloque de supermercado lo es)."
+  },
+  {
+   "id": "fajitas-pollo",
+   "nombre": "Fajitas de pollo con frijoles y tortillas",
+   "emoji": "🌮",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 35,
+   "kcal": 764,
+   "proteina": 72,
+   "tags": [
+    "Alto en proteína",
+    "Económico"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 350
+    },
+    {
+     "n": "Pimiento morrón",
+     "c": 1.4
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 1
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 10
+    },
+    {
+     "n": "Limón",
+     "c": 3
+    },
+    {
+     "n": "Ajo",
+     "c": 2
+    },
+    {
+     "n": "Paprika",
+     "c": 2
+    },
+    {
+     "n": "Comino",
+     "c": 1
+    },
+    {
+     "n": "Orégano",
+     "c": 1
+    },
+    {
+     "n": "Chile en polvo",
+     "c": 0.5
+    },
+    {
+     "n": "Frijoles cocidos",
+     "c": 250
+    },
+    {
+     "n": "Tortilla de maíz",
+     "c": 6
+    },
+    {
+     "n": "Jitomate",
+     "c": 1.7
+    },
+    {
+     "n": "Cilantro",
+     "c": 15
+    }
+   ],
+   "pasos": [
+    "Corta el pollo en tiras y mézclalo con el jugo de dos limones, el ajo picado, la paprika, el comino, el orégano, el chile en polvo, pimienta y sal. Marina 30 a 60 minutos.",
+    "Calienta una cucharadita de aceite a fuego alto y cocina el pollo 6 a 8 minutos hasta que esté bien cocido. Retíralo.",
+    "Agrega la otra cucharadita y saltea la cebolla y los pimientos en tiras 4 a 5 minutos: cocidos pero todavía con textura.",
+    "Regresa el pollo un minuto y mezcla todo.",
+    "Para la salsa fresca pica el jitomate, un poco de cebolla y el cilantro, y mezcla con el jugo del limón restante y chile al gusto.",
+    "Calienta las tortillas y los frijoles, y arma cada lonche con la mitad de las fajitas, 125 g de frijoles, 3 tortillas y salsa."
+   ],
+   "notas": "Embarazo: el pollo debe quedar bien cocido y el cilantro hay que lavarlo y desinfectarlo, como todas las hojas crudas. La salsa va en recipiente aparte o para el miércoles ya está aguada."
+  },
+  {
+   "id": "pollo-teriyaki",
+   "nombre": "Pollo teriyaki casero con arroz y verduras",
+   "emoji": "🥢",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 30,
+   "kcal": 636,
+   "proteina": 63,
+   "tags": [
+    "Alto en proteína",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 350
+    },
+    {
+     "n": "Arroz",
+     "c": 100
+    },
+    {
+     "n": "Brócoli",
+     "c": 250
+    },
+    {
+     "n": "Zanahoria",
+     "c": 1.5
+    },
+    {
+     "n": "Pimiento morrón",
+     "c": 0.7
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 10
+    },
+    {
+     "n": "Ajonjolí",
+     "c": 3
+    },
+    {
+     "n": "Salsa de soya",
+     "c": 30
+    },
+    {
+     "n": "Miel",
+     "c": 10
+    },
+    {
+     "n": "Ajo",
+     "c": 1
+    },
+    {
+     "n": "Jengibre fresco",
+     "c": 5
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    },
+    {
+     "n": "Fécula de maíz",
+     "c": 3
+    }
+   ],
+   "pasos": [
+    "Mezcla en frío la salsa de soya, la miel, el ajo rallado, el jengibre rallado, el limón, 60 ml de agua y la fécula, hasta que no queden grumos. No lleva sal añadida: la soya ya la trae.",
+    "Cuece el arroz.",
+    "Corta el pollo en cubos, calienta una cucharadita de aceite y cocínalo 6 a 8 minutos hasta que esté bien cocido. Retíralo.",
+    "Agrega la otra cucharadita y saltea la zanahoria 2 minutos; incorpora el pimiento y el brócoli y cocina 4 minutos más.",
+    "Regresa el pollo, vuelve a mezclar la salsa (la fécula se asienta) y viértela sobre todo.",
+    "Cocina 1 a 2 minutos moviendo constantemente: la fécula espesa y cubre. Sirve sobre el arroz y espolvorea el ajonjolí."
+   ],
+   "notas": "Embarazo: el pollo bien cocido. Esta salsa trae 10 g de miel para las dos porciones, o sea 5 g de azúcar añadida por persona: muy por debajo del tope de 10 g por comida."
+  },
+  {
+   "id": "picadillo-papa",
+   "nombre": "Picadillo de res con papa y ensalada",
+   "emoji": "🥘",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 45,
+   "kcal": 704,
+   "proteina": 40,
+   "tags": [
+    "Alto en hierro",
+    "Económico"
+   ],
+   "ingredientes": [
+    {
+     "n": "Carne molida de res 80/20",
+     "c": 320
+    },
+    {
+     "n": "Papa",
+     "c": 250
+    },
+    {
+     "n": "Zanahoria",
+     "c": 2
+    },
+    {
+     "n": "Chícharos",
+     "c": 100
+    },
+    {
+     "n": "Jitomate",
+     "c": 3
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 0.5
+    },
+    {
+     "n": "Ajo",
+     "c": 2
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Comino",
+     "c": 1
+    },
+    {
+     "n": "Paprika",
+     "c": 1
+    },
+    {
+     "n": "Orégano",
+     "c": 1
+    },
+    {
+     "n": "Lechuga romana",
+     "c": 0.2
+    },
+    {
+     "n": "Pepino",
+     "c": 0.5
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    }
+   ],
+   "pasos": [
+    "Licúa 250 g de jitomate con un diente de ajo, la mitad de la cebolla y 120 ml de agua.",
+    "Corta la papa y la zanahoria en cubos chicos y parejos para que se cuezan al mismo tiempo.",
+    "Calienta una cucharadita de aceite y sofríe la cebolla restante con el otro ajo.",
+    "Agrega la carne y dórala bien; incorpora el comino, la paprika, el orégano, pimienta y sal.",
+    "Añade la papa y la zanahoria, mezcla y vierte la salsa. Tapa y cocina a fuego medio-bajo 15 a 20 minutos, hasta que la papa esté suave.",
+    "Agrega los chícharos en los últimos 5 minutos.",
+    "Sirve con la ensalada de lechuga, pepino y el jitomate restante, aderezada con limón, dos cucharaditas de aceite de oliva y pimienta."
+   ],
+   "notas": "Embarazo: la carne debe quedar sin nada rosa, al menos 71 °C. Pedro pidió carne molida magra: si consiguen la 90/10 en vez de la corriente, bajan unas 125 kcal por porción. La ensalada va en recipiente aparte."
+  },
+  {
+   "id": "bowl-mediterraneo-pollo",
+   "nombre": "Bowl mediterráneo de pollo y garbanzos",
+   "emoji": "🫒",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 40,
+   "kcal": 761,
+   "proteina": 71,
+   "tags": [
+    "Alto en proteína",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 300
+    },
+    {
+     "n": "Limón",
+     "c": 2
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 10
+    },
+    {
+     "n": "Ajo",
+     "c": 2.5
+    },
+    {
+     "n": "Paprika",
+     "c": 2
+    },
+    {
+     "n": "Orégano",
+     "c": 2
+    },
+    {
+     "n": "Comino",
+     "c": 0.5
+    },
+    {
+     "n": "Arroz",
+     "c": 100
+    },
+    {
+     "n": "Garbanzo",
+     "c": 100
+    },
+    {
+     "n": "Pepino",
+     "c": 0.6
+    },
+    {
+     "n": "Jitomate",
+     "c": 1.7
+    },
+    {
+     "n": "Espinaca fresca",
+     "c": 80
+    },
+    {
+     "n": "Yogur griego natural",
+     "c": 150
+    }
+   ],
+   "pasos": [
+    "Mezcla el jugo de limón, el aceite, dos dientes de ajo picados, la paprika, el orégano, el comino, pimienta y sal. Cubre el pollo y refrigera de 30 minutos a 2 horas.",
+    "Remoja 100 g de garbanzo desde la noche anterior y cuécelo 45 minutos: rinde los 250 g cocidos que pide la receta. Si andas con prisa, usa garbanzo de lata muy bien enjuagado.",
+    "Cuece el arroz.",
+    "Cocina el pollo a la plancha 5 a 7 minutos por lado hasta 74 °C. Deja reposar 5 minutos y córtalo.",
+    "Mezcla la salsa: yogur griego, el limón restante, medio diente de ajo rallado, orégano, pimienta, una pizca de sal y 15 ml de agua.",
+    "Arma cada bowl con 150 g de pollo, la mitad del arroz, 125 g de garbanzos, pepino, jitomate y espinaca."
+   ],
+   "notas": "Embarazo: pollo a 74 °C, yogur pasteurizado (todo el de supermercado lo es) y hojas bien lavadas. La salsa de yogur va en otro recipiente y se agrega al momento de comer."
+  },
+  {
+   "id": "pollo-chipotle",
+   "nombre": "Pollo cremoso al chipotle con arroz y brócoli",
+   "emoji": "🌶️",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 40,
+   "kcal": 638,
+   "proteina": 71,
+   "tags": [
+    "Alto en proteína",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 350
+    },
+    {
+     "n": "Paprika",
+     "c": 1.5
+    },
+    {
+     "n": "Ajo en polvo",
+     "c": 1.5
+    },
+    {
+     "n": "Comino",
+     "c": 0.5
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 10
+    },
+    {
+     "n": "Yogur griego natural",
+     "c": 170
+    },
+    {
+     "n": "Chile chipotle adobado",
+     "c": 10
+    },
+    {
+     "n": "Jitomate",
+     "c": 0.8
+    },
+    {
+     "n": "Ajo",
+     "c": 1
+    },
+    {
+     "n": "Leche",
+     "c": 30
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    },
+    {
+     "n": "Arroz",
+     "c": 100
+    },
+    {
+     "n": "Brócoli",
+     "c": 300
+    }
+   ],
+   "pasos": [
+    "Corta el pollo en trozos y mézclalo con la paprika, el ajo en polvo, el comino, pimienta, sal y una cucharadita de aceite. Reposa 20 a 30 minutos.",
+    "Licúa el yogur, el chipotle, el jitomate, el ajo, la leche, el limón y una pizca más de paprika. Para picor moderado empieza con medio chile: siempre puedes agregar más.",
+    "Cuece el arroz y cocina el brócoli al vapor 5 a 7 minutos.",
+    "Calienta la otra cucharadita de aceite y dora el pollo hasta que esté bien cocido por dentro.",
+    "Baja el fuego al mínimo antes de añadir la salsa: el yogur no debe hervir fuerte o se corta.",
+    "Cocina suave 2 a 3 minutos, solo hasta que la salsa esté caliente, y sirve sobre el arroz con el brócoli."
+   ],
+   "notas": "Embarazo: el pollo bien cocido y el yogur pasteurizado. El chipotle sube el picor bastante al recalentar, así que si va a táper conviene quedarse en medio chile."
+  },
+  {
+   "id": "albondigas-pure",
+   "nombre": "Albóndigas de res en salsa con puré y brócoli",
+   "emoji": "🍖",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 55,
+   "kcal": 771,
+   "proteina": 47,
+   "tags": [
+    "Alto en hierro",
+    "Económico"
+   ],
+   "ingredientes": [
+    {
+     "n": "Carne molida de res 80/20",
+     "c": 320
+    },
+    {
+     "n": "Huevo",
+     "c": 1
+    },
+    {
+     "n": "Avena",
+     "c": 30
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 0.6
+    },
+    {
+     "n": "Ajo",
+     "c": 2
+    },
+    {
+     "n": "Orégano",
+     "c": 1
+    },
+    {
+     "n": "Paprika",
+     "c": 1
+    },
+    {
+     "n": "Jitomate",
+     "c": 2.5
+    },
+    {
+     "n": "Papa",
+     "c": 350
+    },
+    {
+     "n": "Leche",
+     "c": 60
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 5
+    },
+    {
+     "n": "Brócoli",
+     "c": 300
+    }
+   ],
+   "pasos": [
+    "Mezcla la carne con el huevo, la avena, 40 g de cebolla picada finísima, un diente de ajo, el orégano, la paprika, pimienta y sal. No amases de más, solo hasta integrar.",
+    "Deja reposar 10 minutos para que la avena absorba humedad y forma 10 a 12 albóndigas.",
+    "Licúa el jitomate con el resto de la cebolla, el otro ajo y 150 ml de agua.",
+    "Cocina la salsa 5 minutos en un sartén hondo, sazona con orégano y pimienta e introduce las albóndigas con cuidado. Tapa y cocina 15 a 20 minutos a fuego medio-bajo, girándolas una vez: el centro debe llegar a 71 °C.",
+    "Hierve la papa 15 a 20 minutos hasta que esté suave, escúrrela y machácala con la leche caliente, el aceite de oliva, pimienta y una pizca de sal.",
+    "Cuece el brócoli al vapor 5 a 7 minutos y sirve 5 o 6 albóndigas por lonche con salsa, la mitad del puré y 150 g de brócoli."
+   ],
+   "notas": "Embarazo: parte una albóndiga antes de servir para confirmar que no quede nada rosa por dentro. Pedro pidió carne magra: con la 90/10 en vez de la corriente baja unas 125 kcal por porción. La avena no es relleno: hidrata la carne y las deja suaves al recalentar."
   }
  ]
 }
