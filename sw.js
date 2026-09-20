@@ -1,7 +1,7 @@
 /* Service worker: la app abre aunque no haya internet. */
 const VERSION = 'recetas-v8';
 const CONCHA = [
-  './', './index.html', './styles.css', './app.js', './github.js',
+  './', './index.html', './styles.css?v=8', './app.js?v=8', './github.js?v=8',
   './manifest.webmanifest',
   './datos/recetas.json', './datos/precios.json', './datos/ingredientes.json',
   './icons/icon-180.png', './icons/icon-192.png', './icons/icon-512.png',

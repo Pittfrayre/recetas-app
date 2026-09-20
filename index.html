@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 <title>Recetas</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
 
@@ -169,10 +169,10 @@
 
 <script>
   if ('serviceWorker' in navigator) {
-    addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(()=>{}));
+    addEventListener('load', () => navigator.serviceWorker.register('sw.js?v=8').catch(()=>{}));
   }
 </script>
-<script src="github.js"></script>
-<script src="app.js"></script>
+<script src="github.js?v=8"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>
