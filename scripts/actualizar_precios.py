@@ -60,6 +60,12 @@ def tamano(producto):
         base, factor = EQUIV[m.group(2)]
         if n > 0:
             return n * factor, base
+    # "PAQUETE CON 30" = 30 piezas. Acotado a estas palabras a propósito:
+    # un "CON 30% DE SOYA" de una lata de atún no debe contarse como 30 piezas.
+    m = re.search(r"(?:PAQUETE|CAJA|CART[OÓ]N|BLISTER|CONO)\s+CON\s+(\d+)", s)
+    if m:
+        return float(m.group(1)), "pz"
+
     for palabra in ("MANOJO", "PZA.", "PIEZA", "MANOJITO", "ATADO"):
         if palabra in s:
             return 1.0, "pz"

@@ -69,22 +69,19 @@ def validar_entrada_catalogo(nombre, e):
     if prof:
         if not prof.get("busqueda") or not prof.get("tipo"):
             problemas.append('el bloque profeco necesita "busqueda" y "tipo"')
-        if e.get("unidad") == "pz" and not prof.get("g_por_pieza"):
-            problemas.append("unidad en piezas y sin g_por_pieza: si la tienda vende "
-                             "por kilo, el precio saldría nulo")
+        # Si contamos piezas y la tienda vende por peso, hace falta la conversión.
+        # Hay excepciones reales —el huevo se publica por paquete de N piezas—, y
+        # para esas se declara unidad_tienda: "pz" en vez de inventar un g_por_pieza.
+        if (e.get("unidad") == "pz" and not prof.get("g_por_pieza")
+                and prof.get("unidad_tienda") != "pz"):
+            problemas.append('unidad en piezas y sin g_por_pieza: si la tienda vende '
+                             'por kilo, el precio saldría nulo. Si la tienda ya lo '
+                             'vende por pieza, declara "unidad_tienda": "pz".')
     return problemas
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("receta", help="JSON con la receta nueva")
-    ap.add_argument("--revisar", action="store_true", help="solo diagnostica, no escribe")
-    args = ap.parse_args()
-
-    nueva = json.loads(Path(args.receta).read_text(encoding="utf-8"))
-    catalogo = cargar("ingredientes.json")
-    recetas = cargar("recetas.json")
-
+def revisar(nueva, catalogo, recetas):
+    """Devuelve (errores, faltantes). No escribe nada."""
     errores = []
 
     # --- la receta en sí ---
@@ -98,10 +95,6 @@ def main():
     conocidos = set(catalogo["ingredientes"])
     faltantes = [n for n in usados if n not in conocidos]
     declarados = nueva.get("ingredientes_nuevos", {})
-
-    print(f"{len(usados)} ingredientes en la receta")
-    print(f"  ya en la lista maestra : {len(usados) - len(faltantes)}")
-    print(f"  nuevos                 : {len(faltantes)}")
 
     # Nombres casi iguales: casi siempre es un typo, no un ingrediente nuevo
     for n in faltantes:
@@ -125,34 +118,81 @@ def main():
             if x in n.lower():
                 errores.append(f'"{n}" está en la lista de ingredientes excluidos')
 
-    if errores:
-        print("\nNo se dio de alta nada. Corrige esto primero:\n")
-        for e in errores:
-            print(f"  ERROR  {e}")
-        return 1
+    return errores, faltantes
 
-    if args.revisar:
-        print("\nTodo en orden. Corre sin --revisar para dar de alta.")
-        return 0
 
-    # --- paso 3: alta en la lista maestra ---
+def dar_de_alta(nueva, faltantes, catalogo, recetas):
+    """Paso 3: el ingrediente entra a la maestra ANTES que la receta."""
+    declarados = nueva.get("ingredientes_nuevos", {})
     for n in faltantes:
         catalogo["ingredientes"][n] = declarados[n]
     catalogo["ingredientes"] = dict(sorted(catalogo["ingredientes"].items()))
     guardar("ingredientes.json", catalogo)
-    if faltantes:
-        print(f"\nAgregados a la lista maestra: {', '.join(faltantes)}")
 
-    # --- la receta, ya sin datos duplicados ---
     nueva.pop("ingredientes_nuevos", None)
     nueva["ingredientes"] = [{"n": i["n"], "c": i["c"]} for i in nueva["ingredientes"]]
     recetas["recetas"].append(nueva)
     guardar("recetas.json", recetas)
-    print(f'Receta "{nueva["nombre"]}" agregada ({len(recetas["recetas"])} en total)')
 
-    # --- paso 4: ahora sí, precios ---
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("receta", help='JSON con una receta, o con {"recetas":[...]} para un lote')
+    ap.add_argument("--revisar", action="store_true", help="solo diagnostica, no escribe")
+    ap.add_argument("--no-precios", action="store_true",
+                    help="no actualizar precios al final (útil al cargar un lote)")
+    args = ap.parse_args()
+
+    entrada = json.loads(Path(args.receta).read_text(encoding="utf-8"))
+    lote = entrada["recetas"] if isinstance(entrada, dict) and "recetas" in entrada else [entrada]
+
+    catalogo = cargar("ingredientes.json")
+    recetas = cargar("recetas.json")
+
+    # Se revisa el lote completo antes de escribir nada: o entran todas o ninguna.
+    # Durante la revisión el catálogo y la lista crecen en memoria, para cachar
+    # también los choques entre recetas del mismo lote.
+    planes, fallaron = [], False
+    for nueva in lote:
+        errores, faltantes = revisar(nueva, catalogo, recetas)
+        etiqueta = nueva.get("nombre", nueva.get("id", "?"))
+        if errores:
+            fallaron = True
+            print(f"  FALLA  {etiqueta}")
+            for e in errores:
+                print(f"         {e}")
+            continue
+        print(f"  ok     {etiqueta}  ({len(faltantes)} ingredientes nuevos)")
+        planes.append((nueva, faltantes))
+        for n in faltantes:
+            catalogo["ingredientes"].setdefault(n, nueva["ingredientes_nuevos"][n])
+        recetas["recetas"].append({"id": nueva["id"], "_simulado": True})
+
+    # se deshace la simulación antes de escribir de verdad
+    catalogo = cargar("ingredientes.json")
+    recetas = cargar("recetas.json")
+
+    if fallaron:
+        print("\nNo se dio de alta nada. Corrige lo de arriba primero.")
+        return 1
+    if args.revisar:
+        print(f"\nLas {len(planes)} pasan. Corre sin --revisar para darlas de alta.")
+        return 0
+
+    print()
+    for nueva, faltantes in planes:
+        dar_de_alta(nueva, faltantes, catalogo, recetas)
+        print(f'  agregada  {nueva["nombre"]}')
+    print(f'\n{len(recetas["recetas"])} recetas en total, '
+          f'{len(catalogo["ingredientes"])} ingredientes en la maestra')
+
+    if args.no_precios:
+        print("\n(--no-precios: falta correr actualizar_precios.py)")
+        return 0
+
     print("\nActualizando precios…\n")
-    return subprocess.call([sys.executable, str(Path(__file__).resolve().parent / "actualizar_precios.py")])
+    return subprocess.call([sys.executable,
+                            str(Path(__file__).resolve().parent / "actualizar_precios.py")])
 
 
 if __name__ == "__main__":
