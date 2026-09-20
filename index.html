@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Recetas">
+<meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Recetas</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== HEADER ===== -->
+  <header class="hdr">
+    <div class="hdr-eyebrow" id="eyebrow">Cd. Juárez</div>
+    <div class="hdr-row">
+      <h1 id="title">Recetas</h1>
+      <button class="hdr-btn" id="hdrAction" aria-label="Acción">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="scroll" id="scroll">
+
+    <!-- ===== VISTA: RECETAS ===== -->
+    <section class="view active" id="v-recetas">
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+        </svg>
+        <input id="q" type="search" placeholder="Buscar receta o ingrediente" autocomplete="off">
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="rlist" id="rlist"></div>
+    </section>
+
+    <!-- ===== VISTA: PLAN ===== -->
+    <section class="view" id="v-plan">
+      <div class="summary" id="planSummary"></div>
+
+      <div class="sec">
+        <h2>Semana</h2>
+        <button class="act" id="clearWeek">Limpiar</button>
+      </div>
+      <div class="card" id="semana"></div>
+
+      <div class="sec"><h2>¿Quién come?</h2></div>
+      <div class="card" id="people"></div>
+
+      <div style="margin-top:18px">
+        <button class="btn" id="genList">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 5h10M9 12h10M9 19h10M4.5 5h.01M4.5 12h.01M4.5 19h.01"/>
+          </svg>
+          Generar lista del mandado
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== VISTA: MANDADO ===== -->
+    <section class="view" id="v-mandado">
+      <div id="mandadoWrap"></div>
+    </section>
+
+    <!-- ===== VISTA: AJUSTES ===== -->
+    <section class="view" id="v-ajustes">
+      <div class="sec"><h2>Presupuesto</h2></div>
+      <div class="card">
+        <div class="field">
+          <label>Presupuesto de la semana (MXN)</label>
+          <input id="setBudget" type="number" inputmode="numeric" value="1500">
+        </div>
+      </div>
+
+      <div class="sec"><h2>Personas</h2></div>
+      <div class="card" id="setPeople"></div>
+      <p class="budget-note" style="padding:0 4px">El factor multiplica el tamaño de la porción. 1.0 es una porción estándar; 1.3 sirve ~30% más comida para quien entrena.</p>
+
+      <div class="sec"><h2>Precios</h2></div>
+      <div class="card" id="setPrecios"></div>
+      <p class="budget-note" style="padding:0 4px">Los precios se editan tocándolos en la lista del mandado. Se guardan por unidad, así que se recalculan solos al cambiar porciones.</p>
+
+      <div class="sec"><h2>Ingredientes excluidos</h2></div>
+      <div class="card">
+        <div class="field">
+          <label>No sugerir recetas con</label>
+          <input id="setExcl" type="text" value="apio, aceitunas, mango, champiñones, calabacita">
+        </div>
+      </div>
+
+      <div class="sec"><h2>Sincronización con GitHub</h2></div>
+      <div class="card">
+        <div class="field">
+          <label>Repositorio de datos</label>
+          <input id="setRepo" type="text" placeholder="usuario/recetas-data" value="Pittfrayre/recetas-data">
+        </div>
+        <div class="field">
+          <label>Token personal</label>
+          <input id="setToken" type="password" placeholder="Pégalo aquí (se queda en tu iPhone)">
+        </div>
+        <div class="row">
+          <div class="row-t"><strong>Guardar al editar</strong><span>Sube cambios al repo automáticamente</span></div>
+          <div class="sw on" id="swAuto"></div>
+        </div>
+      </div>
+      <div class="card" id="syncEstado" style="margin-top:10px"></div>
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+        <button class="btn sm" id="btnGuardarGH">Conectar</button>
+        <button class="btn ghost sm" id="btnSync">Sincronizar ahora</button>
+      </div>
+
+      <div class="sec"><h2>Apariencia</h2></div>
+      <div class="card">
+        <div class="row">
+          <div class="row-t"><strong>Modo oscuro</strong><span>Sigue el ajuste del sistema</span></div>
+          <div class="sw" id="swDark"></div>
+        </div>
+      </div>
+      <p class="budget-note" style="padding:8px 4px 0">Prototipo · v0.1</p>
+    </section>
+
+  </div><!-- /scroll -->
+
+  <!-- ===== TAB BAR ===== -->
+  <nav class="tabbar">
+    <button class="tab on" data-v="recetas">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 3v18M5 3c2 0 3 1.6 3 4s-1 4-3 4"/><path d="M15.5 3C13.6 4.6 13 7 13 9c0 1.7 1 3 2.5 3s2.5-1.3 2.5-3c0-2-.6-4.4-2.5-6z"/><path d="M15.5 12v9"/>
+      </svg>
+      Recetas
+    </button>
+    <button class="tab" data-v="plan">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8.5 14.5l1.6 1.6 3.4-3.4"/>
+      </svg>
+      Plan
+    </button>
+    <button class="tab" data-v="mandado">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 4h2.2l2.2 11.2a2 2 0 002 1.6h7.9a2 2 0 002-1.6L21 8H6"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17.5" cy="20" r="1.3"/>
+      </svg>
+      Mandado
+      <i class="badge" id="tabBadge" hidden>0</i>
+    </button>
+    <button class="tab" data-v="ajustes">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3.2"/><path d="M19.4 14.4a1.6 1.6 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.6 1.6 0 00-1.8-.3 1.6 1.6 0 00-1 1.5v.2a2 2 0 11-4 0v-.1a1.6 1.6 0 00-1-1.5 1.6 1.6 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.6 1.6 0 00.3-1.8 1.6 1.6 0 00-1.5-1H2a2 2 0 110-4h.1a1.6 1.6 0 001.5-1 1.6 1.6 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.6 1.6 0 001.8.3H8a1.6 1.6 0 001-1.5V2a2 2 0 114 0v.1a1.6 1.6 0 001 1.5 1.6 1.6 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.6 1.6 0 00-.3 1.8V8a1.6 1.6 0 001.5 1h.2a2 2 0 110 4h-.1a1.6 1.6 0 00-1.5 1z"/>
+      </svg>
+      Ajustes
+    </button>
+  </nav>
+
+</div><!-- /app -->
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet">
+  <div class="grab"></div>
+  <div class="sheet-hd">
+    <h3 id="sheetTitle"></h3>
+    <button class="x" id="sheetClose">Listo</button>
+  </div>
+  <div class="sheet-body" id="sheetBody"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(()=>{}));
+  }
+</script>
+<script src="github.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
