@@ -161,7 +161,7 @@ const S = {
   precios:{},        // { ingrediente: precio por unidad }  ← lo que tú corriges a mano
   catalogo:{},       // lista maestra: { ingrediente: {unidad, pasillo, precio_referencia, profeco} }
   profeco:{},        // { ingrediente: {precio_unidad, mas_barato, ...} } ← robot semanal
-  sync:{ estado:'local', fecha:null, sha:null },
+  sync:{ estado:'local', fecha:null, sha:null, recetasDeGitHub:false },
   lista:null,
   marcados:{},
   presupuesto:1500,
@@ -769,7 +769,12 @@ function nuevaReceta(){
     <div class="sec"><h2>Notas</h2></div>
     <div class="card"><div class="field"><label>Advertencias o ajustes</label>
       <textarea placeholder="Embarazo: cocción completa…"></textarea></div></div>
-    <div style="margin-top:20px"><button class="btn" id="saveRecipe">Guardar y subir a GitHub</button></div>`);
+    <div class="note" style="margin-top:20px">
+      <b>Todavía no está conectado.</b> Por ahora las recetas se agregan desde la
+      computadora, donde se da de alta cada ingrediente nuevo en la lista maestra y
+      se le consigue foto y precio. Esta pantalla es el diseño de cómo va a quedar.
+    </div>
+    <div style="margin-top:12px"><button class="btn" id="saveRecipe" disabled>Guardar y subir a GitHub</button></div>`);
 }
 
 /* ============================================================
@@ -998,7 +1003,9 @@ document.addEventListener('click', e=>{
   if(t.closest('#abrirPrecios')) return pantallaPrecios();
 
   if(t.closest('[data-edit]')) return toast('El editor llega en la próxima versión');
-  if(t.closest('#saveRecipe')){ cerrarSheet(); guardarRecetasEnGitHub(); return; }
+  if(t.closest('#saveRecipe')){
+    return toast('El alta desde el teléfono aún no está conectada');
+  }
   if(t.closest('#shareList'))  return compartirLista();
   if(t.closest('#btnSync'))    { sincronizar(); return; }
   if(t.closest('#btnGuardarGH')){
@@ -1076,6 +1083,7 @@ async function sincronizar({ silencioso = false } = {}){
     if (r.status === 'fulfilled'){
       recetas = r.value.datos.recetas;
       S.sync.sha = r.value.sha;
+      S.sync.recetasDeGitHub = true;
       Cache.guardar('recetas', r.value.datos);
     }
     if (p.status === 'fulfilled'){
@@ -1104,6 +1112,12 @@ async function sincronizar({ silencioso = false } = {}){
 
 async function guardarRecetasEnGitHub(){
   if (!GH.listo) return toast('Configura GitHub en Ajustes');
+  // Si nunca bajamos recetas.json, lo que hay en memoria son las recetas de
+  // respaldo que vienen dentro de la app. Subirlas pisaría el repo con datos
+  // viejos, así que mejor nos negamos.
+  if (!S.sync.recetasDeGitHub){
+    return toast('Sincroniza primero: aún no se han bajado tus recetas');
+  }
   try {
     const actual = await GH.leer('recetas.json').catch(()=>({ sha:null }));
     await GH.escribir('recetas.json', { version:1, recetas:RECETAS },
