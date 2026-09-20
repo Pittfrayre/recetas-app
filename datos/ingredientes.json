@@ -1,0 +1,286 @@
+{
+ "_comentario": "Lista maestra de ingredientes. Es la única fuente de verdad para unidad, pasillo y precio. Las recetas solo dicen nombre y cantidad. Un ingrediente que no esté aquí no puede tener precio.",
+ "version": 1,
+ "pasillos": [
+  "Carnes y pescado",
+  "Frutas y verduras",
+  "Lácteos",
+  "Abarrotes",
+  "Panadería",
+  "Especias"
+ ],
+ "ingredientes": {
+  "Aceite de oliva": {
+   "unidad": "ml",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.4,
+   "profeco": {
+    "busqueda": "aceite de oliva",
+    "tipo": "ACEITE DE OLIVA"
+   }
+  },
+  "Aguacate": {
+   "unidad": "pz",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 20.0,
+   "profeco": {
+    "busqueda": "aguacate",
+    "tipo": "AGUACATE",
+    "g_por_pieza": 200
+   }
+  },
+  "Ajo": {
+   "unidad": "pz",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 1.75,
+   "profeco": {
+    "busqueda": "ajo",
+    "tipo": "AJO",
+    "g_por_pieza": 5,
+    "contiene": "KG"
+   }
+  },
+  "Ajo en polvo, comino y paprika": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.833333,
+   "profeco": null,
+   "nota": "Mezcla de especias, sin equivalente en el catálogo público"
+  },
+  "Ajo en polvo, paprika y perejil": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.833333,
+   "profeco": null,
+   "nota": "Mezcla de especias, sin equivalente en el catálogo público"
+  },
+  "Arroz": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.03,
+   "profeco": {
+    "busqueda": "arroz",
+    "tipo": "ARROZ"
+   }
+  },
+  "Brócoli": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.09,
+   "profeco": {
+    "busqueda": "brocoli",
+    "tipo": "BRÓCOLI"
+   }
+  },
+  "Carne molida de res 80/20": {
+   "unidad": "g",
+   "pasillo": "Carnes y pescado",
+   "precio_referencia": 0.147273,
+   "profeco": {
+    "busqueda": "carne molida",
+    "tipo": "CARNE MOLIDA"
+   }
+  },
+  "Cebolla blanca": {
+   "unidad": "pz",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 10.0,
+   "profeco": {
+    "busqueda": "cebolla",
+    "tipo": "CEBOLLA",
+    "g_por_pieza": 150
+   }
+  },
+  "Cebolla morada": {
+   "unidad": "pz",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 12.0,
+   "profeco": {
+    "busqueda": "cebolla",
+    "tipo": "CEBOLLA",
+    "g_por_pieza": 150
+   }
+  },
+  "Comino, orégano y ajo en polvo": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.833333,
+   "profeco": null,
+   "nota": "Mezcla de especias, sin equivalente en el catálogo público"
+  },
+  "Ejotes": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.1,
+   "profeco": {
+    "busqueda": "ejote",
+    "tipo": "EJOTE"
+   }
+  },
+  "Espinaca fresca": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.25,
+   "profeco": {
+    "busqueda": "espinacas",
+    "tipo": "ESPINACAS",
+    "g_por_pieza": 200
+   }
+  },
+  "Filete de tilapia": {
+   "unidad": "g",
+   "pasillo": "Carnes y pescado",
+   "precio_referencia": 0.115,
+   "profeco": null,
+   "nota": "PROFECO no levanta pescado fresco en Cd. Juárez"
+  },
+  "Frijoles cocidos": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.048,
+   "profeco": {
+    "busqueda": "frijoles",
+    "tipo": "FRIJOLES"
+   }
+  },
+  "Jitomate": {
+   "unidad": "pz",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 8.0,
+   "profeco": {
+    "busqueda": "jitomate",
+    "tipo": "JITOMATE",
+    "g_por_pieza": 120
+   }
+  },
+  "Jitomate cherry": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.166667,
+   "profeco": {
+    "busqueda": "jitomate",
+    "tipo": "JITOMATE"
+   }
+  },
+  "Lechuga romana": {
+   "unidad": "pz",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 22.0,
+   "profeco": {
+    "busqueda": "lechuga",
+    "tipo": "LECHUGA",
+    "g_por_pieza": 500
+   }
+  },
+  "Limón": {
+   "unidad": "pz",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 3.0,
+   "profeco": {
+    "busqueda": "limon",
+    "tipo": "LIMÓN",
+    "g_por_pieza": 70
+   }
+  },
+  "Lomo de atún": {
+   "unidad": "g",
+   "pasillo": "Carnes y pescado",
+   "precio_referencia": 0.3,
+   "profeco": null,
+   "nota": "PROFECO no levanta pescado fresco en Cd. Juárez"
+  },
+  "Miel": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.6,
+   "profeco": {
+    "busqueda": "miel",
+    "tipo": "MIEL DE ABEJA"
+   }
+  },
+  "Orégano": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 1.5,
+   "profeco": null,
+   "nota": "Mezcla de especias, sin equivalente en el catálogo público"
+  },
+  "Pechuga de pollo": {
+   "unidad": "g",
+   "pasillo": "Carnes y pescado",
+   "precio_referencia": 0.16,
+   "profeco": {
+    "busqueda": "pechuga",
+    "tipo": "PECHUGA"
+   }
+  },
+  "Pepino": {
+   "unidad": "pz",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 8.0,
+   "profeco": {
+    "busqueda": "pepino",
+    "tipo": "PEPINO",
+    "g_por_pieza": 250
+   }
+  },
+  "Pimiento morrón": {
+   "unidad": "pz",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 18.0,
+   "profeco": {
+    "busqueda": "pimiento",
+    "tipo": "PIMIENTO",
+    "g_por_pieza": 180
+   }
+  },
+  "Queso panela": {
+   "unidad": "g",
+   "pasillo": "Lácteos",
+   "precio_referencia": 0.18,
+   "profeco": {
+    "busqueda": "queso panela",
+    "tipo": "QUESO PANELA"
+   }
+  },
+  "Tortilla integral grande": {
+   "unidad": "pz",
+   "pasillo": "Panadería",
+   "precio_referencia": 5.25,
+   "profeco": {
+    "busqueda": "tortilla",
+    "tipo": "TORTILLA DE HARINA DE TRIGO",
+    "g_por_pieza": 45
+   }
+  },
+  "Vinagre de manzana": {
+   "unidad": "ml",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.266667,
+   "profeco": {
+    "busqueda": "vinagre",
+    "tipo": "VINAGRE"
+   }
+  },
+  "Yogur griego natural": {
+   "unidad": "g",
+   "pasillo": "Lácteos",
+   "precio_referencia": 0.2,
+   "profeco": {
+    "busqueda": "yoghurt",
+    "tipo": "YOGHURT",
+    "contiene": "GRIEGO"
+   }
+  },
+  "Zanahoria": {
+   "unidad": "pz",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 5.0,
+   "profeco": {
+    "busqueda": "zanahoria",
+    "tipo": "ZANAHORIA",
+    "g_por_pieza": 80
+   }
+  }
+ }
+}

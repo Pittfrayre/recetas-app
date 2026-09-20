@@ -1,0 +1,314 @@
+{
+ "version": 1,
+ "recetas": [
+  {
+   "id": "wrap-pollo",
+   "nombre": "Wrap de pollo a la plancha",
+   "emoji": "🌯",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 30,
+   "kcal": 480,
+   "proteina": 42,
+   "tags": [
+    "Alto en proteína",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 700
+    },
+    {
+     "n": "Tortilla integral grande",
+     "c": 4
+    },
+    {
+     "n": "Pimiento morrón",
+     "c": 1
+    },
+    {
+     "n": "Cebolla morada",
+     "c": 0.5
+    },
+    {
+     "n": "Espinaca fresca",
+     "c": 100
+    },
+    {
+     "n": "Aguacate",
+     "c": 1
+    },
+    {
+     "n": "Jitomate",
+     "c": 1
+    },
+    {
+     "n": "Yogur griego natural",
+     "c": 60
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Ajo en polvo, comino y paprika",
+     "c": 6
+    }
+   ],
+   "pasos": [
+    "Corta la pechuga en tiras delgadas y sazona con ajo en polvo, comino, paprika, sal y pimienta.",
+    "Cocina en sartén con aceite de oliva a fuego medio-alto hasta que no quede nada rosa por dentro.",
+    "Rebana el pimiento, la cebolla y el jitomate en tiras finas. Lava bien la espinaca.",
+    "Mezcla el yogur griego con jugo de limón, sal y pimienta para el aderezo.",
+    "Calienta las tortillas, rellena con pollo, verduras, aguacate y aderezo. Enrolla y envuelve para llevar."
+   ],
+   "notas": "Embarazo: el pollo debe quedar completamente cocido, sin partes rosadas. Lava bien la espinaca antes de usarla."
+  },
+  {
+   "id": "bowl-carne",
+   "nombre": "Bowl de carne estilo burrito",
+   "emoji": "🥙",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 35,
+   "kcal": 620,
+   "proteina": 38,
+   "tags": [
+    "Alto en hierro",
+    "Económico"
+   ],
+   "ingredientes": [
+    {
+     "n": "Carne molida de res 80/20",
+     "c": 550
+    },
+    {
+     "n": "Arroz",
+     "c": 200
+    },
+    {
+     "n": "Frijoles cocidos",
+     "c": 250
+    },
+    {
+     "n": "Jitomate",
+     "c": 2
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 0.5
+    },
+    {
+     "n": "Limón",
+     "c": 2
+    },
+    {
+     "n": "Aguacate",
+     "c": 1
+    },
+    {
+     "n": "Queso panela",
+     "c": 100
+    },
+    {
+     "n": "Comino, orégano y ajo en polvo",
+     "c": 6
+    }
+   ],
+   "pasos": [
+    "Cuece el arroz según las instrucciones del paquete.",
+    "Dora la carne molida a fuego medio-alto desmenuzando bien, hasta que no quede nada rosa. Sazona con las especias.",
+    "Pica finamente el jitomate y la cebolla, mezcla con jugo de limón para el pico de gallo.",
+    "Calienta los frijoles en una olla pequeña.",
+    "Arma el bowl: base de arroz, carne, frijoles, pico de gallo, aguacate en cubos y queso panela rallado."
+   ],
+   "notas": "Embarazo: la carne debe quedar completamente cocida y el queso panela pasteurizado. El hierro de la res se absorbe mejor con el limón del pico de gallo."
+  },
+  {
+   "id": "tilapia-horno",
+   "nombre": "Tilapia al horno con verduras",
+   "emoji": "🐟",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 30,
+   "kcal": 420,
+   "proteina": 44,
+   "tags": [
+    "Bajo en mercurio",
+    "Apto embarazo",
+    "Ligero"
+   ],
+   "ingredientes": [
+    {
+     "n": "Filete de tilapia",
+     "c": 400
+    },
+    {
+     "n": "Ejotes",
+     "c": 150
+    },
+    {
+     "n": "Zanahoria",
+     "c": 1
+    },
+    {
+     "n": "Brócoli",
+     "c": 200
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Arroz",
+     "c": 100
+    },
+    {
+     "n": "Ajo en polvo, paprika y perejil",
+     "c": 6
+    }
+   ],
+   "pasos": [
+    "Precalienta el horno a 200 °C.",
+    "Coloca la tilapia en una charola, rocía con aceite de oliva y jugo de limón. Sazona con las especias, sal y pimienta.",
+    "Limpia los ejotes, corta la zanahoria en rodajas y agrega el brócoli. Acomoda todo junto al pescado.",
+    "Hornea hasta que el pescado se desmenuce fácil con un tenedor y esté opaco por dentro.",
+    "Mientras tanto, cuece el arroz. Sirve el pescado con las verduras y el arroz."
+   ],
+   "notas": "Embarazo: la tilapia es de bajo mercurio y segura, siempre que quede bien cocida (opaca y se desmenuza fácil)."
+  },
+  {
+   "id": "atun-sellado",
+   "nombre": "Atún sellado con vinagreta cítrica",
+   "emoji": "🍣",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 25,
+   "kcal": 510,
+   "proteina": 52,
+   "tags": [
+    "Alto en proteína",
+    "Omega 3"
+   ],
+   "ingredientes": [
+    {
+     "n": "Lomo de atún",
+     "c": 450
+    },
+    {
+     "n": "Arroz",
+     "c": 200
+    },
+    {
+     "n": "Pimiento morrón",
+     "c": 1
+    },
+    {
+     "n": "Brócoli",
+     "c": 200
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    },
+    {
+     "n": "Ajo",
+     "c": 1
+    },
+    {
+     "n": "Vinagre de manzana",
+     "c": 15
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 20
+    },
+    {
+     "n": "Miel",
+     "c": 5
+    }
+   ],
+   "pasos": [
+    "Vinagreta: mezcla jugo de limón, vinagre de manzana, aceite de oliva, ajo picado, una pizca de orégano y una cucharadita de miel.",
+    "Saltea el pimiento en tiras y el brócoli 5-6 minutos a fuego medio-alto, que queden suaves pero con crunch.",
+    "Seca bien el lomo de atún y sazona con sal y pimienta por ambos lados.",
+    "En sartén bien caliente, sella el atún 1-2 minutos por lado: dorado por fuera, rosado al centro.",
+    "Rebana en tiras, sirve sobre el arroz con las verduras y baña con la vinagreta."
+   ],
+   "notas": "Embarazo: el atún sellado queda crudo al centro. Para esa porción dale 2-3 minutos más por lado hasta que quede opaco en todo el grosor."
+  },
+  {
+   "id": "ensalada-pollo",
+   "nombre": "Ensalada de pollo marinado",
+   "emoji": "🥗",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 25,
+   "kcal": 380,
+   "proteina": 40,
+   "tags": [
+    "Alto en proteína",
+    "Ligero"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 350
+    },
+    {
+     "n": "Lechuga romana",
+     "c": 1
+    },
+    {
+     "n": "Jitomate cherry",
+     "c": 150
+    },
+    {
+     "n": "Pepino",
+     "c": 1
+    },
+    {
+     "n": "Cebolla morada",
+     "c": 0.5
+    },
+    {
+     "n": "Aguacate",
+     "c": 1
+    },
+    {
+     "n": "Limón",
+     "c": 2
+    },
+    {
+     "n": "Ajo",
+     "c": 2
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Orégano",
+     "c": 2
+    }
+   ],
+   "pasos": [
+    "Marina la pechuga con jugo de limón, ajo machacado, orégano, sal, pimienta y aceite de oliva. Deja reposar 20 minutos (mejor 1 hora en el refri).",
+    "Cocina a la plancha a fuego medio hasta que esté bien cocida por dentro, volteando a la mitad.",
+    "Pica la lechuga, parte los cherry por la mitad y rebana el pepino y la cebolla morada.",
+    "Rebana el pollo en tiras y colócalo sobre la ensalada con el aguacate en gajos.",
+    "Adereza con un chorrito de limón y aceite de oliva."
+   ],
+   "notas": "Embarazo: lava y desinfecta muy bien las hojas de lechuga antes de servir."
+  }
+ ]
+}

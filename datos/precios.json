@@ -1,0 +1,525 @@
+{
+ "fuente": "PROFECO — Quién es Quién en los Precios",
+ "fuente_url": "https://qqp.profeco.gob.mx/",
+ "ciudad": "Ciudad Juárez",
+ "estrategia": "mediana entre cadenas",
+ "actualizado": "2026-09-20T18:04:15+00:00",
+ "sin_fuente": [
+  "Ajo en polvo, comino y paprika",
+  "Ajo en polvo, paprika y perejil",
+  "Comino, orégano y ajo en polvo",
+  "Filete de tilapia",
+  "Lomo de atún",
+  "Orégano"
+ ],
+ "fallos": {},
+ "alertas": [],
+ "precios": {
+  "Aceite de oliva": {
+   "precio_unidad": 0.269321,
+   "unidad": "ml",
+   "observaciones": 4,
+   "cadenas": [
+    "S MART"
+   ],
+   "mas_barato": {
+    "cadena": "S MART",
+    "precio_unidad": 0.259989,
+    "producto": "ACEITE DE OLIVA, CARBONELL. CLÁSICO, LATA 950 ML."
+   },
+   "rango": [
+    0.259989,
+    0.278653
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Aguacate": {
+   "precio_unidad": 13.198,
+   "unidad": "pz",
+   "observaciones": 9,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 11.8,
+    "producto": "AGUACATE, S/M, 1 KG. HASS"
+   },
+   "rango": [
+    11.8,
+    13.998
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Ajo": {
+   "precio_unidad": 0.749975,
+   "unidad": "pz",
+   "observaciones": 8,
+   "cadenas": [
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "SUPERMERCADO GONZALEZ",
+    "precio_unidad": 0.65,
+    "producto": "AJO, S/M, 1 KG. O AJO MORADO"
+   },
+   "rango": [
+    0.65,
+    1.43495
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Arroz": {
+   "precio_unidad": 0.03,
+   "unidad": "g",
+   "observaciones": 15,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "FARMACIA GUADALAJARA",
+    "MERCADO PUBLICO",
+    "OXXO",
+    "S MART"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.015556,
+    "producto": "ARROZ, AURRERA, BOLSA 900 GR. SUPER EXTRA"
+   },
+   "rango": [
+    0.015556,
+    0.039444
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Brócoli": {
+   "precio_unidad": 0.0519,
+   "unidad": "g",
+   "observaciones": 9,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "MERCADO PUBLICO",
+    "precio_unidad": 0.04,
+    "producto": "BRÓCOLI, S/M, 1 KG."
+   },
+   "rango": [
+    0.04,
+    0.06999
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Carne molida de res 80/20": {
+   "precio_unidad": 0.14999,
+   "unidad": "g",
+   "observaciones": 10,
+   "cadenas": [
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "S MART",
+    "precio_unidad": 0.09999,
+    "producto": "CARNE MOLIDA, S/M, 1 KG. GRANEL. O PULPA MOLIDA"
+   },
+   "rango": [
+    0.09999,
+    0.24999
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Cebolla blanca": {
+   "precio_unidad": 7.4985,
+   "unidad": "pz",
+   "observaciones": 25,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "S MART",
+    "precio_unidad": 4.4985,
+    "producto": "CEBOLLA, S/M, 1 KG. AMARILLA"
+   },
+   "rango": [
+    4.4985,
+    16.9
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Cebolla morada": {
+   "precio_unidad": 7.4985,
+   "unidad": "pz",
+   "observaciones": 25,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "S MART",
+    "precio_unidad": 4.4985,
+    "producto": "CEBOLLA, S/M, 1 KG. AMARILLA"
+   },
+   "rango": [
+    4.4985,
+    16.9
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Ejotes": {
+   "precio_unidad": 0.075,
+   "unidad": "g",
+   "observaciones": 9,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.064,
+    "producto": "EJOTE, S/M, 1 KG. VERDE"
+   },
+   "rango": [
+    0.064,
+    0.0799
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Espinaca fresca": {
+   "precio_unidad": 0.055,
+   "unidad": "g",
+   "observaciones": 9,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "S MART",
+    "precio_unidad": 0.05495,
+    "producto": "ESPINACAS, S/M, MANOJO"
+   },
+   "rango": [
+    0.05495,
+    0.075
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Frijoles cocidos": {
+   "precio_unidad": 0.039581,
+   "unidad": "g",
+   "observaciones": 50,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "FARMACIA GUADALAJARA",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.026786,
+    "producto": "FRIJOLES, LA SIERRA, LATA 560 GR. ENTERO. BAYO"
+   },
+   "rango": [
+    0.026786,
+    0.05125
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Jitomate": {
+   "precio_unidad": 3.588,
+   "unidad": "pz",
+   "observaciones": 14,
+   "cadenas": [
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "MERCADO PUBLICO",
+    "precio_unidad": 2.64,
+    "producto": "JITOMATE, S/M, 1 KG. SALADETTE/ HUAJE O TOMATE SALADETTE/ HUAJE"
+   },
+   "rango": [
+    2.64,
+    5.5188
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Jitomate cherry": {
+   "precio_unidad": 0.0299,
+   "unidad": "g",
+   "observaciones": 14,
+   "cadenas": [
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "MERCADO PUBLICO",
+    "precio_unidad": 0.022,
+    "producto": "JITOMATE, S/M, 1 KG. SALADETTE/ HUAJE O TOMATE SALADETTE/ HUAJE"
+   },
+   "rango": [
+    0.022,
+    0.04599
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Lechuga romana": {
+   "precio_unidad": 23.5,
+   "unidad": "pz",
+   "observaciones": 18,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "SUPERMERCADO GONZALEZ",
+    "precio_unidad": 12.9,
+    "producto": "LECHUGA, S/M, PZA. ROMANA"
+   },
+   "rango": [
+    12.9,
+    32.99
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Limón": {
+   "precio_unidad": 3.213,
+   "unidad": "pz",
+   "observaciones": 16,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 2.31,
+    "producto": "LIMÓN, S/M, 1 KG. AGRIO CON SEMILLA O COLIMA. UPC 4306. EN MALLA"
+   },
+   "rango": [
+    2.31,
+    4.1993
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Miel": {
+   "precio_unidad": 0.216667,
+   "unidad": "g",
+   "observaciones": 6,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "FARMACIA GUADALAJARA",
+    "S MART"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.19,
+    "producto": "MIEL DE ABEJA, CARLOTA, FRASCO 500 GR."
+   },
+   "rango": [
+    0.19,
+    0.2433
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Pechuga de pollo": {
+   "precio_unidad": 0.095,
+   "unidad": "g",
+   "observaciones": 11,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "MINISUPER",
+    "precio_unidad": 0.08999,
+    "producto": "PECHUGA, S/M, 1 KG. GRANEL. PECHUGA SIN HUESO (SIN PIEL)"
+   },
+   "rango": [
+    0.08999,
+    0.15
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Pepino": {
+   "precio_unidad": 6.7475,
+   "unidad": "pz",
+   "observaciones": 9,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 3.75,
+    "producto": "PEPINO, S/M, 1 KG."
+   },
+   "rango": [
+    3.75,
+    7.0
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Pimiento morrón": {
+   "precio_unidad": 13.5,
+   "unidad": "pz",
+   "observaciones": 7,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "S MART"
+   ],
+   "mas_barato": {
+    "cadena": "S MART",
+    "precio_unidad": 10.7982,
+    "producto": "PIMIENTO, S/M, 1 KG. MORRON VERDE"
+   },
+   "rango": [
+    10.7982,
+    14.4
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Queso panela": {
+   "precio_unidad": 0.1825,
+   "unidad": "g",
+   "observaciones": 5,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "MINISUPER",
+    "S MART"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.175,
+    "producto": "QUESO PANELA, LA VILLITA, PAQUETE 400 GR. (2 PACK)"
+   },
+   "rango": [
+    0.175,
+    0.229975
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Tortilla integral grande": {
+   "precio_unidad": 2.133333,
+   "unidad": "pz",
+   "observaciones": 10,
+   "cadenas": [
+    "FARMACIA GUADALAJARA",
+    "MINISUPER",
+    "OXXO",
+    "S MART"
+   ],
+   "mas_barato": {
+    "cadena": "FARMACIA GUADALAJARA",
+    "precio_unidad": 1.8,
+    "producto": "TORTILLA DE HARINA DE TRIGO, TORTILLINAS TÍA ROSA, BOLSA 15 PIEZAS. 382.5 GR."
+   },
+   "rango": [
+    1.8,
+    2.332667
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Vinagre de manzana": {
+   "precio_unidad": 0.023995,
+   "unidad": "ml",
+   "observaciones": 12,
+   "cadenas": [
+    "FARMACIA GUADALAJARA",
+    "S MART",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "SUPERMERCADO GONZALEZ",
+    "precio_unidad": 0.013181,
+    "producto": "VINAGRE, LA COSTEÑA, BOTELLA 1.05 LT. BLANCO. ALCOHOL CAÑA"
+   },
+   "rango": [
+    0.013181,
+    0.03998
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Yogur griego natural": {
+   "precio_unidad": 0.126583,
+   "unidad": "g",
+   "observaciones": 14,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "S MART"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.094444,
+    "producto": "YOGHURT, OIKOS, BOTE 900 GR. NATURAL. DESLACTOSADO. SIN AZÚCAR AÑADIDA. GRIEGO"
+   },
+   "rango": [
+    0.094444,
+    0.139933
+   ],
+   "fecha_observacion": "2026-09-17"
+  },
+  "Zanahoria": {
+   "precio_unidad": 1.512,
+   "unidad": "pz",
+   "observaciones": 6,
+   "cadenas": [
+    "MERCADO PUBLICO",
+    "MINISUPER",
+    "SUPERMERCADO GONZALEZ"
+   ],
+   "mas_barato": {
+    "cadena": "MERCADO PUBLICO",
+    "precio_unidad": 1.28,
+    "producto": "ZANAHORIA, S/M, 1 KG. MEDIANA"
+   },
+   "rango": [
+    1.28,
+    1.7592
+   ],
+   "fecha_observacion": "2026-09-17"
+  }
+ }
+}

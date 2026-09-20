@@ -95,26 +95,12 @@
         </div>
       </div>
 
-      <div class="sec"><h2>Sincronización con GitHub</h2></div>
-      <div class="card">
-        <div class="field">
-          <label>Repositorio de datos</label>
-          <input id="setRepo" type="text" placeholder="usuario/recetas-data" value="Pittfrayre/recetas-data">
-        </div>
-        <div class="field">
-          <label>Token personal</label>
-          <input id="setToken" type="password" placeholder="Pégalo aquí (se queda en tu iPhone)">
-        </div>
-        <div class="row">
-          <div class="row-t"><strong>Guardar al editar</strong><span>Sube cambios al repo automáticamente</span></div>
-          <div class="sw on" id="swAuto"></div>
-        </div>
+      <div class="sec"><h2>Recetas</h2></div>
+      <div class="card" id="syncEstado"></div>
+      <div style="margin-top:12px">
+        <button class="btn ghost sm" id="btnSync">Buscar recetas nuevas</button>
       </div>
-      <div class="card" id="syncEstado" style="margin-top:10px"></div>
-      <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
-        <button class="btn sm" id="btnGuardarGH">Conectar</button>
-        <button class="btn ghost sm" id="btnSync">Sincronizar ahora</button>
-      </div>
+      <p class="budget-note" style="padding:8px 4px 0">Las recetas y los precios se bajan solos al abrir la app. No hace falta configurar nada: quien tenga el link las ve.</p>
 
       <div class="sec"><h2>Apariencia</h2></div>
       <div class="card">

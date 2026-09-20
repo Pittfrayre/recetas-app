@@ -1,0 +1,35 @@
+name: Actualizar precios
+
+# Lunes 8:00 (hora de Cd. Juárez, UTC-6) + botón manual
+on:
+  schedule:
+    - cron: "0 14 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  precios:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Consultar PROFECO
+        run: python scripts/actualizar_precios.py
+
+      - name: Guardar si algo cambió
+        run: |
+          if [[ -z "$(git status --porcelain precios.json)" ]]; then
+            echo "Sin cambios en los precios."
+            exit 0
+          fi
+          git config user.name  "robot de precios"
+          git config user.email "actions@github.com"
+          git add precios.json
+          git commit -m "Precios de la semana ($(date +%d/%m/%Y)) — fuente PROFECO"
+          git push

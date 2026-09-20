@@ -821,10 +821,10 @@ function renderAjustes(){
     </button>`;
 
   const est = {
-    local:         ['Sin conectar',   'Pega tu repo y token abajo'],
-    sincronizando: ['Sincronizando…', 'Bajando recetas y precios'],
+    local:         ['Sin bajar',      'Todavía no se han cargado las recetas'],
+    sincronizando: ['Buscando…',      'Bajando recetas y precios'],
     ok:            ['Al día',         'Última vez: ' + (S.sync.fecha ? new Date(S.sync.fecha).toLocaleString('es-MX') : '—')],
-    error:         ['Falló',          S.sync.error || 'Revisa el token y el nombre del repo']
+    error:         ['Sin conexión',   'Se están usando las recetas guardadas en este teléfono']
   }[S.sync.estado];
   const color = { ok:'var(--accent)', error:'var(--danger)' }[S.sync.estado] || 'var(--text-2)';
   $('#syncEstado').innerHTML = `
@@ -832,9 +832,7 @@ function renderAjustes(){
       <div class="row-t"><strong style="color:${color}">${est[0]}</strong><span>${esc(est[1])}</span></div>
     </div>`;
 
-  const c = GH.cfg;
-  if ($('#setRepo')  && !$('#setRepo').value)  $('#setRepo').value  = c.repo;
-  if ($('#setToken') && c.token && !$('#setToken').value) $('#setToken').value = '••••••••••••';
+
 }
 
 /* ============================================================
@@ -1008,13 +1006,6 @@ document.addEventListener('click', e=>{
   }
   if(t.closest('#shareList'))  return compartirLista();
   if(t.closest('#btnSync'))    { sincronizar(); return; }
-  if(t.closest('#btnGuardarGH')){
-    const repo = $('#setRepo').value.trim();
-    const tok  = $('#setToken').value.trim();
-    if(!repo.includes('/')) return toast('El repo va como usuario/repositorio');
-    GH.set(repo, tok.startsWith('•') ? '' : tok);
-    renderAjustes(); sincronizar(); return;
-  }
 
   if(t.closest('#genList')){ generarLista(); ir('mandado'); return; }
   if(t.closest('#clearWeek')){ DIAS.forEach(d=>S.semana[d.k]=null); renderPlan(); renderRecetas(); return planCambio(); }
@@ -1031,7 +1022,7 @@ document.addEventListener('click', e=>{
     return;
   }
 
-  const gsw=t.closest('#swAuto, #swDark');
+  const gsw=t.closest('#swDark');
   if(gsw){
     gsw.classList.toggle('on');
     if(gsw.id==='swDark') document.documentElement.dataset.theme = gsw.classList.contains('on')?'dark':'light';
@@ -1066,46 +1057,52 @@ function aplicarDatos(recetas, precios, catalogo){
   if (S.vista === 'ajustes') renderAjustes();
 }
 
+/* Los datos viven junto a la app, en su propio sitio: cualquiera que abra el
+   link los ve, sin token y sin configurar nada. El token quedó solo para
+   escribir, que es lo único que de verdad necesita permiso. */
 async function sincronizar({ silencioso = false } = {}){
-  if (!GH.listo){
-    if (!silencioso) toast('Falta el repo o el token en Ajustes');
-    return;
-  }
   S.sync.estado = 'sincronizando';
   if (S.vista === 'ajustes') renderAjustes();
 
+  const leer = async archivo => {
+    const r = await fetch(`datos/${archivo}?t=${Date.now()}`, { cache:'no-store' });
+    if (!r.ok) throw new Error(`${archivo}: ${r.status}`);
+    return r.json();
+  };
+
   try {
     const [r, p, c] = await Promise.allSettled([
-      GH.leer('recetas.json'), GH.leer('precios.json'), GH.leer('ingredientes.json')
+      leer('recetas.json'), leer('precios.json'), leer('ingredientes.json')
     ]);
 
     let recetas = null, precios = null, catalogo = null;
     if (r.status === 'fulfilled'){
-      recetas = r.value.datos.recetas;
-      S.sync.sha = r.value.sha;
+      recetas = r.value.recetas;
       S.sync.recetasDeGitHub = true;
-      Cache.guardar('recetas', r.value.datos);
+      Cache.guardar('recetas', r.value);
     }
     if (p.status === 'fulfilled'){
-      precios = p.value.datos.precios;
-      S.profecoMeta = p.value.datos;
-      Cache.guardar('precios', p.value.datos);
+      precios = p.value.precios;
+      S.profecoMeta = p.value;
+      Cache.guardar('precios', p.value);
     }
     if (c.status === 'fulfilled'){
-      catalogo = c.value.datos.ingredientes;
-      Cache.guardar('catalogo', c.value.datos);
+      catalogo = c.value.ingredientes;
+      Cache.guardar('catalogo', c.value);
     }
-    if (r.status === 'rejected' && p.status === 'rejected' && c.status === 'rejected') throw r.reason;
+    if (r.status === 'rejected' && p.status === 'rejected' && c.status === 'rejected'){
+      throw r.reason;
+    }
 
     S.sync.estado = 'ok';
     S.sync.fecha  = new Date().toISOString();
     aplicarDatos(recetas, precios, catalogo);
-    if (!silencioso) toast('Actualizado desde GitHub');
+    if (!silencioso) toast('Recetas al día');
   } catch (e){
     S.sync.estado = 'error';
     S.sync.error  = String(e.message || e);
     if (S.vista === 'ajustes') renderAjustes();
-    if (!silencioso) toast('No se pudo sincronizar');
+    if (!silencioso) toast('No se pudieron bajar las recetas');
     console.warn('[sync]', e);
   }
 }
@@ -1194,8 +1191,8 @@ function arrancar(){
   catalogoDeRespaldo();
   ir('recetas');
 
-  // 2. y de fondo, lo último de GitHub
-  if (GH.listo) sincronizar({ silencioso:true });
+  // 2. y de fondo, lo último publicado (no hace falta token para leer)
+  sincronizar({ silencioso:true });
 }
 
 arrancar();

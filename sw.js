@@ -1,8 +1,9 @@
 /* Service worker: la app abre aunque no haya internet. */
-const VERSION = 'recetas-v7';
+const VERSION = 'recetas-v8';
 const CONCHA = [
   './', './index.html', './styles.css', './app.js', './github.js',
   './manifest.webmanifest',
+  './datos/recetas.json', './datos/precios.json', './datos/ingredientes.json',
   './icons/icon-180.png', './icons/icon-192.png', './icons/icon-512.png',
   './img/wrap-pollo-sq.jpg',     './img/wrap-pollo-w.jpg',
   './img/bowl-carne-sq.jpg',     './img/bowl-carne-w.jpg',
