@@ -1026,6 +1026,34 @@ async function guardarRecetasEnGitHub(){
   }
 }
 
+/* ============================================================
+   Persistencia local: el plan sobrevive a cerrar la app
+   ============================================================ */
+const LLAVE = 'plan_v1';
+function persistir(){
+  try {
+    localStorage.setItem(LLAVE, JSON.stringify({
+      personas: S.personas, semana: S.semana, precios: S.precios,
+      presupuesto: S.presupuesto, lista: S.lista, marcados: S.marcados
+    }));
+  } catch {}
+}
+function recuperar(){
+  try {
+    const g = JSON.parse(localStorage.getItem(LLAVE) || 'null');
+    if (!g) return;
+    if (Array.isArray(g.personas) && g.personas.length) S.personas = g.personas;
+    if (g.semana)      S.semana      = g.semana;
+    if (g.precios)     S.precios     = g.precios;
+    if (g.presupuesto) S.presupuesto = g.presupuesto;
+    if (g.lista)       S.lista       = g.lista;
+    if (g.marcados)    S.marcados    = g.marcados;
+  } catch {}
+}
+setInterval(persistir, 3000);
+addEventListener('pagehide', persistir);
+addEventListener('visibilitychange', () => { if (document.hidden) persistir(); });
+
 /* Las semanas guardadas antes traían solo el id de la receta */
 function normalizarSemana(){
   DIAS.forEach(d=>{
@@ -1040,7 +1068,9 @@ function normalizarSemana(){
 }
 
 function arrancar(){
+  recuperar();
   normalizarSemana();
+  $('#setBudget').value = S.presupuesto;
   // 1. lo que haya en caché, para que abra al instante y sin internet
   const rc = Cache.leer('recetas'), pc = Cache.leer('precios');
   if (pc) S.profecoMeta = pc;
