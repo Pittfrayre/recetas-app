@@ -159,6 +159,7 @@ const S = {
   pasoDia:'receta',      // 'receta' | 'comensales'
   nuevoInvitado:null,    // {nombre, factor} mientras se captura
   precios:{},        // { ingrediente: precio por unidad }  ← lo que tú corriges a mano
+  catalogo:{},       // lista maestra: { ingrediente: {unidad, pasillo, precio_referencia, profeco} }
   profeco:{},        // { ingrediente: {precio_unidad, mas_barato, ...} } ← robot semanal
   sync:{ estado:'local', fecha:null, sha:null },
   lista:null,
@@ -231,12 +232,24 @@ function toast(msg){
 }
 
 /* --- precios (con overrides editables) --- */
-// Prioridad: lo que tú corregiste  >  PROFECO de esta semana  >  el precio de referencia
-const precioUnit = i =>
-  S.precios[i.n] !== undefined ? S.precios[i.n]
-  : (S.profeco[i.n] ? S.profeco[i.n].precio_unidad : i.precio / i.c);
+/* La lista maestra manda. Las recetas solo dicen nombre y cantidad; la unidad,
+   el pasillo y el precio salen de aquí. Los campos sueltos de una receta vieja
+   se usan solo como respaldo mientras termina de migrar. */
+const maestra  = n => S.catalogo[n] || null;
+const unidadDe = i => (maestra(i.n) || {}).unidad  || i.u || 'g';
+const pasilloDe= i => (maestra(i.n) || {}).pasillo || i.p || 'Abarrotes';
+
+// Prioridad: lo que tú corregiste > PROFECO de esta semana > referencia de la maestra
+function precioUnit(i){
+  if (S.precios[i.n] !== undefined)  return S.precios[i.n];
+  if (S.profeco[i.n])                return S.profeco[i.n].precio_unidad;
+  const m = maestra(i.n);
+  if (m && m.precio_referencia)      return m.precio_referencia;
+  return i.precio && i.c ? i.precio / i.c : 0;
+}
 const fuentePrecio = n =>
   S.precios[n] !== undefined ? 'tuyo' : (S.profeco[n] ? 'profeco' : 'referencia');
+const ETIQUETA_FUENTE = { tuyo:'tu precio', profeco:'PROFECO', referencia:'estimado' };
 const precioIng  = (i,m=1) => precioUnit(i) * i.c * m;
 const editado    = n => S.precios[n] !== undefined;
 
@@ -272,7 +285,7 @@ function reparto(r){
       dia: d,
       comensales: gente,
       filas: r.ingredientes.map(i => ({
-        n:i.n, u:i.u,
+        n:i.n, u:unidadDe(i),
         por: gente.map(p => i.c * p.factor / r.porciones)
       // Nada de "0.1 pz de cebolla": solo lo que vale la pena pesar
       })).filter(f => f.por.length && Math.max(...f.por) >= (f.u==='pz' ? 0.5 : 10))
@@ -481,8 +494,8 @@ function generarLista(){
   enPlan().forEach(r=>{
     const m=multDe(r);
     r.ingredientes.forEach(i=>{
-      const k=i.n+'|'+i.u;
-      if(!acc[k]) acc[k]={n:i.n,u:i.u,p:i.p,c:0,de:[],unit:precioUnit(i)};
+      const u=unidadDe(i), k=i.n+'|'+u;
+      if(!acc[k]) acc[k]={n:i.n,u,p:pasilloDe(i),c:0,de:[],unit:precioUnit(i)};
       acc[k].c += i.c*m;
       acc[k].unit = precioUnit(i);
       if(!acc[k].de.includes(r.nombre)) acc[k].de.push(r.nombre);
@@ -541,48 +554,107 @@ function renderMandado(){
     <div style="margin-top:14px"><button class="btn ghost sm" id="shareList">Compartir lista</button></div>`;
 }
 
-/* --- editor de precio --- */
-function editarPrecio(nombre){
-  let ref=null, cant=0;
-  for(const r of RECETAS) for(const i of r.ingredientes) if(i.n===nombre){ ref=i; break; }
-  S.lista.grupos.forEach(g=>g.items.forEach(i=>{ if(i.n===nombre) cant=i.c; }));
-  const unit=precioUnit(ref), actual=unit*cant, prof=S.profeco[nombre];
+/* --- editor de precio: funciona para cualquier ingrediente de la maestra,
+       esté o no en la lista de esta semana --- */
+function editarPrecio(nombre, volverA){
+  const m = maestra(nombre) || {};
+  const u = m.unidad || 'g';
+  const unit = precioUnit({ n:nombre, c:1, u });
+  const prof = S.profeco[nombre];
+  const fuente = fuentePrecio(nombre);
+
+  // Si está en el mandado, editamos sobre la cantidad que vas a comprar;
+  // si no, sobre una medida de referencia (1 kg, 1 L o 1 pieza).
+  let cant = 0;
+  if (S.lista) S.lista.grupos.forEach(g=>g.items.forEach(i=>{ if(i.n===nombre) cant=i.c; }));
+  const enLista = cant > 0;
+  if (!enLista) cant = u==='pz' ? 1 : 1000;
 
   abrirSheet(nombre, `
     <div class="card">
       <div class="field">
-        <label>Cantidad que vas a comprar</label>
-        <input value="${fmtCant(cant,ref.u)}" disabled style="color:var(--text-2)">
+        <label>${enLista ? 'Cantidad que vas a comprar' : 'Cantidad de referencia'}</label>
+        <input value="${fmtCant(cant,u)}" disabled style="color:var(--text-2)">
       </div>
       <div class="field">
-        <label>Precio total de esa cantidad (MXN)</label>
-        <input id="precioInput" type="number" inputmode="decimal" step="0.5" value="${Math.round(actual)}">
+        <label>Precio de esa cantidad (MXN)</label>
+        <input id="precioInput" type="number" inputmode="decimal" step="0.5"
+               value="${Math.round(unit*cant*100)/100}">
+      </div>
+      <div class="row">
+        <div class="row-t"><strong>De dónde sale ahora</strong>
+          <span>${ETIQUETA_FUENTE[fuente]}${m.pasillo?' · '+esc(m.pasillo):''}</span></div>
       </div>
     </div>
+
     ${prof ? `<div class="note" style="margin-top:14px">
-        <b>PROFECO, ${esc(prof.fecha_observacion)}:</b> mediana de ${prof.observaciones} observaciones
-        en ${prof.cadenas.length} cadenas. Más barato en <b>${esc(prof.mas_barato.cadena)}</b>
-        a ${mxn(prof.mas_barato.precio_unidad*cant)} por esta cantidad.
-      </div>` : ``}
+        <b>PROFECO, ${esc(prof.fecha_observacion)}:</b> mediana de ${prof.observaciones}
+        observaciones en ${prof.cadenas.length} cadenas. Más barato en
+        <b>${esc(prof.mas_barato.cadena)}</b> a ${mxn(prof.mas_barato.precio_unidad*cant)}
+        por esta cantidad.
+      </div>`
+    : `<div class="note" style="margin-top:14px">
+        ${esc(m.nota || 'Sin fuente pública de precio')}. Este precio solo cambia si tú lo cambias.
+      </div>`}
+
     <p class="price-hint" style="text-align:left;padding:10px 4px 0">
-      Equivale a ${mxn(unit*(ref.u==='pz'?1:100))} por ${ref.u==='pz'?'pieza':'100 '+ref.u}.
-      El precio se guarda por unidad, así que se ajusta solo cuando cambies las porciones o los días.
+      Se guarda por unidad, así que se recalcula solo cuando cambien las porciones,
+      los días o la gente que come.
     </p>
     <div style="margin-top:18px;display:flex;flex-direction:column;gap:10px">
-      <button class="btn" data-savep="${esc(nombre)}" data-cant="${cant}">Guardar precio</button>
-      ${editado(nombre)?`<button class="btn ghost sm" data-resetp="${esc(nombre)}">Volver al precio original</button>`:''}
+      <button class="btn" data-savep="${esc(nombre)}" data-cant="${cant}"
+              data-volver="${volverA||''}">Guardar precio</button>
+      ${editado(nombre)?`<button class="btn ghost sm" data-resetp="${esc(nombre)}"
+              data-volver="${volverA||''}">Volver al precio automático</button>`:''}
     </div>`);
 }
 
-function compartirLista(){
-  if(!S.lista) return;
-  const txt = ['Mandado — ' + mxn(S.lista.total), '']
-    .concat(S.lista.grupos.flatMap(g =>
-      ['· ' + g.pasillo].concat(g.items.map(i => `   ${i.n} — ${fmtCant(i.c,i.u)} (${mxn(i.precio)})`))
-    )).join('\n');
-  if(navigator.share) navigator.share({ title:'Lista del mandado', text:txt }).catch(()=>{});
-  else if(navigator.clipboard) navigator.clipboard.writeText(txt).then(()=>toast('Copiada al portapapeles'));
-  else toast('Tu navegador no permite compartir');
+/* --- todos los precios de la lista maestra, en una sola pantalla --- */
+function pantallaPrecios(){
+  const nombres = Object.keys(S.catalogo);
+  if (!nombres.length){
+    return abrirSheet('Precios', `<div class="empty"><div class="ico">🏷️</div>
+      <b>Sin lista maestra</b><p>Sincroniza con GitHub para bajar el catálogo de ingredientes.</p></div>`);
+  }
+  const porPasillo = PASILLOS.map(p => ({
+    pasillo: p,
+    items: nombres.filter(n => (S.catalogo[n].pasillo||'Abarrotes') === p).sort((a,b)=>a.localeCompare(b,'es'))
+  })).filter(g => g.items.length);
+
+  const mios = nombres.filter(n=>editado(n)).length;
+  const auto = nombres.filter(n=>S.profeco[n]).length;
+
+  abrirSheet('Precios', `
+    <div class="card">
+      <div class="row"><div class="row-t"><strong>${nombres.length} ingredientes</strong>
+        <span>${auto} con precio de PROFECO · ${mios} corregidos por ti</span></div></div>
+      ${mios?`<button class="row" id="resetPrecios" style="width:100%;text-align:left">
+        <div class="row-t"><strong style="color:var(--danger)">Borrar mis correcciones</strong>
+        <span>Vuelve todo al precio automático</span></div></button>`:''}
+    </div>
+    ${porPasillo.map(g=>`
+      <div class="aisle"><span>${esc(g.pasillo)}</span></div>
+      <div class="card">
+        ${g.items.map(n=>{
+          const m=S.catalogo[n], u=m.unidad||'g';
+          const unit=precioUnit({n,c:1,u});
+          const ref = u==='pz' ? 1 : 1000;
+          const etq = u==='pz' ? 'pieza' : (u==='ml' ? 'litro' : 'kilo');
+          const fte = fuentePrecio(n);
+          return `<button class="item" data-precio="${esc(n)}" data-volver="precios"
+                          style="width:100%;text-align:left">
+            <div class="item-b">
+              <div class="item-n">${esc(n)}</div>
+              <div class="item-s">${ETIQUETA_FUENTE[fte]}</div>
+            </div>
+            <span class="item-p ${fte==='tuyo'?'edited':''}">${mxn(unit*ref)} / ${etq}</span>
+          </button>`;
+        }).join('')}
+      </div>`).join('')}
+    <p class="price-hint" style="text-align:left;padding:12px 4px 0">
+      Toca cualquiera para corregirlo. Los que dicen «PROFECO» se actualizan solos cada
+      semana; los que dicen «estimado» no tienen fuente pública y dependen de ti.
+    </p>`);
 }
 
 /* ============================================================
@@ -622,9 +694,9 @@ function verReceta(id){
     <div class="sec"><h2>Ingredientes</h2>${d?`<span class="act">escalado ×${m.toFixed(2).replace(/\.?0+$/,'')}</span>`:''}</div>
     <div class="card">
       ${r.ingredientes.map(i=>`<div class="row">
-        <div class="row-t"><strong>${esc(i.n)}</strong><span>${esc(i.p)}</span></div>
+        <div class="row-t"><strong>${esc(i.n)}</strong><span>${esc(pasilloDe(i))}</span></div>
         <div style="text-align:right;flex:none">
-          <div style="font-size:15px;font-weight:700">${fmtCant(i.c*m,i.u)}</div>
+          <div style="font-size:15px;font-weight:700">${fmtCant(i.c*m,unidadDe(i))}</div>
           <div style="font-size:12.5px;color:${editado(i.n)?'var(--accent)':'var(--text-2)'}">${mxn(precioIng(i,m))}</div>
         </div>
       </div>`).join('')}
@@ -727,24 +799,21 @@ function renderAjustes(){
          <span>Se podrá elegir en cualquier día de la semana</span></div>
        </button>`;
 
-  const n  = Object.keys(S.precios).length;
-  const np = Object.keys(S.profeco).length;
+  const mios = Object.keys(S.precios).length;
+  const auto = Object.keys(S.profeco).length;
+  const tot  = Object.keys(S.catalogo).length;
   const meta = S.profecoMeta;
   const cuando = meta && meta.actualizado
     ? new Date(meta.actualizado).toLocaleDateString('es-MX',{day:'numeric',month:'long'})
     : null;
 
   $('#setPrecios').innerHTML = `
-    <div class="row">
-      <div class="row-t"><strong>Precios de PROFECO</strong>
-        <span>${np ? `${np} ingredientes · ${esc(meta.ciudad||'')}${cuando?' · '+cuando:''}`
-                   : 'Aún sin descargar — sincroniza abajo'}</span></div>
-    </div>
-    <div class="row">
-      <div class="row-t"><strong>Corregidos por ti</strong>
-        <span>${n ? n+' ingrediente'+(n>1?'s':'')+' con tu precio' : 'Ninguno'}</span></div>
-      ${n?`<button class="act" id="resetPrecios" style="color:var(--danger);font-weight:600">Borrar</button>`:''}
-    </div>`;
+    <button class="row" id="abrirPrecios" style="width:100%;text-align:left">
+      <div class="row-t"><strong>Ver y editar todos los precios</strong>
+        <span>${tot ? `${tot} ingredientes · ${auto} de PROFECO${cuando?' al '+cuando:''}${mios?` · ${mios} tuyos`:''}`
+                    : 'Sincroniza para bajar la lista maestra'}</span></div>
+      <div class="chev"></div>
+    </button>`;
 
   const est = {
     local:         ['Sin conectar',   'Pega tu repo y token abajo'],
@@ -902,18 +971,31 @@ document.addEventListener('click', e=>{
   }
 
   // Precios
-  const pe=t.closest('[data-precio]');    if(pe) return editarPrecio(pe.dataset.precio);
+  const pe=t.closest('[data-precio]');    if(pe) return editarPrecio(pe.dataset.precio, pe.dataset.volver);
   const sp=t.closest('[data-savep]');
   if(sp){
     const v=Number($('#precioInput').value);
     const cant=Number(sp.dataset.cant);
     if(!(v>0)||!(cant>0)) return toast('Escribe un precio válido');
     S.precios[sp.dataset.savep]=v/cant;
-    cerrarSheet(); generarLista(); return toast('Precio actualizado');
+    if(S.lista) generarLista();
+    renderAjustes();
+    if(sp.dataset.volver==='precios') pantallaPrecios(); else cerrarSheet();
+    return toast('Precio actualizado');
   }
   const rp=t.closest('[data-resetp]');
-  if(rp){ delete S.precios[rp.dataset.resetp]; cerrarSheet(); generarLista(); return toast('Precio original'); }
-  if(t.closest('#resetPrecios')){ S.precios={}; renderAjustes(); if(S.lista) generarLista(); return toast('Precios restaurados'); }
+  if(rp){
+    delete S.precios[rp.dataset.resetp];
+    if(S.lista) generarLista();
+    renderAjustes();
+    if(rp.dataset.volver==='precios') pantallaPrecios(); else cerrarSheet();
+    return toast('Precio automático');
+  }
+  if(t.closest('#resetPrecios')){
+    S.precios={}; renderAjustes(); if(S.lista) generarLista();
+    pantallaPrecios(); return toast('Precios restaurados');
+  }
+  if(t.closest('#abrirPrecios')) return pantallaPrecios();
 
   if(t.closest('[data-edit]')) return toast('El editor llega en la próxima versión');
   if(t.closest('#saveRecipe')){ cerrarSheet(); guardarRecetasEnGitHub(); return; }
@@ -967,9 +1049,10 @@ $('#setBudget').addEventListener('input', e=>{
 /* ============================================================
    Carga de datos: caché local primero, GitHub después
    ============================================================ */
-function aplicarDatos(recetas, precios){
+function aplicarDatos(recetas, precios, catalogo){
   if (recetas && recetas.length) RECETAS = recetas;
-  if (precios) S.profeco = precios;
+  if (precios)  S.profeco  = precios;
+  if (catalogo) S.catalogo = catalogo;
   renderChips(); renderRecetas();
   if (S.vista === 'plan')    renderPlan();
   if (S.vista === 'mandado' && S.lista) generarLista();
@@ -985,9 +1068,11 @@ async function sincronizar({ silencioso = false } = {}){
   if (S.vista === 'ajustes') renderAjustes();
 
   try {
-    const [r, p] = await Promise.allSettled([ GH.leer('recetas.json'), GH.leer('precios.json') ]);
+    const [r, p, c] = await Promise.allSettled([
+      GH.leer('recetas.json'), GH.leer('precios.json'), GH.leer('ingredientes.json')
+    ]);
 
-    let recetas = null, precios = null;
+    let recetas = null, precios = null, catalogo = null;
     if (r.status === 'fulfilled'){
       recetas = r.value.datos.recetas;
       S.sync.sha = r.value.sha;
@@ -998,11 +1083,15 @@ async function sincronizar({ silencioso = false } = {}){
       S.profecoMeta = p.value.datos;
       Cache.guardar('precios', p.value.datos);
     }
-    if (r.status === 'rejected' && p.status === 'rejected') throw r.reason;
+    if (c.status === 'fulfilled'){
+      catalogo = c.value.datos.ingredientes;
+      Cache.guardar('catalogo', c.value.datos);
+    }
+    if (r.status === 'rejected' && p.status === 'rejected' && c.status === 'rejected') throw r.reason;
 
     S.sync.estado = 'ok';
     S.sync.fecha  = new Date().toISOString();
-    aplicarDatos(recetas, precios);
+    aplicarDatos(recetas, precios, catalogo);
     if (!silencioso) toast('Actualizado desde GitHub');
   } catch (e){
     S.sync.estado = 'error';
@@ -1067,14 +1156,28 @@ function normalizarSemana(){
   });
 }
 
+/* Si todavía no hay lista maestra (nunca has sincronizado), la armamos con lo que
+   traen las recetas incluidas. Así la pantalla de precios sirve desde el arranque. */
+function catalogoDeRespaldo(){
+  if (Object.keys(S.catalogo).length) return;
+  const cat = {};
+  RECETAS.forEach(r => r.ingredientes.forEach(i => {
+    if (cat[i.n] || !i.u) return;
+    cat[i.n] = { unidad:i.u, pasillo:i.p, precio_referencia: i.precio/i.c, profeco:null,
+                 nota:'Estimado; sincroniza para traer el precio real' };
+  }));
+  S.catalogo = cat;
+}
+
 function arrancar(){
   recuperar();
   normalizarSemana();
   $('#setBudget').value = S.presupuesto;
   // 1. lo que haya en caché, para que abra al instante y sin internet
-  const rc = Cache.leer('recetas'), pc = Cache.leer('precios');
+  const rc = Cache.leer('recetas'), pc = Cache.leer('precios'), cc = Cache.leer('catalogo');
   if (pc) S.profecoMeta = pc;
-  aplicarDatos(rc && rc.recetas, pc && pc.precios);
+  aplicarDatos(rc && rc.recetas, pc && pc.precios, cc && cc.ingredientes);
+  catalogoDeRespaldo();
   ir('recetas');
 
   // 2. y de fondo, lo último de GitHub

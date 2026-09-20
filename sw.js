@@ -1,5 +1,5 @@
 /* Service worker: la app abre aunque no haya internet. */
-const VERSION = 'recetas-v5';
+const VERSION = 'recetas-v6';
 const CONCHA = [
   './', './index.html', './styles.css', './app.js', './github.js',
   './manifest.webmanifest',
