@@ -179,6 +179,43 @@ function fmtBascula(c,u){
   return Math.round(c)+' '+u;
 }
 
+let _alertaOk = null;
+function confirmar(titulo, texto, etiquetaOk, alAceptar, { destructivo = false } = {}){
+  if ($('#alerta').classList.contains('on')) return;   // nunca apilar diálogos
+  _alertaOk = alAceptar;
+  $('#alertaCuerpo').innerHTML =
+    `<h4>${esc(titulo)}</h4><p>${esc(texto)}</p>`;
+  $('#alertaOk').textContent = etiquetaOk;
+  $('#alertaOk').className = destructivo ? 'danger' : '';
+  $('#alerta').classList.add('on');
+}
+function cerrarAlerta(){ $('#alerta').classList.remove('on'); _alertaOk = null; }
+
+/* El plan cambió y ya hay lista: preguntamos si la rehacemos.
+   Va con retraso para que una ráfaga de ajustes pregunte una sola vez. */
+let _tPlan = null;
+function planCambio(){
+  if (!S.lista) return;
+  clearTimeout(_tPlan);
+  _tPlan = setTimeout(() => {
+    confirmar('Cambiaste el plan',
+      'Tu lista del mandado quedó de antes. ¿La actualizo con las recetas de esta semana?',
+      'Actualizar',
+      () => { generarLista(); if (S.vista === 'mandado') renderMandado(); toast('Lista actualizada'); });
+  }, 700);
+}
+
+/* Se marcó el último artículo */
+function revisarCompraTerminada(){
+  if (!S.lista) return;
+  if (S.lista.n - Object.keys(S.marcados).length !== 0) return;
+  confirmar('Terminaste la compra',
+    `Marcaste los ${S.lista.n} artículos de la lista. ¿La limpio para la próxima semana?`,
+    'Limpiar',
+    () => { S.lista = null; S.marcados = {}; renderMandado(); toast('Lista limpia'); },
+    { destructivo:true });
+}
+
 function toast(msg){
   const t=$('#toast'); t.textContent=msg; t.classList.add('on');
   clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('on'),2200);
@@ -342,6 +379,9 @@ function generarLista(){
     });
   });
   const items=Object.values(acc).map(i=>({...i, precio:i.unit*i.c}));
+  // Si ya ibas a medio súper, respetamos lo que llevas marcado
+  const vigentes=new Set(items.map(i=>i.n+'|'+i.u));
+  Object.keys(S.marcados).forEach(k=>{ if(!vigentes.has(k)) delete S.marcados[k]; });
   S.lista={
     grupos: PASILLOS.map(p=>({pasillo:p, items:items.filter(i=>i.p===p).sort((a,b)=>b.precio-a.precio)}))
                     .filter(g=>g.items.length),
@@ -621,6 +661,9 @@ function ir(v){
 document.addEventListener('click', e=>{
   const t=e.target;
 
+  if(t.closest('#alertaCancel')) return cerrarAlerta();
+  if(t.closest('#alertaOk')){ const fn=_alertaOk; cerrarAlerta(); if(fn) fn(); return; }
+
   const tab=t.closest('.tab');            if(tab) return ir(tab.dataset.v);
   const chip=t.closest('.chip');          if(chip){ S.filtro=chip.dataset.c; renderChips(); renderRecetas(); return; }
   const card=t.closest('.rcard');         if(card) return verReceta(card.dataset.r);
@@ -635,7 +678,8 @@ document.addEventListener('click', e=>{
   if(pick){
     S.semana[S.diaEditando] = pick.dataset.pick || null;
     cerrarSheet(); renderPlan(); renderRecetas();
-    return toast(pick.dataset.pick ? 'Asignado' : 'Día libre');
+    toast(pick.dataset.pick ? 'Asignado' : 'Día libre');
+    return planCambio();
   }
 
   // Personas (Plan)
@@ -643,7 +687,7 @@ document.addEventListener('click', e=>{
   if(sw){
     const p=S.personas[+sw.dataset.per];
     if(activas().length===1 && p.on) return toast('Deja al menos una persona');
-    p.on=!p.on; renderPlan(); return;
+    p.on=!p.on; renderPlan(); return planCambio();
   }
 
   // Factor (Ajustes)
@@ -651,7 +695,7 @@ document.addEventListener('click', e=>{
   if(pf){
     const p=S.personas[+pf.dataset.i];
     p.factor=Math.min(2.5,Math.max(0.5,Math.round((p.factor+Number(pf.dataset.pf)*0.1)*10)/10));
-    renderAjustes(); return;
+    renderAjustes(); return planCambio();
   }
 
   // Agregar al plan → primer día libre
@@ -661,7 +705,8 @@ document.addEventListener('click', e=>{
     if(!libre){ return toast('La semana ya está llena'); }
     S.semana[libre.k]=ap.dataset.addplan;
     cerrarSheet(); renderRecetas();
-    return toast('Agregado el '+libre.l.toLowerCase());
+    toast('Agregado el '+libre.l.toLowerCase());
+    return planCambio();
   }
 
   // Precios
@@ -691,14 +736,17 @@ document.addEventListener('click', e=>{
   }
 
   if(t.closest('#genList')){ generarLista(); ir('mandado'); return; }
-  if(t.closest('#clearWeek')){ DIAS.forEach(d=>S.semana[d.k]=null); renderPlan(); renderRecetas(); return; }
+  if(t.closest('#clearWeek')){ DIAS.forEach(d=>S.semana[d.k]=null); renderPlan(); renderRecetas(); return planCambio(); }
 
   // Marcar artículo
   const ck=t.closest('[data-check]');
   if(ck){
     const k=ck.dataset.check;
+    const marcando = !S.marcados[k];
     if(S.marcados[k]) delete S.marcados[k]; else S.marcados[k]=true;
-    renderMandado(); return;
+    renderMandado();
+    if(marcando) revisarCompraTerminada();
+    return;
   }
 
   const gsw=t.closest('#swAuto, #swDark');
