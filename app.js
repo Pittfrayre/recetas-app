@@ -766,8 +766,14 @@ function cerrarSheet(){
 
 function verReceta(id){
   const r=rec(id), d=diasDe(id), m=d?multDe(r):1;
-  // Por porción (lo que pidió Pedro) o receta completa, según el interruptor
-  const esc1 = S.verPorcion ? 1/r.porciones : 1;
+  /* Dos vistas: una porción, o lo que de verdad tienes que cocinar. Si la
+     receta está en el plan, eso incluye los días y quién come; si no, es la
+     receta tal cual. Lo que no puede pasar es que la tarjeta de arriba diga
+     4.6 porciones y la lista de ingredientes esté calculada para 4. */
+  const escPlan = d ? m : 1;
+  const esc1 = S.verPorcion ? 1/r.porciones : escPlan;
+  const porcionesReales = d ? porcionesDe(r) : r.porciones;
+  const nDias = d;
   const rp=reparto(r);
   const diasTxt = d
     ? DIAS.filter(x=>S.semana[x.k]===id).map(x=>x.l).join(', ')
@@ -790,12 +796,16 @@ function verReceta(id){
 
     <div class="sec">
       <h2>Ingredientes</h2>
-      <button class="act" id="togglePorcion">${S.verPorcion ? 'ver receta completa' : 'ver 1 porción'}</button>
+      <button class="act" id="togglePorcion">${S.verPorcion
+        ? (nDias ? 'ver lo que necesito' : 'ver receta completa')
+        : 'ver 1 porción'}</button>
     </div>
     <p class="price-hint" style="text-align:left;padding:0 4px 8px">
       ${S.verPorcion
         ? `Cantidades para <strong>una porción</strong>. La receta rinde ${r.porciones}.`
-        : `Cantidades para la receta completa: <strong>${r.porciones} porciones</strong>.`}
+        : (nDias
+            ? `Cantidades para <strong>tus ${nDias} día${nDias>1?'s':''}</strong>: ${porcionesReales.toFixed(1).replace('.0','')} porciones, la receta ×${escPlan.toFixed(2).replace(/\.?0+$/,'')}.`
+            : `Cantidades para la <strong>receta completa</strong>: ${r.porciones} porciones.`)}
     </p>
     <div class="card">
       ${r.ingredientes.map(i=>`<div class="row">
@@ -838,7 +848,9 @@ function verReceta(id){
       <div class="sec"><h2>Reparto por lonche</h2></div>
       <div class="note">Asigna esta receta a un día del plan y elige quién come, y aquí te digo cuántos gramos van en cada táper.</div>`}
 
-    <div class="sec"><h2>Preparación</h2>${S.verPorcion?'':`<span class="act">${r.porciones} porciones</span>`}</div>
+    <div class="sec"><h2>Preparación</h2>${S.verPorcion
+      ? '<span class="act">1 porción</span>'
+      : `<span class="act">${porcionesReales.toFixed(1).replace('.0','')} porciones</span>`}</div>
     <div class="card"><ol class="steps">${r.pasos.map(p=>{
       const txt = typeof p === 'string' ? p : p.t;
       const usa = (typeof p === 'string' ? [] : (p.usa || []))
