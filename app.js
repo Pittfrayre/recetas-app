@@ -886,8 +886,30 @@ function verReceta(id){
     <div class="sec"><h2>Notas del nutriólogo</h2></div>
     <div class="note">${esc(r.notas)}</div>
 
-    <div style="margin-top:20px;display:flex;flex-direction:column;gap:10px">
-      <button class="btn" data-addplan="${r.id}">${d?'Agregar otro día':'Agregar al plan'}</button>
+    ${planeable(r) ? `
+      <div class="sec"><h2>Agregar a la semana</h2>${
+        nDias ? `<span class="act">${nDias} día${nDias>1?'s':''}</span>` : ''}</div>
+      <div class="dias-chips">
+        ${DIAS.map(dd => {
+          const dia  = S.semana[dd.k];
+          const mia  = dia && dia.receta === r.id;
+          const otra = dia && dia.receta !== r.id ? rec(dia.receta) : null;
+          return `<button class="dia-chip ${mia?'mia':''} ${otra?'ocupada':''}"
+                          data-plandia="${dd.k}" data-receta="${r.id}">
+            <b>${dd.n}</b>
+            <span>${mia ? '✓' : otra ? esc(otra.emoji) : '+'}</span>
+          </button>`;
+        }).join('')}
+      </div>
+      <p class="price-hint" style="text-align:left;padding:8px 4px 0">
+        Toca un día para agregar esta receta; tócalo otra vez para quitarla. Los días
+        que ya tienen algo se marcan con su platillo.
+      </p>` : `
+      <div class="note" style="margin-top:20px">
+        Esto es ${esc(familiaDe(r).toLowerCase())}: se prepara aparte y no se asigna a un día.
+      </div>`}
+
+    <div style="margin-top:20px">
       <button class="btn ghost sm" data-edit="${r.id}">Editar receta</button>
     </div>`);
 }
@@ -1109,15 +1131,29 @@ document.addEventListener('click', e=>{
     return;
   }
 
-  // Agregar al plan → primer día libre
-  const ap=t.closest('[data-addplan]');
-  if(ap){
-    const libre=DIAS.find(d=>!S.semana[d.k]);
-    if(!libre){ return toast('La semana ya está llena'); }
-    S.semana[libre.k]={ receta:ap.dataset.addplan, comensales:S.personas.map(p=>p.id), invitados:[] };
-    cerrarSheet(); renderRecetas();
-    toast('Agregado el '+libre.l.toLowerCase());
-    return planCambio();
+  // Agregar o quitar esta receta de un día concreto, desde la propia receta
+  const pd=t.closest('[data-plandia]');
+  if(pd){
+    const k = pd.dataset.plandia, id = pd.dataset.receta;
+    const dia = S.semana[k], d = DIAS.find(x=>x.k===k);
+    const refrescar = () => { verReceta(id); renderRecetas(); renderPlan(); planCambio(); };
+
+    if (dia && dia.receta === id){            // ya estaba: la quito
+      S.semana[k] = null;
+      refrescar(); return toast('Quitada del '+d.l.toLowerCase());
+    }
+    if (dia){                                 // el día está ocupado por otra
+      const otra = rec(dia.receta);
+      return confirmar(d.l,
+        `Ese día tienes ${otra ? otra.nombre : 'otra receta'}. ¿La cambio por esta?`,
+        'Cambiar',
+        () => {
+          S.semana[k] = { receta:id, comensales:dia.comensales, invitados:dia.invitados };
+          refrescar(); toast('Cambiada');
+        });
+    }
+    S.semana[k] = { receta:id, comensales:S.personas.map(p=>p.id), invitados:[] };
+    refrescar(); return toast('Agregada el '+d.l.toLowerCase());
   }
 
   // Precios

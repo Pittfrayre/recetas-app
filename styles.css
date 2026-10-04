@@ -283,3 +283,17 @@ button.item-p.edited{color:var(--accent)}
   background:var(--accent-soft);color:var(--accent);white-space:nowrap}
 .dosis b{font-weight:600;opacity:.75}
 ol.steps li > div{flex:1;min-width:0}
+
+/* ---------- Elegir días desde la receta ---------- */
+.dias-chips{display:flex;gap:6px}
+.dia-chip{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;
+  padding:9px 2px;border-radius:12px;background:var(--card);box-shadow:var(--shadow);
+  transition:transform .12s, background .15s}
+.dia-chip:active{transform:scale(.94)}
+.dia-chip b{font-size:10.5px;font-weight:800;letter-spacing:.02em;color:var(--text-2)}
+.dia-chip span{font-size:15px;line-height:1.1;color:var(--text-3)}
+.dia-chip.mia{background:var(--accent)}
+.dia-chip.mia b{color:#fff}
+.dia-chip.mia span{color:#fff;font-weight:800}
+.dia-chip.ocupada{background:var(--chip)}
+.dia-chip.ocupada span{font-size:14px}
