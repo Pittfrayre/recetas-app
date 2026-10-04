@@ -6,6 +6,18 @@
 
 const PASILLOS = ['Carnes y pescado','Frutas y verduras','Lácteos','Abarrotes','Panadería','Especias'];
 
+/* Qué clase de cosa es cada receta. Lo no planeable —mantequilla casera, una
+   mezcla de especias— no tiene sentido asignarlo a un martes, así que no
+   aparece en el selector de día. */
+let FAMILIAS = {
+  'Platillo':{planeable:true}, 'Guarnición':{planeable:true}, 'Sopa':{planeable:true},
+  'Postre':{planeable:true}, 'Bebida':{planeable:true},
+  'Despensa casera':{planeable:false}, 'Mezcla de especias':{planeable:false},
+  'Salsa y aderezo':{planeable:false}
+};
+const familiaDe  = r => r.familia || 'Platillo';
+const planeable  = r => (FAMILIAS[familiaDe(r)] || {}).planeable !== false;
+
 const DIAS = [
   {k:'lun', n:'LUN', l:'Lunes'},    {k:'mar', n:'MAR', l:'Martes'},
   {k:'mie', n:'MIÉ', l:'Miércoles'},{k:'jue', n:'JUE', l:'Jueves'},
@@ -362,7 +374,10 @@ const firmaComensales = g => g.comensales.map(p=>p.nombre+':'+p.factor).join('|'
    Vista: Recetas
    ============================================================ */
 function renderChips(){
-  const cats=['Todas','Alto en proteína','Apto embarazo','Ligero','Económico'];
+  const fams   = [...new Set(RECETAS.map(familiaDe))];
+  const grupos = [...new Set(RECETAS.filter(r=>r.grupo).map(r=>r.grupo))].sort();
+  const cats = ['Todas', ...fams.filter(f=>f!=='Platillo'), ...grupos,
+                'Apto embarazo','Económico'];
   $('#chips').innerHTML = cats.map(c =>
     `<button class="chip ${c===S.filtro?'on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('');
 }
@@ -370,7 +385,10 @@ function renderChips(){
 function renderRecetas(){
   const q = S.busqueda.trim().toLowerCase();
   const list = RECETAS.filter(r => {
-    if (S.filtro!=='Todas' && !r.tags.includes(S.filtro)) return false;
+    if (S.filtro!=='Todas'
+        && !r.tags.includes(S.filtro)
+        && familiaDe(r) !== S.filtro
+        && r.grupo !== S.filtro) return false;
     if (!q) return true;
     return r.nombre.toLowerCase().includes(q) || r.ingredientes.some(i=>i.n.toLowerCase().includes(q));
   });
@@ -393,6 +411,8 @@ function renderRecetas(){
           <span>${mxn(costoRec(r)/r.porciones)} / porción</span>
         </div>
         <div class="tagrow">
+          ${r.grupo ? `<span class="tag">${esc(r.grupo)}</span>` : ''}
+          ${familiaDe(r)!=='Platillo' ? `<span class="tag">${esc(familiaDe(r))}</span>` : ''}
           ${r.tags.map(t=>`<span class="tag ${t==='Alto en proteína'?'p':t==='Apto embarazo'?'e':''}">${esc(t)}</span>`).join('')}
           ${d?`<span class="tag p">${d} día${d>1?'s':''} esta semana</span>`:''}
         </div>
@@ -457,7 +477,7 @@ function sheetDia(k, paso){
     abrirSheet(d.l, `
       <p class="price-hint" style="text-align:left;padding:0 4px 12px">Paso 1 de 2 · ¿Qué se cocina?</p>
       <div class="card">
-        ${RECETAS.map(r=>`
+        ${RECETAS.filter(planeable).map(r=>`
           <button class="day" data-pick="${r.id}">
             <div class="thumb"><img src="img/${r.id}-sq.jpg" alt="" loading="lazy"></div>
             <div class="day-t">
@@ -1214,6 +1234,10 @@ async function sincronizar({ silencioso = false } = {}){
     let recetas = null, precios = null, catalogo = null;
     if (r.status === 'fulfilled'){
       recetas = r.value.recetas;
+      if (r.value._familias){
+        const f = { ...r.value._familias }; delete f._nota;
+        FAMILIAS = f;
+      }
       S.sync.recetasDeGitHub = true;
       Cache.guardar('recetas', r.value);
     }

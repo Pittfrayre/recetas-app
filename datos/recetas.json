@@ -5,6 +5,8 @@
    "id": "wrap-pollo",
    "nombre": "Wrap de pollo a la plancha",
    "emoji": "🌯",
+   "familia": "Platillo",
+   "grupo": "Pollo",
    "categoria": "Comida",
    "porciones": 4,
    "tiempo": 30,
@@ -137,6 +139,8 @@
    "id": "bowl-carne",
    "nombre": "Bowl mexicano de carne, arroz y frijoles",
    "emoji": "🥙",
+   "familia": "Platillo",
+   "grupo": "Res",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 40,
@@ -297,6 +301,8 @@
    "id": "tilapia-horno",
    "nombre": "Tilapia al horno con verduras",
    "emoji": "🐟",
+   "familia": "Platillo",
+   "grupo": "Pescado",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 30,
@@ -404,6 +410,8 @@
    "id": "atun-sellado",
    "nombre": "Atún sellado con vinagreta cítrica",
    "emoji": "🍣",
+   "familia": "Platillo",
+   "grupo": "Pescado",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 25,
@@ -519,6 +527,8 @@
    "id": "ensalada-pollo",
    "nombre": "Ensalada completa de pollo con ranch casero",
    "emoji": "🥗",
+   "familia": "Platillo",
+   "grupo": "Pollo",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 30,
@@ -694,6 +704,8 @@
    "id": "lentejas-huevo",
    "nombre": "Lentejas guisadas con huevo",
    "emoji": "🍲",
+   "familia": "Platillo",
+   "grupo": "Leguminosa",
    "categoria": "Comida",
    "porciones": 4,
    "tiempo": 40,
@@ -802,6 +814,8 @@
    "id": "tinga-pollo-frijoles",
    "nombre": "Tinga de pollo con frijoles",
    "emoji": "🌶️",
+   "familia": "Platillo",
+   "grupo": "Pollo",
    "categoria": "Comida",
    "porciones": 4,
    "tiempo": 50,
@@ -922,6 +936,8 @@
    "id": "pasta-atun-espinaca",
    "nombre": "Pasta con atún, jitomate y espinaca",
    "emoji": "🍝",
+   "familia": "Platillo",
+   "grupo": "Pescado",
    "categoria": "Comida",
    "porciones": 4,
    "tiempo": 30,
@@ -1031,6 +1047,8 @@
    "id": "garbanzo-sardina",
    "nombre": "Garbanzos con sardina y espinaca",
    "emoji": "🐟",
+   "familia": "Platillo",
+   "grupo": "Pescado",
    "categoria": "Comida",
    "porciones": 4,
    "tiempo": 45,
@@ -1140,6 +1158,8 @@
    "id": "nopales-huevo",
    "nombre": "Nopales con huevo y frijoles",
    "emoji": "🌵",
+   "familia": "Platillo",
+   "grupo": "Huevo",
    "categoria": "Comida",
    "porciones": 4,
    "tiempo": 35,
@@ -1265,6 +1285,8 @@
    "id": "arroz-con-pollo",
    "nombre": "Arroz con pollo y verduras",
    "emoji": "🍚",
+   "familia": "Platillo",
+   "grupo": "Pollo",
    "categoria": "Comida",
    "porciones": 4,
    "tiempo": 50,
@@ -1377,6 +1399,8 @@
    "id": "frittata-papa-espinaca",
    "nombre": "Frittata de papa, espinaca y panela",
    "emoji": "🍳",
+   "familia": "Platillo",
+   "grupo": "Huevo",
    "categoria": "Comida",
    "porciones": 4,
    "tiempo": 35,
@@ -1481,6 +1505,8 @@
    "id": "pasta-pollo-brocoli",
    "nombre": "Pasta con pollo y brócoli",
    "emoji": "🥦",
+   "familia": "Platillo",
+   "grupo": "Pollo",
    "categoria": "Comida",
    "porciones": 4,
    "tiempo": 35,
@@ -1589,6 +1615,8 @@
    "id": "pollo-limon-arroz",
    "nombre": "Pollo al limón y ajo con arroz y verduras",
    "emoji": "🍗",
+   "familia": "Platillo",
+   "grupo": "Pollo",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 40,
@@ -1728,6 +1756,8 @@
    "id": "pasta-mediterranea-pollo",
    "nombre": "Pasta mediterránea con pollo y verduras",
    "emoji": "🍝",
+   "familia": "Platillo",
+   "grupo": "Pollo",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 35,
@@ -1888,6 +1918,8 @@
    "id": "fajitas-pollo",
    "nombre": "Fajitas de pollo con frijoles y tortillas",
    "emoji": "🌮",
+   "familia": "Platillo",
+   "grupo": "Pollo",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 35,
@@ -2056,6 +2088,8 @@
    "id": "pollo-teriyaki",
    "nombre": "Pollo teriyaki casero con arroz y verduras",
    "emoji": "🥢",
+   "familia": "Platillo",
+   "grupo": "Pollo",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 30,
@@ -2208,6 +2242,8 @@
    "id": "picadillo-papa",
    "nombre": "Picadillo de res con papa y ensalada",
    "emoji": "🥘",
+   "familia": "Platillo",
+   "grupo": "Res",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 45,
@@ -2389,6 +2425,8 @@
    "id": "bowl-mediterraneo-pollo",
    "nombre": "Bowl mediterráneo de pollo y garbanzos",
    "emoji": "🫒",
+   "familia": "Platillo",
+   "grupo": "Pollo",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 40,
@@ -2549,6 +2587,8 @@
    "id": "pollo-chipotle",
    "nombre": "Pollo cremoso al chipotle con arroz y brócoli",
    "emoji": "🌶️",
+   "familia": "Platillo",
+   "grupo": "Pollo",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 40,
@@ -2704,6 +2744,8 @@
    "id": "albondigas-pure",
    "nombre": "Albóndigas de res en salsa con puré y brócoli",
    "emoji": "🍖",
+   "familia": "Platillo",
+   "grupo": "Res",
    "categoria": "Comida",
    "porciones": 2,
    "tiempo": 55,
@@ -2851,5 +2893,53 @@
    ],
    "notas": "Embarazo: parte una albóndiga antes de servir para confirmar que no quede nada rosa por dentro. Pedro pidió carne magra: con la 90/10 en vez de la corriente baja unas 125 kcal por porción. La avena no es relleno: hidrata la carne y las deja suaves al recalentar."
   }
- ]
+ ],
+ "_familias": {
+  "_nota": "familia dice qué clase de cosa es; grupo subdivide los platillos por proteína. Solo lo planeable aparece al asignar un día de la semana.",
+  "Platillo": {
+   "planeable": true,
+   "grupos": [
+    "Pollo",
+    "Res",
+    "Cerdo",
+    "Pescado",
+    "Mariscos",
+    "Huevo",
+    "Leguminosa",
+    "Vegetariano"
+   ]
+  },
+  "Guarnición": {
+   "planeable": true
+  },
+  "Sopa": {
+   "planeable": true,
+   "grupos": [
+    "Pollo",
+    "Res",
+    "Cerdo",
+    "Pescado",
+    "Mariscos",
+    "Huevo",
+    "Leguminosa",
+    "Vegetariano"
+   ]
+  },
+  "Postre": {
+   "planeable": true
+  },
+  "Bebida": {
+   "planeable": true
+  },
+  "Despensa casera": {
+   "planeable": false,
+   "_nota": "lo que normalmente comprarías: pan, mantequilla, caldos, bases"
+  },
+  "Mezcla de especias": {
+   "planeable": false
+  },
+  "Salsa y aderezo": {
+   "planeable": false
+  }
+ }
 }

@@ -81,6 +81,36 @@ def validar_entrada_catalogo(nombre, e):
 
 
 
+
+FAMILIAS = {
+    "Platillo":           ["Pollo","Res","Cerdo","Pescado","Mariscos","Huevo","Leguminosa","Vegetariano"],
+    "Sopa":               ["Pollo","Res","Cerdo","Pescado","Mariscos","Huevo","Leguminosa","Vegetariano"],
+    "Guarnición":         None,
+    "Postre":             None,
+    "Bebida":             None,
+    "Despensa casera":    None,
+    "Mezcla de especias": None,
+    "Salsa y aderezo":    None,
+}
+
+
+def revisar_familia(r, errores, prefijo=""):
+    """familia dice qué clase de cosa es; grupo subdivide por proteína.
+
+    Importa porque lo no planeable -una mezcla de especias, mantequilla casera-
+    no debe aparecer cuando asignas el martes de la semana.
+    """
+    fam = r.get("familia")
+    if fam not in FAMILIAS:
+        errores.append(f'{prefijo}familia "{fam}" inválida; las válidas son {sorted(FAMILIAS)}')
+        return
+    grupos = FAMILIAS[fam]
+    if grupos is None:
+        if r.get("grupo"):
+            errores.append(f'{prefijo}la familia "{fam}" no lleva grupo, y trae "{r["grupo"]}"')
+    elif r.get("grupo") not in grupos:
+        errores.append(f'{prefijo}grupo "{r.get("grupo")}" inválido para {fam}; usa uno de {grupos}')
+
 def revisar_pasos(r, errores, prefijo=""):
     """Cada paso dice qué ingredientes entran en él y en qué cantidad.
 
@@ -157,6 +187,7 @@ def revisar(nueva, catalogo, recetas):
                 errores.append(f'"{n}" está en la lista de ingredientes excluidos')
 
     revisar_pasos(nueva, errores)
+    revisar_familia(nueva, errores)
 
     return errores, faltantes
 
