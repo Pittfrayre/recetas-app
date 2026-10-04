@@ -156,6 +156,7 @@ const S = {
     vie:{ receta:'tilapia-horno', comensales:['p1','p2'], invitados:[] },
     sab:null, dom:null
   },
+  verPorcion:true,       // el detalle arranca mostrando 1 porción
   pasoDia:'receta',      // 'receta' | 'comensales'
   nuevoInvitado:null,    // {nombre, factor} mientras se captura
   precios:{},        // { ingrediente: precio por unidad }  ← lo que tú corriges a mano
@@ -210,8 +211,11 @@ function fmtIngrediente(cant, i){
   const u = unidadDe(i);
   const info = maestra(i.n) || {};
   if (u === 'pz' && info.nombre_pieza){          // dientes de ajo, no "piezas"
-    const n = Math.round(cant * 10) / 10;
-    return `${n} ${n === 1 ? info.nombre_pieza.sing : info.nombre_pieza.plural}`;
+    const n = Math.round(cant * 4) / 4;
+    const e = Math.floor(n), r = n - e;
+    const sim = { 0:'', 0.25:'¼', 0.5:'½', 0.75:'¾' }[r] || '';
+    const num = (e || !sim ? e : '') + sim || '0';
+    return `${num} ${n <= 1 ? info.nombre_pieza.sing : info.nombre_pieza.plural}`;
   }
   const m = info.medida_cocina;
   if (!m || u === 'pz') return fmtCant(cant, u);
@@ -762,6 +766,8 @@ function cerrarSheet(){
 
 function verReceta(id){
   const r=rec(id), d=diasDe(id), m=d?multDe(r):1;
+  // Por porción (lo que pidió Pedro) o receta completa, según el interruptor
+  const esc1 = S.verPorcion ? 1/r.porciones : 1;
   const rp=reparto(r);
   const diasTxt = d
     ? DIAS.filter(x=>S.semana[x.k]===id).map(x=>x.l).join(', ')
@@ -782,13 +788,21 @@ function verReceta(id){
 
     ${diasTxt?`<div class="note" style="margin-bottom:6px"><b>En tu semana:</b> ${esc(diasTxt)}</div>`:''}
 
-    <div class="sec"><h2>Ingredientes</h2>${d?`<span class="act">escalado ×${m.toFixed(2).replace(/\.?0+$/,'')}</span>`:''}</div>
+    <div class="sec">
+      <h2>Ingredientes</h2>
+      <button class="act" id="togglePorcion">${S.verPorcion ? 'ver receta completa' : 'ver 1 porción'}</button>
+    </div>
+    <p class="price-hint" style="text-align:left;padding:0 4px 8px">
+      ${S.verPorcion
+        ? `Cantidades para <strong>una porción</strong>. La receta rinde ${r.porciones}.`
+        : `Cantidades para la receta completa: <strong>${r.porciones} porciones</strong>.`}
+    </p>
     <div class="card">
       ${r.ingredientes.map(i=>`<div class="row">
         <div class="row-t"><strong>${esc(i.n)}</strong><span>${esc(pasilloDe(i))}</span></div>
         <div style="text-align:right;flex:none">
-          <div style="font-size:15px;font-weight:700">${fmtIngrediente(i.c*m, i)}</div>
-          <div style="font-size:12.5px;color:${editado(i.n)?'var(--accent)':'var(--text-2)'}">${mxn(precioIng(i,m))}</div>
+          <div style="font-size:15px;font-weight:700">${fmtIngrediente(i.c*esc1, i)}</div>
+          <div style="font-size:12.5px;color:${editado(i.n)?'var(--accent)':'var(--text-2)'}">${mxn(precioIng(i,esc1))}</div>
         </div>
       </div>`).join('')}
     </div>
@@ -824,8 +838,18 @@ function verReceta(id){
       <div class="sec"><h2>Reparto por lonche</h2></div>
       <div class="note">Asigna esta receta a un día del plan y elige quién come, y aquí te digo cuántos gramos van en cada táper.</div>`}
 
-    <div class="sec"><h2>Preparación</h2></div>
-    <div class="card"><ol class="steps">${r.pasos.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></div>
+    <div class="sec"><h2>Preparación</h2>${S.verPorcion?'':`<span class="act">${r.porciones} porciones</span>`}</div>
+    <div class="card"><ol class="steps">${r.pasos.map(p=>{
+      const txt = typeof p === 'string' ? p : p.t;
+      const usa = (typeof p === 'string' ? [] : (p.usa || []))
+        .map(u => {
+          const ing = r.ingredientes.find(x => x.n === u.n) || { n:u.n, c:u.c };
+          const txt = fmtIngrediente(u.c*esc1, ing);
+          const yaLoDice = txt.toLowerCase().includes(u.n.toLowerCase().split(' ')[0].slice(0,5));
+          return `<span class="dosis">${txt}${yaLoDice?'':` <b>${esc(u.n)}</b>`}</span>`;
+        }).join('');
+      return `<li><div>${esc(txt)}${usa?`<div class="dosis-row">${usa}</div>`:''}</div></li>`;
+    }).join('')}</ol></div>
 
     <div class="sec"><h2>Notas del nutriólogo</h2></div>
     <div class="note">${esc(r.notas)}</div>
@@ -1065,6 +1089,14 @@ document.addEventListener('click', e=>{
   }
 
   // Precios
+  if(t.closest('#togglePorcion')){
+    S.verPorcion = !S.verPorcion;
+    const abierto = $('#sheetTitle').textContent;
+    const r = RECETAS.find(x => x.nombre === abierto);
+    if (r) verReceta(r.id);
+    return;
+  }
+
   const pe=t.closest('[data-precio]');    if(pe) return editarPrecio(pe.dataset.precio, pe.dataset.volver);
   const sp=t.closest('[data-savep]');
   if(sp){

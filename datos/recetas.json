@@ -61,11 +61,75 @@
     }
    ],
    "pasos": [
-    "Corta la pechuga en tiras delgadas y sazona con ajo en polvo, comino, paprika, sal y pimienta.",
-    "Cocina en sartén con aceite de oliva a fuego medio-alto hasta que no quede nada rosa por dentro.",
-    "Rebana el pimiento, la cebolla y el jitomate en tiras finas. Lava bien la espinaca.",
-    "Mezcla el yogur griego con jugo de limón, sal y pimienta para el aderezo.",
-    "Calienta las tortillas, rellena con pollo, verduras, aguacate y aderezo. Enrolla y envuelve para llevar."
+    {
+     "t": "Corta la pechuga en tiras delgadas y sazona con ajo en polvo, comino, paprika, sal y pimienta.",
+     "usa": [
+      {
+       "n": "Pechuga de pollo",
+       "c": 700
+      },
+      {
+       "n": "Ajo en polvo, comino y paprika",
+       "c": 6
+      }
+     ]
+    },
+    {
+     "t": "Cocina en sartén con aceite de oliva a fuego medio-alto hasta que no quede nada rosa por dentro.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 15
+      }
+     ]
+    },
+    {
+     "t": "Rebana el pimiento, la cebolla y el jitomate en tiras finas. Lava bien la espinaca.",
+     "usa": [
+      {
+       "n": "Pimiento morrón",
+       "c": 180
+      },
+      {
+       "n": "Cebolla morada",
+       "c": 75
+      },
+      {
+       "n": "Jitomate",
+       "c": 120
+      },
+      {
+       "n": "Espinaca fresca",
+       "c": 100
+      }
+     ]
+    },
+    {
+     "t": "Mezcla el yogur griego con jugo de limón, sal y pimienta para el aderezo.",
+     "usa": [
+      {
+       "n": "Yogur griego natural",
+       "c": 60
+      },
+      {
+       "n": "Limón",
+       "c": 1
+      }
+     ]
+    },
+    {
+     "t": "Calienta las tortillas, rellena con pollo, verduras, aguacate y aderezo. Enrolla y envuelve para llevar.",
+     "usa": [
+      {
+       "n": "Tortilla integral grande",
+       "c": 4
+      },
+      {
+       "n": "Aguacate",
+       "c": 1
+      }
+     ]
+    }
    ],
    "notas": "Embarazo: el pollo debe quedar completamente cocido, sin partes rosadas. Lava bien la espinaca antes de usarla."
   },
@@ -400,11 +464,62 @@
     }
    ],
    "pasos": [
-    "Enjuaga la lenteja. No hace falta remojarla.",
-    "Pica la cebolla, el ajo, la zanahoria y el jitomate. Sofríe en aceite de oliva hasta que la cebolla esté transparente.",
-    "Agrega la lenteja y agua que la cubra dos dedos. Cuece 25 minutos a fuego medio, hasta que esté suave pero entera.",
-    "Aparte, cuece los huevos 9 minutos para que la yema quede firme. Pélalos y pártelos por la mitad.",
-    "Sirve la lenteja con el huevo encima y exprime limón al momento de comer."
+    {
+     "t": "Enjuaga la lenteja. No hace falta remojarla.",
+     "usa": [
+      {
+       "n": "Lenteja",
+       "c": 400
+      }
+     ]
+    },
+    {
+     "t": "Pica la cebolla, el ajo, la zanahoria y el jitomate. Sofríe en aceite de oliva hasta que la cebolla esté transparente.",
+     "usa": [
+      {
+       "n": "Cebolla blanca",
+       "c": 150
+      },
+      {
+       "n": "Ajo",
+       "c": 3
+      },
+      {
+       "n": "Zanahoria",
+       "c": 160
+      },
+      {
+       "n": "Jitomate",
+       "c": 360
+      },
+      {
+       "n": "Aceite de oliva",
+       "c": 15
+      }
+     ]
+    },
+    {
+     "t": "Agrega la lenteja y agua que la cubra dos dedos. Cuece 25 minutos a fuego medio, hasta que esté suave pero entera.",
+     "usa": []
+    },
+    {
+     "t": "Aparte, cuece los huevos 9 minutos para que la yema quede firme. Pélalos y pártelos por la mitad.",
+     "usa": [
+      {
+       "n": "Huevo",
+       "c": 4
+      }
+     ]
+    },
+    {
+     "t": "Sirve la lenteja con el huevo encima y exprime limón al momento de comer.",
+     "usa": [
+      {
+       "n": "Limón",
+       "c": 2
+      }
+     ]
+    }
    ],
    "notas": "Embarazo: cuece el huevo hasta que la yema quede firme, nunca tierna. El limón al final no es adorno: la vitamina C multiplica la absorción del hierro de la lenteja, y aquí hay unos 7.5 mg por porción."
   },
