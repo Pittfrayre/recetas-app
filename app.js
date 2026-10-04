@@ -278,7 +278,8 @@ const pasilloDe= i => (maestra(i.n) || {}).pasillo || i.p || 'Abarrotes';
 
 // Prioridad: lo que tú corregiste > PROFECO de esta semana > referencia de la maestra
 function precioUnit(i){
-  if (S.precios[i.n] !== undefined)  return S.precios[i.n];
+  const mio = precioTuyo(i.n, unidadDe(i));
+  if (mio !== null) return mio;
   // El precio automático solo vale si está en la misma unidad que el catálogo.
   // Si no coincide, viene de antes de un cambio de unidades y está desfasado
   // por cientos; mejor caer al de referencia que mostrar un número absurdo.
@@ -292,7 +293,24 @@ const fuentePrecio = n =>
   S.precios[n] !== undefined ? 'tuyo' : (S.profeco[n] ? 'profeco' : 'referencia');
 const ETIQUETA_FUENTE = { tuyo:'tu precio', profeco:'PROFECO', referencia:'estimado' };
 const precioIng  = (i,m=1) => precioUnit(i) * i.c * m;
-const editado    = n => S.precios[n] !== undefined;
+/* Tu precio corregido se guarda junto con la unidad en la que lo capturaste.
+   Si el ingrediente cambió de unidad después (de pieza a gramo, por ejemplo),
+   ese número ya no significa lo mismo y hay que ignorarlo: aplicarlo tal cual
+   multiplicaría el costo por cientos sin que nada lo delate. */
+function precioTuyo(nombre, unidad){
+  const g = S.precios[nombre];
+  if (g === undefined) return null;
+  if (typeof g === 'number'){                 // formato viejo, sin unidad
+    const ref = (maestra(nombre) || {}).precio_referencia;
+    if (ref && (g / ref > 20 || g / ref < 0.05)) return null;   // fuera de toda escala
+    return g;
+  }
+  return g.u === unidad ? g.v : null;
+}
+const editado = n => {
+  const m = maestra(n);
+  return precioTuyo(n, m ? m.unidad : null) !== null;
+};
 
 /* --- plan semanal --- */
 const persona    = id => S.personas.find(p => p.id === id);
@@ -551,7 +569,7 @@ function generarLista(){
   let ahorro = 0; const cadenas = {};
   items.forEach(i => {
     const pf = S.profeco[i.n];
-    if (S.precios[i.n] !== undefined) return;        // si tú lo corregiste, mandas tú
+    if (precioTuyo(i.n, i.u) !== null) return;       // si tú lo corregiste, mandas tú
     if (!pf || !pf.mas_barato || pf.unidad !== i.u) return;
     const dif = (i.unit - pf.mas_barato.precio_unidad) * i.c;
     if (dif > 0){
@@ -1053,7 +1071,8 @@ document.addEventListener('click', e=>{
     const v=Number($('#precioInput').value);
     const cant=Number(sp.dataset.cant);
     if(!(v>0)||!(cant>0)) return toast('Escribe un precio válido');
-    S.precios[sp.dataset.savep]=v/cant;
+    const nom = sp.dataset.savep;
+    S.precios[nom] = { v: v/cant, u: (maestra(nom) || {}).unidad || 'g' };
     if(S.lista) generarLista();
     renderAjustes();
     if(sp.dataset.volver==='precios') pantallaPrecios(); else cerrarSheet();
@@ -1217,7 +1236,13 @@ function recuperar(){
     if (!g) return;
     if (Array.isArray(g.personas) && g.personas.length) S.personas = g.personas;
     if (g.semana)      S.semana      = g.semana;
-    if (g.precios)     S.precios     = g.precios;
+    if (g.precios){
+      S.precios = {};
+      for (const [n, v] of Object.entries(g.precios)){
+        if (!maestra(n) && !Object.keys(S.catalogo).length) { S.precios[n] = v; continue; }
+        S.precios[n] = v;                      // precioTuyo() ya filtra lo que no cuadra
+      }
+    }
     if (g.presupuesto) S.presupuesto = g.presupuesto;
     if (g.lista)       S.lista       = g.lista;
     if (g.marcados)    S.marcados    = g.marcados;
