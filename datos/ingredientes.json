@@ -39,6 +39,10 @@
     "tipo": "AJO",
     "g_por_pieza": 5,
     "contiene": "KG"
+   },
+   "nombre_pieza": {
+    "sing": "diente",
+    "plural": "dientes"
    }
   },
   "Ajo en polvo": {
@@ -49,6 +53,16 @@
     "busqueda": "ajo",
     "tipo": "AJO",
     "contiene": "POLVO"
+   },
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 2.8,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
    }
   },
   "Ajo en polvo, comino y paprika": {
@@ -56,21 +70,51 @@
    "pasillo": "Especias",
    "precio_referencia": 0.833333,
    "profeco": null,
-   "nota": "Mezcla de especias, sin equivalente en el catálogo público"
+   "nota": "Mezcla de especias, sin equivalente en el catálogo público",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 2.4,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
+   }
   },
   "Ajo en polvo, paprika y perejil": {
    "unidad": "g",
    "pasillo": "Especias",
    "precio_referencia": 0.833333,
    "profeco": null,
-   "nota": "Mezcla de especias, sin equivalente en el catálogo público"
+   "nota": "Mezcla de especias, sin equivalente en el catálogo público",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 2.4,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
+   }
   },
   "Ajonjolí": {
    "unidad": "g",
    "pasillo": "Especias",
    "precio_referencia": 0.25,
    "profeco": null,
-   "nota": "PROFECO no levanta ajonjolí en Cd. Juárez. La bolsa de 100 g ronda los $25."
+   "nota": "PROFECO no levanta ajonjolí en Cd. Juárez. La bolsa de 100 g ronda los $25.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 3.0,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
+   }
   },
   "Arroz": {
    "unidad": "g",
@@ -79,6 +123,16 @@
    "profeco": {
     "busqueda": "arroz",
     "tipo": "ARROZ"
+   },
+   "medida_cocina": {
+    "nombre": "taza",
+    "abrev": "taza",
+    "g": 185,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "bolsa",
+    "g": 1000
    }
   },
   "Atún en lata": {
@@ -88,6 +142,10 @@
    "profeco": {
     "busqueda": "atun",
     "tipo": "ATÚN"
+   },
+   "medida_compra": {
+    "nombre": "lata",
+    "g": null
    }
   },
   "Avena": {
@@ -97,6 +155,16 @@
    "profeco": {
     "busqueda": "avena",
     "tipo": "AVENA"
+   },
+   "medida_cocina": {
+    "nombre": "taza",
+    "abrev": "taza",
+    "g": 90,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "bolsa",
+    "g": 1000
    }
   },
   "Brócoli": {
@@ -106,6 +174,10 @@
    "profeco": {
     "busqueda": "brocoli",
     "tipo": "BRÓCOLI"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
    }
   },
   "Carne molida de res 80/20": {
@@ -115,36 +187,68 @@
    "profeco": {
     "busqueda": "carne molida",
     "tipo": "CARNE MOLIDA"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
    }
   },
   "Cebolla blanca": {
-   "unidad": "pz",
+   "unidad": "g",
    "pasillo": "Frutas y verduras",
-   "precio_referencia": 10.0,
+   "precio_referencia": 0.066667,
    "profeco": {
     "busqueda": "cebolla",
-    "tipo": "CEBOLLA",
-    "g_por_pieza": 150
+    "tipo": "CEBOLLA"
    },
-   "sniim": "Cebolla Bola"
+   "sniim": "Cebolla Bola",
+   "medida_cocina": {
+    "nombre": "pieza",
+    "abrev": "pz",
+    "g": 150,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
+   }
   },
   "Cebolla en polvo": {
    "unidad": "g",
    "pasillo": "Especias",
    "precio_referencia": 0.9,
    "profeco": null,
-   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 40 g ronda los $36."
+   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 40 g ronda los $36.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 2.4,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
+   }
   },
   "Cebolla morada": {
-   "unidad": "pz",
+   "unidad": "g",
    "pasillo": "Frutas y verduras",
-   "precio_referencia": 12.0,
+   "precio_referencia": 0.08,
    "profeco": {
     "busqueda": "cebolla",
-    "tipo": "CEBOLLA",
-    "g_por_pieza": 150
+    "tipo": "CEBOLLA"
    },
-   "sniim": "Cebolla Bola"
+   "sniim": "Cebolla Bola",
+   "medida_cocina": {
+    "nombre": "pieza",
+    "abrev": "pz",
+    "g": 150,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
+   }
   },
   "Chile chipotle adobado": {
    "unidad": "g",
@@ -158,7 +262,17 @@
    "pasillo": "Especias",
    "precio_referencia": 0.8,
    "profeco": null,
-   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 45 g ronda los $36."
+   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 45 g ronda los $36.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 2.6,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
+   }
   },
   "Chile jalapeño": {
    "unidad": "g",
@@ -168,7 +282,11 @@
     "busqueda": "chile",
     "tipo": "CHILE FRESCO"
    },
-   "sniim": "Chile Jalapeño"
+   "sniim": "Chile Jalapeño",
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
+   }
   },
   "Chícharos": {
    "unidad": "g",
@@ -177,6 +295,16 @@
    "profeco": {
     "busqueda": "chicharo",
     "tipo": "CHÍCHAROS EN LATA"
+   },
+   "medida_cocina": {
+    "nombre": "taza",
+    "abrev": "taza",
+    "g": 145,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "bolsa",
+    "g": 1000
    }
   },
   "Cilantro": {
@@ -187,6 +315,10 @@
     "busqueda": "cilantro",
     "tipo": "CILANTRO",
     "g_por_pieza": 60
+   },
+   "medida_compra": {
+    "nombre": "manojo",
+    "g": 200
    }
   },
   "Comino": {
@@ -194,7 +326,17 @@
    "pasillo": "Especias",
    "precio_referencia": 0.9,
    "profeco": null,
-   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 35 g ronda los $32."
+   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 35 g ronda los $32.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 2.0,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
+   }
   },
   "Ejotes": {
    "unidad": "g",
@@ -203,6 +345,10 @@
    "profeco": {
     "busqueda": "ejote",
     "tipo": "EJOTE"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
    }
   },
   "Espinaca fresca": {
@@ -213,6 +359,10 @@
     "busqueda": "espinacas",
     "tipo": "ESPINACAS",
     "g_por_pieza": 200
+   },
+   "medida_compra": {
+    "nombre": "manojo",
+    "g": 200
    }
   },
   "Filete de tilapia": {
@@ -220,7 +370,11 @@
    "pasillo": "Carnes y pescado",
    "precio_referencia": 0.115,
    "profeco": null,
-   "nota": "PROFECO no levanta pescado fresco en Cd. Juárez"
+   "nota": "PROFECO no levanta pescado fresco en Cd. Juárez",
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
+   }
   },
   "Frijoles cocidos": {
    "unidad": "g",
@@ -229,6 +383,16 @@
    "profeco": {
     "busqueda": "frijoles",
     "tipo": "FRIJOLES"
+   },
+   "medida_cocina": {
+    "nombre": "taza",
+    "abrev": "taza",
+    "g": 180,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "bolsa",
+    "g": 1000
    }
   },
   "Fécula de maíz": {
@@ -245,6 +409,16 @@
    "profeco": {
     "busqueda": "garbanzo",
     "tipo": "GARBANZO"
+   },
+   "medida_cocina": {
+    "nombre": "taza",
+    "abrev": "taza",
+    "g": 200,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "bolsa",
+    "g": 1000
    }
   },
   "Huevo": {
@@ -256,6 +430,10 @@
     "tipo": "HUEVO",
     "unidad_tienda": "pz",
     "g_por_pieza": 55
+   },
+   "nombre_pieza": {
+    "sing": "huevo",
+    "plural": "huevos"
    }
   },
   "Jengibre fresco": {
@@ -263,18 +441,31 @@
    "pasillo": "Frutas y verduras",
    "precio_referencia": 0.09,
    "profeco": null,
-   "nota": "PROFECO no levanta jengibre en Cd. Juárez. El kilo ronda los $90 y con un trozo chico sobra."
+   "nota": "PROFECO no levanta jengibre en Cd. Juárez. El kilo ronda los $90 y con un trozo chico sobra.",
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
+   }
   },
   "Jitomate": {
-   "unidad": "pz",
+   "unidad": "g",
    "pasillo": "Frutas y verduras",
-   "precio_referencia": 8.0,
+   "precio_referencia": 0.066667,
    "profeco": {
     "busqueda": "jitomate",
-    "tipo": "JITOMATE",
-    "g_por_pieza": 120
+    "tipo": "JITOMATE"
    },
-   "sniim": "Tomate Saladette"
+   "sniim": "Tomate Saladette",
+   "medida_cocina": {
+    "nombre": "pieza",
+    "abrev": "pz",
+    "g": 120,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
+   }
   },
   "Leche": {
    "unidad": "ml",
@@ -286,15 +477,24 @@
    }
   },
   "Lechuga romana": {
-   "unidad": "pz",
+   "unidad": "g",
    "pasillo": "Frutas y verduras",
-   "precio_referencia": 22.0,
+   "precio_referencia": 0.044,
    "profeco": {
     "busqueda": "lechuga",
-    "tipo": "LECHUGA",
-    "g_por_pieza": 500
+    "tipo": "LECHUGA"
    },
-   "sniim": "Lechuga Romanita mediana"
+   "sniim": "Lechuga Romanita mediana",
+   "medida_cocina": {
+    "nombre": "pieza",
+    "abrev": "pz",
+    "g": 500,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
+   }
   },
   "Lenteja": {
    "unidad": "g",
@@ -303,6 +503,16 @@
    "profeco": {
     "busqueda": "lenteja",
     "tipo": "LENTEJA"
+   },
+   "medida_cocina": {
+    "nombre": "taza",
+    "abrev": "taza",
+    "g": 192,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "bolsa",
+    "g": 1000
    }
   },
   "Limón": {
@@ -321,7 +531,11 @@
    "pasillo": "Carnes y pescado",
    "precio_referencia": 0.3,
    "profeco": null,
-   "nota": "PROFECO no levanta pescado fresco en Cd. Juárez"
+   "nota": "PROFECO no levanta pescado fresco en Cd. Juárez",
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
+   }
   },
   "Maíz en grano": {
    "unidad": "g",
@@ -331,6 +545,16 @@
     "busqueda": "elote",
     "tipo": "ELOTE",
     "contiene": "LATA"
+   },
+   "medida_cocina": {
+    "nombre": "taza",
+    "abrev": "taza",
+    "g": 165,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "bolsa",
+    "g": 1000
    }
   },
   "Miel": {
@@ -349,6 +573,10 @@
    "profeco": {
     "busqueda": "nopal",
     "tipo": "NOPAL"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
    }
   },
   "Orégano": {
@@ -356,7 +584,17 @@
    "pasillo": "Especias",
    "precio_referencia": 1.5,
    "profeco": null,
-   "nota": "Mezcla de especias, sin equivalente en el catálogo público"
+   "nota": "Mezcla de especias, sin equivalente en el catálogo público",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 1.5,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
+   }
   },
   "Papa": {
    "unidad": "g",
@@ -366,14 +604,28 @@
     "busqueda": "papa",
     "tipo": "PAPA"
    },
-   "sniim": "Papa Alpha"
+   "sniim": "Papa Alpha",
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
+   }
   },
   "Paprika": {
    "unidad": "g",
    "pasillo": "Especias",
    "precio_referencia": 0.9,
    "profeco": null,
-   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 40 g ronda los $36."
+   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 40 g ronda los $36.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 2.3,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
+   }
   },
   "Pasta para sopa": {
    "unidad": "g",
@@ -382,6 +634,16 @@
    "profeco": {
     "busqueda": "pasta",
     "tipo": "PASTA PARA SOPA"
+   },
+   "medida_cocina": {
+    "nombre": "taza",
+    "abrev": "taza",
+    "g": 90,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "bolsa",
+    "g": 1000
    }
   },
   "Pechuga de pollo": {
@@ -391,16 +653,29 @@
    "profeco": {
     "busqueda": "pechuga",
     "tipo": "PECHUGA"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
    }
   },
   "Pepino": {
-   "unidad": "pz",
+   "unidad": "g",
    "pasillo": "Frutas y verduras",
-   "precio_referencia": 8.0,
+   "precio_referencia": 0.032,
    "profeco": {
     "busqueda": "pepino",
-    "tipo": "PEPINO",
-    "g_por_pieza": 250
+    "tipo": "PEPINO"
+   },
+   "medida_cocina": {
+    "nombre": "pieza",
+    "abrev": "pz",
+    "g": 250,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
    }
   },
   "Perejil seco": {
@@ -408,7 +683,17 @@
    "pasillo": "Especias",
    "precio_referencia": 1.5,
    "profeco": null,
-   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 18 g ronda los $28."
+   "nota": "Especia suelta; PROFECO no la levanta en Cd. Juárez. Frasco de 18 g ronda los $28.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 0.5,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
+   }
   },
   "Pierna con muslo de pollo": {
    "unidad": "g",
@@ -417,16 +702,29 @@
    "profeco": {
     "busqueda": "pierna",
     "tipo": "PIERNA CON MUSLO"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
    }
   },
   "Pimiento morrón": {
-   "unidad": "pz",
+   "unidad": "g",
    "pasillo": "Frutas y verduras",
-   "precio_referencia": 18.0,
+   "precio_referencia": 0.1,
    "profeco": {
     "busqueda": "pimiento",
-    "tipo": "PIMIENTO",
-    "g_por_pieza": 180
+    "tipo": "PIMIENTO"
+   },
+   "medida_cocina": {
+    "nombre": "pieza",
+    "abrev": "pz",
+    "g": 180,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
    }
   },
   "Queso panela": {
@@ -459,6 +757,10 @@
    "profeco": {
     "busqueda": "sardina",
     "tipo": "SARDINA"
+   },
+   "medida_compra": {
+    "nombre": "lata",
+    "g": null
    }
   },
   "Tortilla de maíz": {
@@ -501,15 +803,24 @@
    }
   },
   "Zanahoria": {
-   "unidad": "pz",
+   "unidad": "g",
    "pasillo": "Frutas y verduras",
-   "precio_referencia": 5.0,
+   "precio_referencia": 0.0625,
    "profeco": {
     "busqueda": "zanahoria",
-    "tipo": "ZANAHORIA",
-    "g_por_pieza": 80
+    "tipo": "ZANAHORIA"
    },
-   "sniim": "Zanahoria leña"
+   "sniim": "Zanahoria leña",
+   "medida_cocina": {
+    "nombre": "pieza",
+    "abrev": "pz",
+    "g": 80,
+    "modo": "pista"
+   },
+   "medida_compra": {
+    "nombre": "kilo",
+    "g": 1000
+   }
   }
  }
 }

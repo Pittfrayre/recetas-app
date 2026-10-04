@@ -25,11 +25,11 @@
     },
     {
      "n": "Pimiento morrón",
-     "c": 1
+     "c": 180
     },
     {
      "n": "Cebolla morada",
-     "c": 0.5
+     "c": 75
     },
     {
      "n": "Espinaca fresca",
@@ -41,7 +41,7 @@
     },
     {
      "n": "Jitomate",
-     "c": 1
+     "c": 120
     },
     {
      "n": "Yogur griego natural",
@@ -117,7 +117,7 @@
     },
     {
      "n": "Lechuga romana",
-     "c": 0.2
+     "c": 100
     },
     {
      "n": "Aguacate",
@@ -125,11 +125,11 @@
     },
     {
      "n": "Jitomate",
-     "c": 1.7
+     "c": 204
     },
     {
      "n": "Cebolla blanca",
-     "c": 0.35
+     "c": 52
     },
     {
      "n": "Cilantro",
@@ -175,7 +175,7 @@
     },
     {
      "n": "Zanahoria",
-     "c": 1
+     "c": 80
     },
     {
      "n": "Brócoli",
@@ -231,7 +231,7 @@
     },
     {
      "n": "Pimiento morrón",
-     "c": 1
+     "c": 180
     },
     {
      "n": "Brócoli",
@@ -311,7 +311,7 @@
     },
     {
      "n": "Lechuga romana",
-     "c": 0.4
+     "c": 200
     },
     {
      "n": "Espinaca fresca",
@@ -319,11 +319,11 @@
     },
     {
      "n": "Pepino",
-     "c": 0.6
+     "c": 150
     },
     {
      "n": "Jitomate",
-     "c": 1.7
+     "c": 204
     },
     {
      "n": "Maíz en grano",
@@ -376,15 +376,15 @@
     },
     {
      "n": "Jitomate",
-     "c": 3
+     "c": 360
     },
     {
      "n": "Cebolla blanca",
-     "c": 1
+     "c": 150
     },
     {
      "n": "Zanahoria",
-     "c": 2
+     "c": 160
     },
     {
      "n": "Ajo",
@@ -429,11 +429,11 @@
     },
     {
      "n": "Jitomate",
-     "c": 5
+     "c": 600
     },
     {
      "n": "Cebolla blanca",
-     "c": 1
+     "c": 150
     },
     {
      "n": "Chile jalapeño",
@@ -491,11 +491,11 @@
     },
     {
      "n": "Jitomate",
-     "c": 4
+     "c": 480
     },
     {
      "n": "Cebolla blanca",
-     "c": 1
+     "c": 150
     },
     {
      "n": "Ajo",
@@ -548,11 +548,11 @@
     },
     {
      "n": "Jitomate",
-     "c": 3
+     "c": 360
     },
     {
      "n": "Cebolla blanca",
-     "c": 1
+     "c": 150
     },
     {
      "n": "Ajo",
@@ -609,11 +609,11 @@
     },
     {
      "n": "Jitomate",
-     "c": 3
+     "c": 360
     },
     {
      "n": "Cebolla blanca",
-     "c": 1
+     "c": 150
     },
     {
      "n": "Chile jalapeño",
@@ -667,7 +667,7 @@
     },
     {
      "n": "Zanahoria",
-     "c": 2
+     "c": 160
     },
     {
      "n": "Ejotes",
@@ -675,11 +675,11 @@
     },
     {
      "n": "Jitomate",
-     "c": 3
+     "c": 360
     },
     {
      "n": "Cebolla blanca",
-     "c": 1
+     "c": 150
     },
     {
      "n": "Ajo",
@@ -733,7 +733,7 @@
     },
     {
      "n": "Cebolla blanca",
-     "c": 1
+     "c": 150
     },
     {
      "n": "Ajo",
@@ -862,7 +862,7 @@
     },
     {
      "n": "Zanahoria",
-     "c": 2
+     "c": 160
     },
     {
      "n": "Ajo en polvo",
@@ -902,7 +902,7 @@
     },
     {
      "n": "Pimiento morrón",
-     "c": 0.8
+     "c": 144
     },
     {
      "n": "Ejotes",
@@ -910,7 +910,7 @@
     },
     {
      "n": "Jitomate",
-     "c": 1.25
+     "c": 150
     },
     {
      "n": "Espinaca fresca",
@@ -926,7 +926,7 @@
     },
     {
      "n": "Limón",
-     "c": 1.5
+     "c": 2
     },
     {
      "n": "Orégano",
@@ -975,11 +975,11 @@
     },
     {
      "n": "Pimiento morrón",
-     "c": 1.4
+     "c": 252
     },
     {
      "n": "Cebolla blanca",
-     "c": 1
+     "c": 150
     },
     {
      "n": "Aceite de oliva",
@@ -1019,7 +1019,7 @@
     },
     {
      "n": "Jitomate",
-     "c": 1.7
+     "c": 204
     },
     {
      "n": "Cilantro",
@@ -1064,11 +1064,11 @@
     },
     {
      "n": "Zanahoria",
-     "c": 1.5
+     "c": 120
     },
     {
      "n": "Pimiento morrón",
-     "c": 0.7
+     "c": 126
     },
     {
      "n": "Aceite de oliva",
@@ -1137,7 +1137,7 @@
     },
     {
      "n": "Zanahoria",
-     "c": 2
+     "c": 160
     },
     {
      "n": "Chícharos",
@@ -1145,11 +1145,11 @@
     },
     {
      "n": "Jitomate",
-     "c": 3
+     "c": 360
     },
     {
      "n": "Cebolla blanca",
-     "c": 0.5
+     "c": 75
     },
     {
      "n": "Ajo",
@@ -1173,11 +1173,11 @@
     },
     {
      "n": "Lechuga romana",
-     "c": 0.2
+     "c": 100
     },
     {
      "n": "Pepino",
-     "c": 0.5
+     "c": 125
     },
     {
      "n": "Limón",
@@ -1223,7 +1223,7 @@
     },
     {
      "n": "Ajo",
-     "c": 2.5
+     "c": 3
     },
     {
      "n": "Paprika",
@@ -1247,11 +1247,11 @@
     },
     {
      "n": "Pepino",
-     "c": 0.6
+     "c": 150
     },
     {
      "n": "Jitomate",
-     "c": 1.7
+     "c": 204
     },
     {
      "n": "Espinaca fresca",
@@ -1316,7 +1316,7 @@
     },
     {
      "n": "Jitomate",
-     "c": 0.8
+     "c": 96
     },
     {
      "n": "Ajo",
@@ -1377,7 +1377,7 @@
     },
     {
      "n": "Cebolla blanca",
-     "c": 0.6
+     "c": 90
     },
     {
      "n": "Ajo",
@@ -1393,7 +1393,7 @@
     },
     {
      "n": "Jitomate",
-     "c": 2.5
+     "c": 300
     },
     {
      "n": "Papa",

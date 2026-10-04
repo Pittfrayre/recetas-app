@@ -3,7 +3,7 @@
  "fuente_url": "https://qqp.profeco.gob.mx/",
  "ciudad": "Ciudad Juárez",
  "estrategia": "mediana entre cadenas",
- "actualizado": "2026-10-04T15:44:07+00:00",
+ "actualizado": "2026-10-04T15:49:19+00:00",
  "sin_fuente": [
   "Ajo en polvo, comino y paprika",
   "Ajo en polvo, paprika y perejil",
@@ -36,88 +36,22 @@
   "Espinaca fresca": "sin observaciones",
   "Frijoles cocidos": "sin observaciones",
   "Garbanzo": "sin observaciones",
-  "Lechuga romana": "sin observaciones",
+  "Lechuga romana": "sin observaciones; además el precio anterior estaba en \"pz\" y ahora la unidad es \"g\", así que se descartó",
   "Lenteja": "sin observaciones",
   "Maíz en grano": "sin observaciones",
   "Miel": "sin observaciones",
   "Nopal": "sin observaciones",
   "Pechuga de pollo": "sin observaciones",
-  "Pepino": "sin observaciones",
-  "Pimiento morrón": "sin observaciones",
+  "Pepino": "sin observaciones; además el precio anterior estaba en \"pz\" y ahora la unidad es \"g\", así que se descartó",
+  "Pimiento morrón": "sin observaciones; además el precio anterior estaba en \"pz\" y ahora la unidad es \"g\", así que se descartó",
   "Queso panela": "sin observaciones",
   "Tortilla integral grande": "ningún producto del tipo \"TORTILLA DE HARINA DE TRIGO\"",
   "Vinagre de manzana": "sin observaciones",
   "Yogur griego natural": "sin observaciones"
  },
- "alertas": [
-  "Pasta para sopa: 0.0587 -> 0.0225 (62%)"
- ],
- "incoherencias_mayoreo": [
-  "Chile jalapeño: margen demasiado apretado (tienda $20.00/kg vs mayoreo $20.00/kg = 1.0x)",
-  "Jitomate: margen demasiado apretado (tienda $27.00/kg vs mayoreo $25.00/kg = 1.08x)",
-  "Papa: margen inusualmente alto (tienda $46.45/kg vs mayoreo $12.00/kg = 3.87x)"
- ],
- "contraste_mayoreo": {
-  "Cebolla blanca": {
-   "producto": "Cebolla Bola",
-   "mercado": "Mercado de Abasto de Cd. Juárez",
-   "precio_kg": 32.0,
-   "fecha": "02/10/2026",
-   "menudeo_kg": 44.95,
-   "margen": 1.4
-  },
-  "Cebolla morada": {
-   "producto": "Cebolla Bola",
-   "mercado": "Mercado de Abasto de Cd. Juárez",
-   "precio_kg": 32.0,
-   "fecha": "02/10/2026",
-   "menudeo_kg": 44.95,
-   "margen": 1.4
-  },
-  "Chile jalapeño": {
-   "producto": "Chile Jalapeño",
-   "mercado": "Mercado de Abasto de Cd. Juárez",
-   "precio_kg": 20.0,
-   "fecha": "02/10/2026",
-   "menudeo_kg": 20.0,
-   "margen": 1.0,
-   "aviso": "margen demasiado apretado"
-  },
-  "Jitomate": {
-   "producto": "Tomate Saladette",
-   "mercado": "Mercado de Abasto de Cd. Juárez",
-   "precio_kg": 25.0,
-   "fecha": "02/10/2026",
-   "menudeo_kg": 27.0,
-   "margen": 1.08,
-   "aviso": "margen demasiado apretado"
-  },
-  "Limón": {
-   "producto": "Limón c/semilla sin clasificación",
-   "mercado": "Mercado de Abasto de Cd. Juárez",
-   "precio_kg": 24.0,
-   "fecha": "02/10/2026",
-   "menudeo_kg": 36.0,
-   "margen": 1.5
-  },
-  "Papa": {
-   "producto": "Papa Alpha",
-   "mercado": "Mercado de Abasto de Cd. Juárez",
-   "precio_kg": 12.0,
-   "fecha": "02/10/2026",
-   "menudeo_kg": 46.45,
-   "margen": 3.87,
-   "aviso": "margen inusualmente alto"
-  },
-  "Zanahoria": {
-   "producto": "Zanahoria leña",
-   "mercado": "Mercado de Abasto de Cd. Juárez",
-   "precio_kg": 8.18,
-   "fecha": "02/10/2026",
-   "menudeo_kg": 15.0,
-   "margen": 1.83
-  }
- },
+ "alertas": [],
+ "incoherencias_mayoreo": [],
+ "contraste_mayoreo": {},
  "precios": {
   "Aceite de oliva": {
    "precio_unidad": 0.269321,
@@ -305,8 +239,8 @@
    "fecha_observacion": "2026-09-17"
   },
   "Cebolla blanca": {
-   "precio_unidad": 6.7425,
-   "unidad": "pz",
+   "precio_unidad": 0.04495,
+   "unidad": "g",
    "observaciones": 14,
    "cadenas": [
     "BODEGA AURRERA",
@@ -316,18 +250,18 @@
    ],
    "mas_barato": {
     "cadena": "SORIANA SUPER",
-    "precio_unidad": 3.735,
+    "precio_unidad": 0.0249,
     "producto": "CEBOLLA, S/M, 1 KG. BLANCA SIN RABO"
    },
    "rango": [
-    3.735,
-    10.35
+    0.0249,
+    0.069
    ],
    "fecha_observacion": "2026-10-01"
   },
   "Cebolla morada": {
-   "precio_unidad": 6.7425,
-   "unidad": "pz",
+   "precio_unidad": 0.04495,
+   "unidad": "g",
    "observaciones": 14,
    "cadenas": [
     "BODEGA AURRERA",
@@ -337,12 +271,12 @@
    ],
    "mas_barato": {
     "cadena": "SORIANA SUPER",
-    "precio_unidad": 3.735,
+    "precio_unidad": 0.0249,
     "producto": "CEBOLLA, S/M, 1 KG. BLANCA SIN RABO"
    },
    "rango": [
-    3.735,
-    10.35
+    0.0249,
+    0.069
    ],
    "fecha_observacion": "2026-10-01"
   },
@@ -517,8 +451,8 @@
    "fecha_observacion": "2026-09-30"
   },
   "Jitomate": {
-   "precio_unidad": 3.24,
-   "unidad": "pz",
+   "precio_unidad": 0.027,
+   "unidad": "g",
    "observaciones": 7,
    "cadenas": [
     "BODEGA AURRERA",
@@ -527,12 +461,12 @@
    ],
    "mas_barato": {
     "cadena": "SORIANA SUPER",
-    "precio_unidad": 2.388,
+    "precio_unidad": 0.0199,
     "producto": "JITOMATE, S/M, 1 KG. BOLA/SINALOA O TOMATE BOLA"
    },
    "rango": [
-    2.388,
-    3.468
+    0.0199,
+    0.0289
    ],
    "fecha_observacion": "2026-09-30"
   },
@@ -555,28 +489,6 @@
     0.037
    ],
    "fecha_observacion": "2026-09-30"
-  },
-  "Lechuga romana": {
-   "precio_unidad": 23.5,
-   "unidad": "pz",
-   "observaciones": 18,
-   "cadenas": [
-    "BODEGA AURRERA",
-    "MERCADO PUBLICO",
-    "MINISUPER",
-    "S MART",
-    "SUPERMERCADO GONZALEZ"
-   ],
-   "mas_barato": {
-    "cadena": "SUPERMERCADO GONZALEZ",
-    "precio_unidad": 12.9,
-    "producto": "LECHUGA, S/M, PZA. ROMANA"
-   },
-   "rango": [
-    12.9,
-    32.99
-   ],
-   "fecha_observacion": "2026-09-17"
   },
   "Lenteja": {
    "precio_unidad": 0.05,
@@ -749,28 +661,6 @@
    ],
    "fecha_observacion": "2026-09-17"
   },
-  "Pepino": {
-   "precio_unidad": 6.7475,
-   "unidad": "pz",
-   "observaciones": 9,
-   "cadenas": [
-    "BODEGA AURRERA",
-    "MERCADO PUBLICO",
-    "MINISUPER",
-    "S MART",
-    "SUPERMERCADO GONZALEZ"
-   ],
-   "mas_barato": {
-    "cadena": "BODEGA AURRERA",
-    "precio_unidad": 3.75,
-    "producto": "PEPINO, S/M, 1 KG."
-   },
-   "rango": [
-    3.75,
-    7.0
-   ],
-   "fecha_observacion": "2026-09-17"
-  },
   "Pierna con muslo de pollo": {
    "precio_unidad": 0.03,
    "unidad": "g",
@@ -791,27 +681,6 @@
     0.03799
    ],
    "fecha_observacion": "2026-10-01"
-  },
-  "Pimiento morrón": {
-   "precio_unidad": 13.5,
-   "unidad": "pz",
-   "observaciones": 7,
-   "cadenas": [
-    "BODEGA AURRERA",
-    "MERCADO PUBLICO",
-    "MINISUPER",
-    "S MART"
-   ],
-   "mas_barato": {
-    "cadena": "S MART",
-    "precio_unidad": 10.7982,
-    "producto": "PIMIENTO, S/M, 1 KG. MORRON VERDE"
-   },
-   "rango": [
-    10.7982,
-    14.4
-   ],
-   "fecha_observacion": "2026-09-17"
   },
   "Queso panela": {
    "precio_unidad": 0.1825,
@@ -937,8 +806,8 @@
    "fecha_observacion": "2026-09-17"
   },
   "Zanahoria": {
-   "precio_unidad": 1.2,
-   "unidad": "pz",
+   "precio_unidad": 0.015,
+   "unidad": "g",
    "observaciones": 5,
    "cadenas": [
     "BODEGA AURRERA",
@@ -947,12 +816,12 @@
    ],
    "mas_barato": {
     "cadena": "BODEGA AURRERA",
-    "precio_unidad": 1.0,
+    "precio_unidad": 0.0125,
     "producto": "ZANAHORIA, S/M, 1 KG. MEDIANA"
    },
    "rango": [
-    1.0,
-    2.0792
+    0.0125,
+    0.02599
    ],
    "fecha_observacion": "2026-10-01"
   }

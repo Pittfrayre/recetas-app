@@ -183,6 +183,43 @@ function fmtCant(c,u){
   if (u==='pz'){ const r=Math.ceil(c-0.001); return r+(r===1?' pieza':' piezas'); }
   return (c>=10 ? Math.round(c) : Math.round(c*10)/10)+' '+u;
 }
+/* Nadie pesa 2 g de orégano: se miden cucharaditas. Pero tampoco sirve decir
+   "0.35 cebollas". Cada ingrediente trae en la maestra cómo se dosifica, y la
+   medida puede reemplazar a los gramos o solo acompañarlos como pista. */
+const FRAC = [[1,''],[0.75,'¾'],[0.5,'½'],[0.25,'¼']];
+function enMedida(cant, med){
+  const n = cant / med.g;
+  if (n < 0.2) return null;                       // menos de ¼: no vale la pena
+  const entero = Math.floor(n + 0.001);
+  const resto  = n - entero;
+  let frac = '';
+  for (const [v, txt] of FRAC){
+    if (Math.abs(resto - v) < 0.13){ frac = txt === '' ? '' : txt; if (txt==='') return null; break; }
+  }
+  // redondeo al cuarto más cercano
+  const cuartos = Math.round(n * 4) / 4;
+  if (cuartos < 0.25) return null;
+  const e = Math.floor(cuartos), r = cuartos - e;
+  const simbolo = { 0:'', 0.25:'¼', 0.5:'½', 0.75:'¾' }[r] || '';
+  const num = (e ? e : '') + simbolo || '1';
+  const plural = cuartos > 1 && med.nombre === 'taza' ? 'tazas' : med.abrev;
+  return `${num} ${plural}`;
+}
+
+function fmtIngrediente(cant, i){
+  const u = unidadDe(i);
+  const info = maestra(i.n) || {};
+  if (u === 'pz' && info.nombre_pieza){          // dientes de ajo, no "piezas"
+    const n = Math.round(cant * 10) / 10;
+    return `${n} ${n === 1 ? info.nombre_pieza.sing : info.nombre_pieza.plural}`;
+  }
+  const m = info.medida_cocina;
+  if (!m || u === 'pz') return fmtCant(cant, u);
+  const txt = enMedida(cant, m);
+  if (!txt) return fmtCant(cant, u);
+  return m.modo === 'reemplaza' ? txt : `${fmtCant(cant, u)} · ${txt}`;
+}
+
 // Para la báscula: siempre en gramos/ml exactos, sin redondear a kg
 function fmtBascula(c,u){
   if (u==='pz') return (Math.round(c*10)/10)+' pz';
@@ -242,7 +279,11 @@ const pasilloDe= i => (maestra(i.n) || {}).pasillo || i.p || 'Abarrotes';
 // Prioridad: lo que tú corregiste > PROFECO de esta semana > referencia de la maestra
 function precioUnit(i){
   if (S.precios[i.n] !== undefined)  return S.precios[i.n];
-  if (S.profeco[i.n])                return S.profeco[i.n].precio_unidad;
+  // El precio automático solo vale si está en la misma unidad que el catálogo.
+  // Si no coincide, viene de antes de un cambio de unidades y está desfasado
+  // por cientos; mejor caer al de referencia que mostrar un número absurdo.
+  const pf = S.profeco[i.n];
+  if (pf && (!pf.unidad || pf.unidad === unidadDe(i))) return pf.precio_unidad;
   const m = maestra(i.n);
   if (m && m.precio_referencia)      return m.precio_referencia;
   return i.precio && i.c ? i.precio / i.c : 0;
@@ -544,7 +585,7 @@ function renderMandado(){
             <div class="check" data-check="${esc(k)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></div>
             <div class="item-b" data-check="${esc(k)}">
               <div class="item-n">${esc(i.n)}</div>
-              <div class="item-s">${fmtCant(i.c,i.u)} · ${i.de.length===1?esc(i.de[0]):'en '+i.de.length+' recetas'}</div>
+              <div class="item-s">${fmtCompra(i)} · ${i.de.length===1?esc(i.de[0]):'en '+i.de.length+' recetas'}</div>
             </div>
             <button class="item-p ${editado(i.n)?'edited':''}" data-precio="${esc(i.n)}">${mxn(i.precio)}</button>
           </div>`;
@@ -552,6 +593,17 @@ function renderMandado(){
       </div>`).join('')}
     <p class="price-hint">Toca cualquier precio para actualizarlo si cambió en la tienda.</p>
     <div style="margin-top:14px"><button class="btn ghost sm" id="shareList">Compartir lista</button></div>`;
+}
+
+/* En el súper no pides "30 g de cilantro": pides un manojo. */
+function fmtCompra(i){
+  const base = fmtCant(i.c, i.u);
+  const mc = (maestra(i.n) || {}).medida_compra;
+  if (!mc || !mc.g || i.u === 'pz') return base;
+  const n = i.c / mc.g;
+  if (mc.nombre === 'manojo' && n <= 1.3) return `1 manojo (${base})`;
+  if (mc.nombre === 'kilo'   && i.c >= 1000) return base;
+  return base;
 }
 
 /* --- editor de precio: funciona para cualquier ingrediente de la maestra,
@@ -696,7 +748,7 @@ function verReceta(id){
       ${r.ingredientes.map(i=>`<div class="row">
         <div class="row-t"><strong>${esc(i.n)}</strong><span>${esc(pasilloDe(i))}</span></div>
         <div style="text-align:right;flex:none">
-          <div style="font-size:15px;font-weight:700">${fmtCant(i.c*m,unidadDe(i))}</div>
+          <div style="font-size:15px;font-weight:700">${fmtIngrediente(i.c*m, i)}</div>
           <div style="font-size:12.5px;color:${editado(i.n)?'var(--accent)':'var(--text-2)'}">${mxn(precioIng(i,m))}</div>
         </div>
       </div>`).join('')}

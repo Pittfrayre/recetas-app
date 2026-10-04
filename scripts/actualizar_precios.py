@@ -213,9 +213,17 @@ def main():
 
         if error:
             fallos[nombre] = error
-            if nombre in previo:                 # conservamos el último bueno
-                precios[nombre] = previo[nombre]
-            print(f"  !!  {nombre:28} {error}")
+            # Conservamos el último precio bueno, pero SOLO si sigue estando en la
+            # misma unidad. Si el ingrediente cambió de pieza a gramo, el precio
+            # viejo queda desfasado por un factor de cientos y nada lo delataría.
+            viejo = previo.get(nombre)
+            if viejo and viejo.get("unidad") == cfg["unidad"]:
+                precios[nombre] = viejo
+            elif viejo:
+                fallos[nombre] = (f"{error}; además el precio anterior estaba en "
+                                  f'"{viejo.get("unidad")}" y ahora la unidad es '
+                                  f'"{cfg["unidad"]}", así que se descartó')
+            print(f"  !!  {nombre:28} {fallos[nombre]}")
             continue
 
         antes = previo.get(nombre, {}).get("precio_unidad")
