@@ -1,5 +1,5 @@
 {
- "_comentario": "Lista maestra de ingredientes. Es la única fuente de verdad para unidad, pasillo y precio. Las recetas solo dicen nombre y cantidad. Un ingrediente que no esté aquí no puede tener precio.",
+ "_comentario": "Lista maestra de ingredientes. Es la única fuente de verdad para unidad, pasillo y precio. Las recetas solo dicen nombre y cantidad. Un ingrediente que no esté aquí no puede tener precio. El campo 'sniim' nombra el mismo producto en el Mercado de Abasto de Cd. Juárez: sirve para contrastar el precio de tienda contra el de mayoreo, no para sustituirlo.",
  "version": 1,
  "pasillos": [
   "Carnes y pescado",
@@ -27,7 +27,8 @@
     "busqueda": "aguacate",
     "tipo": "AGUACATE",
     "g_por_pieza": 200
-   }
+   },
+   "sniim": "Aguacate Hass"
   },
   "Ajo": {
    "unidad": "pz",
@@ -124,7 +125,8 @@
     "busqueda": "cebolla",
     "tipo": "CEBOLLA",
     "g_por_pieza": 150
-   }
+   },
+   "sniim": "Cebolla Bola"
   },
   "Cebolla en polvo": {
    "unidad": "g",
@@ -141,7 +143,8 @@
     "busqueda": "cebolla",
     "tipo": "CEBOLLA",
     "g_por_pieza": 150
-   }
+   },
+   "sniim": "Cebolla Bola"
   },
   "Chile chipotle adobado": {
    "unidad": "g",
@@ -164,7 +167,8 @@
    "profeco": {
     "busqueda": "chile",
     "tipo": "CHILE FRESCO"
-   }
+   },
+   "sniim": "Chile Jalapeño"
   },
   "Chícharos": {
    "unidad": "g",
@@ -269,7 +273,8 @@
     "busqueda": "jitomate",
     "tipo": "JITOMATE",
     "g_por_pieza": 120
-   }
+   },
+   "sniim": "Tomate Saladette"
   },
   "Leche": {
    "unidad": "ml",
@@ -288,7 +293,8 @@
     "busqueda": "lechuga",
     "tipo": "LECHUGA",
     "g_por_pieza": 500
-   }
+   },
+   "sniim": "Lechuga Romanita mediana"
   },
   "Lenteja": {
    "unidad": "g",
@@ -307,7 +313,8 @@
     "busqueda": "limon",
     "tipo": "LIMÓN",
     "g_por_pieza": 70
-   }
+   },
+   "sniim": "Limón c/semilla sin clasificación"
   },
   "Lomo de atún": {
    "unidad": "g",
@@ -358,7 +365,8 @@
    "profeco": {
     "busqueda": "papa",
     "tipo": "PAPA"
-   }
+   },
+   "sniim": "Papa Alpha"
   },
   "Paprika": {
    "unidad": "g",
@@ -500,7 +508,8 @@
     "busqueda": "zanahoria",
     "tipo": "ZANAHORIA",
     "g_por_pieza": 80
-   }
+   },
+   "sniim": "Zanahoria leña"
   }
  }
 }

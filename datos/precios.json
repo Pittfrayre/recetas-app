@@ -3,7 +3,7 @@
  "fuente_url": "https://qqp.profeco.gob.mx/",
  "ciudad": "Ciudad Juárez",
  "estrategia": "mediana entre cadenas",
- "actualizado": "2026-09-20T21:10:45+00:00",
+ "actualizado": "2026-10-04T15:44:07+00:00",
  "sin_fuente": [
   "Ajo en polvo, comino y paprika",
   "Ajo en polvo, paprika y perejil",
@@ -22,8 +22,102 @@
   "Queso parmesano",
   "Salsa de soya"
  ],
- "fallos": {},
- "alertas": [],
+ "fallos": {
+  "Aceite de oliva": "sin observaciones",
+  "Aguacate": "sin observaciones",
+  "Ajo": "sin observaciones",
+  "Ajo en polvo": "sin observaciones",
+  "Avena": "sin observaciones",
+  "Brócoli": "sin observaciones",
+  "Carne molida de res 80/20": "sin observaciones",
+  "Chícharos": "sin observaciones",
+  "Cilantro": "sin observaciones",
+  "Ejotes": "sin observaciones",
+  "Espinaca fresca": "sin observaciones",
+  "Frijoles cocidos": "sin observaciones",
+  "Garbanzo": "sin observaciones",
+  "Lechuga romana": "sin observaciones",
+  "Lenteja": "sin observaciones",
+  "Maíz en grano": "sin observaciones",
+  "Miel": "sin observaciones",
+  "Nopal": "sin observaciones",
+  "Pechuga de pollo": "sin observaciones",
+  "Pepino": "sin observaciones",
+  "Pimiento morrón": "sin observaciones",
+  "Queso panela": "sin observaciones",
+  "Tortilla integral grande": "ningún producto del tipo \"TORTILLA DE HARINA DE TRIGO\"",
+  "Vinagre de manzana": "sin observaciones",
+  "Yogur griego natural": "sin observaciones"
+ },
+ "alertas": [
+  "Pasta para sopa: 0.0587 -> 0.0225 (62%)"
+ ],
+ "incoherencias_mayoreo": [
+  "Chile jalapeño: margen demasiado apretado (tienda $20.00/kg vs mayoreo $20.00/kg = 1.0x)",
+  "Jitomate: margen demasiado apretado (tienda $27.00/kg vs mayoreo $25.00/kg = 1.08x)",
+  "Papa: margen inusualmente alto (tienda $46.45/kg vs mayoreo $12.00/kg = 3.87x)"
+ ],
+ "contraste_mayoreo": {
+  "Cebolla blanca": {
+   "producto": "Cebolla Bola",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 32.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 44.95,
+   "margen": 1.4
+  },
+  "Cebolla morada": {
+   "producto": "Cebolla Bola",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 32.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 44.95,
+   "margen": 1.4
+  },
+  "Chile jalapeño": {
+   "producto": "Chile Jalapeño",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 20.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 20.0,
+   "margen": 1.0,
+   "aviso": "margen demasiado apretado"
+  },
+  "Jitomate": {
+   "producto": "Tomate Saladette",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 25.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 27.0,
+   "margen": 1.08,
+   "aviso": "margen demasiado apretado"
+  },
+  "Limón": {
+   "producto": "Limón c/semilla sin clasificación",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 24.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 36.0,
+   "margen": 1.5
+  },
+  "Papa": {
+   "producto": "Papa Alpha",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 12.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 46.45,
+   "margen": 3.87,
+   "aviso": "margen inusualmente alto"
+  },
+  "Zanahoria": {
+   "producto": "Zanahoria leña",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 8.18,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 15.0,
+   "margen": 1.83
+  }
+ },
  "precios": {
   "Aceite de oliva": {
    "precio_unidad": 0.269321,
@@ -107,15 +201,13 @@
    "fecha_observacion": "2026-09-17"
   },
   "Arroz": {
-   "precio_unidad": 0.03,
+   "precio_unidad": 0.019846,
    "unidad": "g",
-   "observaciones": 15,
+   "observaciones": 13,
    "cadenas": [
     "BODEGA AURRERA",
-    "FARMACIA GUADALAJARA",
-    "MERCADO PUBLICO",
-    "OXXO",
-    "S MART"
+    "SORIANA SUPER",
+    "WAL-MART"
    ],
    "mas_barato": {
     "cadena": "BODEGA AURRERA",
@@ -124,33 +216,30 @@
    },
    "rango": [
     0.015556,
-    0.039444
+    0.021111
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-09-30"
   },
   "Atún en lata": {
-   "precio_unidad": 0.157143,
+   "precio_unidad": 0.1375,
    "unidad": "g",
-   "observaciones": 161,
+   "observaciones": 18,
    "cadenas": [
     "BODEGA AURRERA",
-    "FARMACIA GUADALAJARA",
-    "MERCADO PUBLICO",
-    "MINISUPER",
-    "OXXO",
     "S MART",
-    "SUPERMERCADO GONZALEZ"
+    "SORIANA SUPER",
+    "WAL-MART"
    ],
    "mas_barato": {
-    "cadena": "SUPERMERCADO GONZALEZ",
-    "precio_unidad": 0.098462,
-    "producto": "ATÚN, EL DORADO, LATA 130 GR. CON 30% DE SOYA EN AGUA CON ACEITE"
+    "cadena": "WAL-MART",
+    "precio_unidad": 0.064286,
+    "producto": "ATÚN, FISHA TUNA, LATA 140 GR. EN AGUA"
    },
    "rango": [
-    0.098462,
-    0.256757
+    0.064286,
+    0.184615
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-10-01"
   },
   "Avena": {
    "precio_unidad": 0.092475,
@@ -216,70 +305,66 @@
    "fecha_observacion": "2026-09-17"
   },
   "Cebolla blanca": {
-   "precio_unidad": 7.4985,
+   "precio_unidad": 6.7425,
    "unidad": "pz",
-   "observaciones": 25,
+   "observaciones": 14,
    "cadenas": [
     "BODEGA AURRERA",
-    "MERCADO PUBLICO",
-    "MINISUPER",
     "S MART",
-    "SUPERMERCADO GONZALEZ"
+    "SORIANA SUPER",
+    "WAL-MART"
    ],
    "mas_barato": {
-    "cadena": "S MART",
-    "precio_unidad": 4.4985,
-    "producto": "CEBOLLA, S/M, 1 KG. AMARILLA"
+    "cadena": "SORIANA SUPER",
+    "precio_unidad": 3.735,
+    "producto": "CEBOLLA, S/M, 1 KG. BLANCA SIN RABO"
    },
    "rango": [
-    4.4985,
-    16.9
+    3.735,
+    10.35
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-10-01"
   },
   "Cebolla morada": {
-   "precio_unidad": 7.4985,
+   "precio_unidad": 6.7425,
    "unidad": "pz",
-   "observaciones": 25,
+   "observaciones": 14,
    "cadenas": [
     "BODEGA AURRERA",
-    "MERCADO PUBLICO",
-    "MINISUPER",
     "S MART",
-    "SUPERMERCADO GONZALEZ"
+    "SORIANA SUPER",
+    "WAL-MART"
    ],
    "mas_barato": {
-    "cadena": "S MART",
-    "precio_unidad": 4.4985,
-    "producto": "CEBOLLA, S/M, 1 KG. AMARILLA"
+    "cadena": "SORIANA SUPER",
+    "precio_unidad": 3.735,
+    "producto": "CEBOLLA, S/M, 1 KG. BLANCA SIN RABO"
    },
    "rango": [
-    4.4985,
-    16.9
+    3.735,
+    10.35
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-10-01"
   },
   "Chile jalapeño": {
-   "precio_unidad": 0.04999,
+   "precio_unidad": 0.02,
    "unidad": "g",
-   "observaciones": 38,
+   "observaciones": 5,
    "cadenas": [
     "BODEGA AURRERA",
-    "MERCADO PUBLICO",
-    "MINISUPER",
-    "S MART",
-    "SUPERMERCADO GONZALEZ"
+    "SORIANA SUPER",
+    "WAL-MART"
    ],
    "mas_barato": {
-    "cadena": "SUPERMERCADO GONZALEZ",
-    "precio_unidad": 0.0219,
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.012,
     "producto": "CHILE FRESCO, S/M, 1 KG. JALAPEÑO O CUARESMEÑO"
    },
    "rango": [
-    0.0219,
-    0.21999
+    0.012,
+    0.0261
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-09-30"
   },
   "Chícharos": {
    "precio_unidad": 0.056634,
@@ -413,67 +498,63 @@
    "fecha_observacion": "2026-09-17"
   },
   "Huevo": {
-   "precio_unidad": 2.749167,
+   "precio_unidad": 2.444444,
    "unidad": "pz",
-   "observaciones": 14,
+   "observaciones": 4,
    "cadenas": [
-    "MINISUPER",
-    "S MART"
+    "SORIANA SUPER",
+    "WAL-MART"
    ],
    "mas_barato": {
-    "cadena": "S MART",
-    "precio_unidad": 2.333,
-    "producto": "HUEVO, SAN JUAN, PAQUETE CON 30 BLANCO"
+    "cadena": "SORIANA SUPER",
+    "precio_unidad": 2.333333,
+    "producto": "HUEVO, BACHOCO, PAQUETE CON 18. BLANCO"
    },
    "rango": [
-    2.333,
-    2.958333
+    2.333333,
+    2.555556
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-09-30"
   },
   "Jitomate": {
-   "precio_unidad": 3.588,
+   "precio_unidad": 3.24,
    "unidad": "pz",
-   "observaciones": 14,
-   "cadenas": [
-    "MERCADO PUBLICO",
-    "MINISUPER",
-    "S MART",
-    "SUPERMERCADO GONZALEZ"
-   ],
-   "mas_barato": {
-    "cadena": "MERCADO PUBLICO",
-    "precio_unidad": 2.64,
-    "producto": "JITOMATE, S/M, 1 KG. SALADETTE/ HUAJE O TOMATE SALADETTE/ HUAJE"
-   },
-   "rango": [
-    2.64,
-    5.5188
-   ],
-   "fecha_observacion": "2026-09-17"
-  },
-  "Leche": {
-   "precio_unidad": 0.031,
-   "unidad": "ml",
-   "observaciones": 55,
+   "observaciones": 7,
    "cadenas": [
     "BODEGA AURRERA",
-    "FARMACIA GUADALAJARA",
-    "MINISUPER",
-    "OXXO",
-    "S MART",
-    "SUPERMERCADO GONZALEZ"
+    "SORIANA SUPER",
+    "WAL-MART"
    ],
    "mas_barato": {
-    "cadena": "BODEGA AURRERA",
-    "precio_unidad": 0.018,
-    "producto": "LECHE ULTRAPASTEURIZADA, GREAT VALUE, ENVASE O CAJA 1 LT. ENTERA"
+    "cadena": "SORIANA SUPER",
+    "precio_unidad": 2.388,
+    "producto": "JITOMATE, S/M, 1 KG. BOLA/SINALOA O TOMATE BOLA"
    },
    "rango": [
-    0.018,
-    0.04995
+    2.388,
+    3.468
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-09-30"
+  },
+  "Leche": {
+   "precio_unidad": 0.0235,
+   "unidad": "ml",
+   "observaciones": 13,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "SORIANA SUPER",
+    "WAL-MART"
+   ],
+   "mas_barato": {
+    "cadena": "SORIANA SUPER",
+    "precio_unidad": 0.0149,
+    "producto": "LECHE ULTRAPASTEURIZADA, VALLEY FOODS, BOLSA 1 LT. ENTERA"
+   },
+   "rango": [
+    0.0149,
+    0.037
+   ],
+   "fecha_observacion": "2026-09-30"
   },
   "Lechuga romana": {
    "precio_unidad": 23.5,
@@ -520,26 +601,24 @@
    "fecha_observacion": "2026-09-17"
   },
   "Limón": {
-   "precio_unidad": 3.213,
+   "precio_unidad": 2.52,
    "unidad": "pz",
-   "observaciones": 16,
+   "observaciones": 6,
    "cadenas": [
     "BODEGA AURRERA",
-    "MERCADO PUBLICO",
-    "MINISUPER",
-    "S MART",
-    "SUPERMERCADO GONZALEZ"
+    "SORIANA SUPER",
+    "WAL-MART"
    ],
    "mas_barato": {
-    "cadena": "BODEGA AURRERA",
-    "precio_unidad": 2.31,
-    "producto": "LIMÓN, S/M, 1 KG. AGRIO CON SEMILLA O COLIMA. UPC 4306. EN MALLA"
+    "cadena": "SORIANA SUPER",
+    "precio_unidad": 1.953,
+    "producto": "LIMÓN, S/M, 1 KG. GRANEL. MEXICANO CON SEMILLA"
    },
    "rango": [
-    2.31,
-    4.1993
+    1.953,
+    2.94
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-09-30"
   },
   "Maíz en grano": {
    "precio_unidad": 0.055,
@@ -608,47 +687,45 @@
    "fecha_observacion": "2026-09-17"
   },
   "Papa": {
-   "precio_unidad": 0.035,
+   "precio_unidad": 0.04645,
    "unidad": "g",
-   "observaciones": 7,
+   "observaciones": 10,
    "cadenas": [
     "BODEGA AURRERA",
-    "MERCADO PUBLICO",
-    "S MART"
-   ],
-   "mas_barato": {
-    "cadena": "S MART",
-    "precio_unidad": 0.00999,
-    "producto": "PAPA, S/M, 1 KG. MORENA AMERICANA"
-   },
-   "rango": [
-    0.00999,
-    0.045
-   ],
-   "fecha_observacion": "2026-09-17"
-  },
-  "Pasta para sopa": {
-   "precio_unidad": 0.05875,
-   "unidad": "g",
-   "observaciones": 44,
-   "cadenas": [
-    "BODEGA AURRERA",
-    "FARMACIA GUADALAJARA",
-    "MERCADO PUBLICO",
-    "MINISUPER",
-    "S MART",
-    "SUPERMERCADO GONZALEZ"
+    "SORIANA SUPER",
+    "WAL-MART"
    ],
    "mas_barato": {
     "cadena": "BODEGA AURRERA",
-    "precio_unidad": 0.0275,
-    "producto": "PASTA PARA SOPA, AURRERA, PAQUETE 200 GR. FIDEO MEDIANO"
+    "precio_unidad": 0.041,
+    "producto": "PAPA, S/M, 1 KG. EN MALLA. ALFA/BLANCA"
    },
    "rango": [
-    0.0275,
-    0.07395
+    0.041,
+    0.065
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-09-30"
+  },
+  "Pasta para sopa": {
+   "precio_unidad": 0.0225,
+   "unidad": "g",
+   "observaciones": 26,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "S MART",
+    "SORIANA SUPER",
+    "WAL-MART"
+   ],
+   "mas_barato": {
+    "cadena": "SORIANA SUPER",
+    "precio_unidad": 0.0225,
+    "producto": "PASTA PARA SOPA, PRECÍSSIMO, PAQUETE 200 GR. CODO"
+   },
+   "rango": [
+    0.0225,
+    0.06495
+   ],
+   "fecha_observacion": "2026-10-01"
   },
   "Pechuga de pollo": {
    "precio_unidad": 0.095,
@@ -695,23 +772,25 @@
    "fecha_observacion": "2026-09-17"
   },
   "Pierna con muslo de pollo": {
-   "precio_unidad": 0.02699,
+   "precio_unidad": 0.03,
    "unidad": "g",
-   "observaciones": 3,
+   "observaciones": 7,
    "cadenas": [
     "BODEGA AURRERA",
-    "S MART"
+    "S MART",
+    "SORIANA SUPER",
+    "WAL-MART"
    ],
    "mas_barato": {
-    "cadena": "S MART",
-    "precio_unidad": 0.02699,
-    "producto": "PIERNA CON MUSLO, S/M, 1 KG. GRANEL. PIERNA CON MUSLO"
+    "cadena": "SORIANA SUPER",
+    "precio_unidad": 0.0299,
+    "producto": "PIERNA CON MUSLO, MI TIENDA DEL AHORRO, 1 KG. GRANEL. PIERNA CON MUSLO"
    },
    "rango": [
-    0.02699,
-    0.03
+    0.0299,
+    0.03799
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-10-01"
   },
   "Pimiento morrón": {
    "precio_unidad": 13.5,
@@ -755,47 +834,47 @@
    "fecha_observacion": "2026-09-17"
   },
   "Sardina en lata": {
-   "precio_unidad": 0.101176,
+   "precio_unidad": 0.091035,
    "unidad": "g",
-   "observaciones": 20,
+   "observaciones": 11,
    "cadenas": [
     "BODEGA AURRERA",
-    "FARMACIA GUADALAJARA",
-    "MINISUPER",
     "S MART",
-    "SUPERMERCADO GONZALEZ"
+    "SORIANA SUPER",
+    "WAL-MART"
    ],
    "mas_barato": {
     "cadena": "BODEGA AURRERA",
-    "precio_unidad": 0.04,
+    "precio_unidad": 0.035294,
     "producto": "SARDINA, AURRERA, LATA 425 GR. EN TOMATE"
    },
    "rango": [
-    0.04,
-    0.115271
+    0.035294,
+    0.112941
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-10-01"
   },
   "Tortilla de maíz": {
    "precio_unidad": 0.78,
    "unidad": "pz",
-   "observaciones": 30,
+   "observaciones": 31,
    "cadenas": [
-    "MERCADO PUBLICO",
-    "MINISUPER",
-    "SUPERMERCADO GONZALEZ",
-    "TORTILLERIAS TRADICIONALES"
+    "BODEGA AURRERA",
+    "S MART",
+    "SORIANA SUPER",
+    "TORTILLERIAS TRADICIONALES",
+    "WAL-MART"
    ],
    "mas_barato": {
-    "cadena": "MINISUPER",
-    "precio_unidad": 0.51,
+    "cadena": "WAL-MART",
+    "precio_unidad": 0.402,
     "producto": "TORTILLA DE MAÍZ, S/M, 1 KG. GRANEL"
    },
    "rango": [
-    0.51,
+    0.402,
     0.84
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-10-01"
   },
   "Tortilla integral grande": {
    "precio_unidad": 2.133333,
@@ -858,24 +937,24 @@
    "fecha_observacion": "2026-09-17"
   },
   "Zanahoria": {
-   "precio_unidad": 1.512,
+   "precio_unidad": 1.2,
    "unidad": "pz",
-   "observaciones": 6,
+   "observaciones": 5,
    "cadenas": [
-    "MERCADO PUBLICO",
-    "MINISUPER",
-    "SUPERMERCADO GONZALEZ"
+    "BODEGA AURRERA",
+    "S MART",
+    "WAL-MART"
    ],
    "mas_barato": {
-    "cadena": "MERCADO PUBLICO",
-    "precio_unidad": 1.28,
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 1.0,
     "producto": "ZANAHORIA, S/M, 1 KG. MEDIANA"
    },
    "rango": [
-    1.28,
-    1.7592
+    1.0,
+    2.0792
    ],
-   "fecha_observacion": "2026-09-17"
+   "fecha_observacion": "2026-10-01"
   }
  }
 }

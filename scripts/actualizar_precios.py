@@ -132,12 +132,68 @@ def resolver(nombre, cfg):
     }, None
 
 
+def contrastar(nombre, cfg, dato, mayoreo):
+    """Compara el precio de tienda contra el de central de abasto.
+
+    No es para corregir el precio: es para cachar datos mal clasificados. El
+    menudeo nunca puede costar menos que el mayoreo, y un margen de más de 3.5x
+    o de menos de 1.2x casi siempre significa que estamos comparando cortes o
+    presentaciones distintas, no que haya una ganga.
+    """
+    prod = cfg.get("sniim")
+    if not prod or prod not in mayoreo or not dato:
+        return None
+
+    gpp = (cfg.get("profeco") or {}).get("g_por_pieza")
+    if cfg["unidad"] == "pz" and gpp:
+        menudeo_kg = dato["precio_unidad"] / gpp * 1000
+    elif cfg["unidad"] == "g":
+        menudeo_kg = dato["precio_unidad"] * 1000
+    else:
+        return None
+
+    m = mayoreo[prod]
+    razon = menudeo_kg / m["frecuente"] if m["frecuente"] else None
+    if not razon:
+        return None
+
+    if razon < 1:
+        aviso = "el menudeo salió por debajo del mayoreo, lo cual es imposible"
+    elif razon < 1.2:
+        aviso = "margen demasiado apretado"
+    elif razon > 3.5:
+        aviso = "margen inusualmente alto"
+    else:
+        aviso = None
+
+    return {
+        "producto": prod, "mercado": "Mercado de Abasto de Cd. Juárez",
+        "precio_kg": m["frecuente"], "fecha": m["fecha"],
+        "menudeo_kg": round(menudeo_kg, 2), "margen": round(razon, 2),
+        **({"aviso": aviso} if aviso else {}),
+    }
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="no escribe precios.json")
+    ap.add_argument("--sin-sniim", action="store_true",
+                    help="omitir el contraste contra la central de abasto")
     args = ap.parse_args()
 
     catalogo = json.loads((RAIZ / "ingredientes.json").read_text(encoding="utf-8"))["ingredientes"]
+
+    # Segunda fuente: mayoreo del SNIIM. Si falla, seguimos sin ella — es un
+    # contraste, no un insumo del que dependan los precios.
+    mayoreo = {}
+    if not args.sin_sniim:
+        try:
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            import sniim
+            mayoreo = sniim.por_producto(sniim.consultar())
+            print(f"SNIIM: {len(mayoreo)} productos del mercado de abasto\n")
+        except Exception as e:
+            print(f"SNIIM no respondió ({type(e).__name__}); se sigue solo con PROFECO\n")
 
     ruta = RAIZ / "precios.json"
     previo = {}
@@ -145,6 +201,7 @@ def main():
         previo = json.loads(ruta.read_text(encoding="utf-8")).get("precios", {})
 
     precios, sin_fuente, fallos, alertas = {}, [], {}, []
+    contrastes, incoherencias = {}, []
 
     for nombre, cfg in catalogo.items():
         dato, error = resolver(nombre, cfg)
@@ -169,6 +226,15 @@ def main():
                                f"({salto*100:.0f}%)")
 
         precios[nombre] = dato
+
+        cmp = contrastar(nombre, cfg, dato, mayoreo)
+        if cmp:
+            contrastes[nombre] = cmp
+            if cmp.get("aviso"):
+                incoherencias.append(f'{nombre}: {cmp["aviso"]} '
+                               f'(tienda ${cmp["menudeo_kg"]:.2f}/kg vs mayoreo '
+                               f'${cmp["precio_kg"]:.2f}/kg = {cmp["margen"]}x)')
+
         ref = dato["precio_unidad"] * (1 if cfg["unidad"] == "pz" else 100)
         etq = "pieza" if cfg["unidad"] == "pz" else f'100 {cfg["unidad"]}'
         print(f"  ok  {nombre:28} ${ref:7.2f} / {etq:7}"
@@ -184,6 +250,8 @@ def main():
         "sin_fuente": sin_fuente,
         "fallos": fallos,
         "alertas": alertas,
+        "incoherencias_mayoreo": incoherencias,
+        "contraste_mayoreo": contrastes,
         "precios": precios,
     }
 
@@ -191,8 +259,12 @@ def main():
     print(f"  {len(precios)} con precio de PROFECO")
     print(f"  {len(sin_fuente)} manuales a propósito")
     print(f"  {len(fallos)} fallaron")
+    if contrastes:
+        print(f"  {len(contrastes)} contrastados contra la central de abasto")
     for a in alertas:
-        print(f"  !! salto grande -> {a}")
+        print(f"  !! saltó el precio -> {a}")
+    for a in incoherencias:
+        print(f"  !! no cuadra con el mayoreo -> {a}")
 
     if args.dry_run:
         print("\n(dry-run: no se escribió precios.json)")
