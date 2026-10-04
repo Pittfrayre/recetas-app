@@ -80,6 +80,44 @@ def validar_entrada_catalogo(nombre, e):
     return problemas
 
 
+
+def revisar_pasos(r, errores, prefijo=""):
+    """Cada paso dice qué ingredientes entran en él y en qué cantidad.
+
+    La comprobación que importa: la suma por ingrediente a lo largo de los pasos
+    tiene que dar exactamente lo que pide la receta. Si no cuadra, o falta
+    echarle algo a la olla o la app va a mostrar una cantidad que nadie usa.
+    """
+    pasos = r.get("pasos") or []
+    if pasos and isinstance(pasos[0], str):
+        errores.append(f"{prefijo}los pasos son texto plano; ahora van como "
+                       f'{{"t": "...", "usa": [{{"n": "...", "c": 0}}]}}')
+        return
+
+    total = {}
+    for i in r.get("ingredientes", []):
+        total[i["n"]] = total.get(i["n"], 0) + i["c"]
+
+    suma = {}
+    for j, s in enumerate(pasos):
+        if not isinstance(s, dict) or "t" not in s:
+            errores.append(f"{prefijo}el paso {j+1} no trae texto en 't'")
+            continue
+        for u in s.get("usa", []):
+            if u["n"] not in total:
+                errores.append(f'{prefijo}el paso {j+1} usa "{u["n"]}", que no está '
+                               f"en los ingredientes de la receta")
+                continue
+            suma[u["n"]] = round(suma.get(u["n"], 0) + u["c"], 2)
+
+    for n, c in total.items():
+        hay = suma.get(n, 0)
+        if abs(hay - c) > 0.02:
+            falta = round(c - hay, 2)
+            errores.append(f'{prefijo}"{n}": la receta pide {c} pero los pasos reparten '
+                           f"{hay}" + (f" (faltan {falta})" if falta > 0 else
+                                       f" ({-falta} de más)"))
+
 def revisar(nueva, catalogo, recetas):
     """Devuelve (errores, faltantes). No escribe nada."""
     errores = []
@@ -117,6 +155,8 @@ def revisar(nueva, catalogo, recetas):
         for x in EXCLUIDOS:
             if x in n.lower():
                 errores.append(f'"{n}" está en la lista de ingredientes excluidos')
+
+    revisar_pasos(nueva, errores)
 
     return errores, faltantes
 
