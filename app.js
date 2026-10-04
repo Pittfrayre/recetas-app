@@ -254,18 +254,28 @@ function confirmar(titulo, texto, etiquetaOk, alAceptar, { destructivo = false }
 }
 function cerrarAlerta(){ $('#alerta').classList.remove('on'); _alertaOk = null; }
 
-/* El plan cambió y ya hay lista: preguntamos si la rehacemos.
-   Va con retraso para que una ráfaga de ajustes pregunte una sola vez. */
-let _tPlan = null;
+/* Antes esto abría un diálogo cada vez que tocabas el plan, y asignar cuatro
+   días seguidos se volvía una pelea contra el aviso. Ahora solo se marca que
+   la lista quedó vieja; tú decides cuándo rehacerla, con un botón. */
+function firmaPlan(){
+  return DIAS.map(d => {
+    const x = S.semana[d.k];
+    if (!x || !x.receta) return d.k + ':-';
+    return d.k + ':' + x.receta + ':' + (x.comensales||[]).join(',') +
+           ':' + (x.invitados||[]).map(g => g.nombre + g.factor).join(',');
+  }).join('|') + '#' + S.personas.map(p => p.id + p.factor).join(',');
+}
+const listaVieja = () => !!(S.lista && S.lista.firma && S.lista.firma !== firmaPlan());
+
 function planCambio(){
-  if (!S.lista) return;
-  clearTimeout(_tPlan);
-  _tPlan = setTimeout(() => {
-    confirmar('Cambiaste el plan',
-      'Tu lista del mandado quedó de antes. ¿La actualizo con las recetas de esta semana?',
-      'Actualizar',
-      () => { generarLista(); if (S.vista === 'mandado') renderMandado(); toast('Lista actualizada'); });
-  }, 700);
+  if (S.vista === 'plan')    renderPlan();
+  if (S.vista === 'mandado') renderMandado();
+}
+
+function actualizarLista(){
+  generarLista();
+  if (S.vista === 'mandado') renderMandado();
+  toast('Lista actualizada');
 }
 
 /* Se marcó el último artículo */
@@ -461,7 +471,11 @@ function renderPlan(){
     </button>`;
   }).join('');
 
-  $('#genList').disabled = !DIAS.some(d => S.semana[d.k] && S.semana[d.k].receta && factorDia(d.k) > 0);
+  const hayPlan = DIAS.some(d => S.semana[d.k] && S.semana[d.k].receta && factorDia(d.k) > 0);
+  $('#genList').disabled = !hayPlan;
+  $('#genList').lastChild.textContent = listaVieja()
+    ? ' Actualizar la lista del mandado'
+    : (S.lista ? ' Ver la lista del mandado' : ' Generar lista del mandado');
 }
 
 /* ============================================================
@@ -608,6 +622,7 @@ function generarLista(){
                     .filter(g=>g.items.length),
     total: items.reduce((a,i)=>a+i.precio,0),
     ahorro, mejorCadena: mejor ? mejor[0] : null,
+    firma: firmaPlan(),
     n: items.length
   };
   renderMandado();
@@ -627,6 +642,10 @@ function renderMandado(){
   $('#tabBadge').textContent = pend;
 
   w.innerHTML=`
+    ${listaVieja() ? `
+      <button class="btn sm" id="actualizarLista" style="margin-bottom:12px">
+        El plan cambió · actualizar la lista
+      </button>` : ''}
     <div class="budget">
       <div class="budget-top"><b>${mxn(S.lista.total)}</b><span>de ${mxn(S.presupuesto)}</span></div>
       <div class="bar"><i class="${S.lista.total>S.presupuesto?'over':''}" style="width:${pct}%"></i></div>
@@ -812,7 +831,34 @@ function verReceta(id){
       <div class="macro"><b>${d?porcionesDe(r).toFixed(1).replace('.0',''):r.porciones}</b><span>Porciones</span></div>
     </div>
 
-    ${diasTxt?`<div class="note" style="margin-bottom:6px"><b>En tu semana:</b> ${esc(diasTxt)}</div>`:''}
+    ${planeable(r) ? `
+      <div class="sec"><h2>Agregar a la semana</h2>${
+        nDias ? `<span class="act">${nDias} día${nDias>1?'s':''}</span>` : ''}</div>
+      <div class="dias-chips">
+        ${DIAS.map(dd => {
+          const dia  = S.semana[dd.k];
+          const mia  = dia && dia.receta === r.id;
+          const otra = dia && dia.receta !== r.id ? rec(dia.receta) : null;
+          return `<button class="dia-chip ${mia?'mia':''} ${otra?'ocupada':''}"
+                          data-plandia="${dd.k}" data-receta="${r.id}">
+            <b>${dd.n}</b>
+            <span>${mia ? '✓' : otra ? esc(otra.emoji) : '+'}</span>
+          </button>`;
+        }).join('')}
+      </div>
+      ${listaVieja() ? `
+        <button class="btn sm" id="actualizarLista" style="margin-top:10px">
+          Actualizar la lista del mandado
+        </button>` : `
+        <p class="price-hint" style="text-align:left;padding:8px 4px 0">
+          Toca los días que quieras; tócalos otra vez para quitarlos. Los que ya tienen
+          algo se marcan con su platillo.
+        </p>`}` : `
+      <div class="note" style="margin-top:14px;margin-bottom:6px">
+        Esto es ${esc(familiaDe(r).toLowerCase())}: se prepara aparte y no se asigna a un día.
+      </div>`}
+
+    ${diasTxt?`<div class="note" style="margin:14px 0 6px"><b>En tu semana:</b> ${esc(diasTxt)}</div>`:''}
 
     <div class="sec">
       <h2>Ingredientes</h2>
@@ -885,29 +931,6 @@ function verReceta(id){
 
     <div class="sec"><h2>Notas del nutriólogo</h2></div>
     <div class="note">${esc(r.notas)}</div>
-
-    ${planeable(r) ? `
-      <div class="sec"><h2>Agregar a la semana</h2>${
-        nDias ? `<span class="act">${nDias} día${nDias>1?'s':''}</span>` : ''}</div>
-      <div class="dias-chips">
-        ${DIAS.map(dd => {
-          const dia  = S.semana[dd.k];
-          const mia  = dia && dia.receta === r.id;
-          const otra = dia && dia.receta !== r.id ? rec(dia.receta) : null;
-          return `<button class="dia-chip ${mia?'mia':''} ${otra?'ocupada':''}"
-                          data-plandia="${dd.k}" data-receta="${r.id}">
-            <b>${dd.n}</b>
-            <span>${mia ? '✓' : otra ? esc(otra.emoji) : '+'}</span>
-          </button>`;
-        }).join('')}
-      </div>
-      <p class="price-hint" style="text-align:left;padding:8px 4px 0">
-        Toca un día para agregar esta receta; tócalo otra vez para quitarla. Los días
-        que ya tienen algo se marcan con su platillo.
-      </p>` : `
-      <div class="note" style="margin-top:20px">
-        Esto es ${esc(familiaDe(r).toLowerCase())}: se prepara aparte y no se asigna a un día.
-      </div>`}
 
     <div style="margin-top:20px">
       <button class="btn ghost sm" data-edit="${r.id}">Editar receta</button>
@@ -1199,6 +1222,13 @@ document.addEventListener('click', e=>{
   if(t.closest('#shareList'))  return compartirLista();
   if(t.closest('#btnSync'))    { sincronizar(); return; }
 
+  if(t.closest('#actualizarLista')){
+    actualizarLista();
+    const abierto = $('#sheetTitle').textContent;
+    const rr = RECETAS.find(x => x.nombre === abierto);
+    if (rr) verReceta(rr.id);
+    return;
+  }
   if(t.closest('#genList')){ generarLista(); ir('mandado'); return; }
   if(t.closest('#clearWeek')){ DIAS.forEach(d=>S.semana[d.k]=null); renderPlan(); renderRecetas(); return planCambio(); }
   if(t.closest('#hoyPlan')) return ir('plan');
