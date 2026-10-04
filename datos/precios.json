@@ -2,8 +2,8 @@
  "fuente": "PROFECO — Quién es Quién en los Precios",
  "fuente_url": "https://qqp.profeco.gob.mx/",
  "ciudad": "Ciudad Juárez",
- "estrategia": "mediana entre cadenas",
- "actualizado": "2026-10-04T15:49:19+00:00",
+ "estrategia": "percentil 75 entre cadenas — presupuesto de peor escenario",
+ "actualizado": "2026-10-04T15:53:59+00:00",
  "sin_fuente": [
   "Ajo en polvo, comino y paprika",
   "Ajo en polvo, paprika y perejil",
@@ -36,20 +36,22 @@
   "Espinaca fresca": "sin observaciones",
   "Frijoles cocidos": "sin observaciones",
   "Garbanzo": "sin observaciones",
-  "Lechuga romana": "sin observaciones; además el precio anterior estaba en \"pz\" y ahora la unidad es \"g\", así que se descartó",
+  "Lechuga romana": "sin observaciones",
   "Lenteja": "sin observaciones",
   "Maíz en grano": "sin observaciones",
   "Miel": "sin observaciones",
   "Nopal": "sin observaciones",
   "Pechuga de pollo": "sin observaciones",
-  "Pepino": "sin observaciones; además el precio anterior estaba en \"pz\" y ahora la unidad es \"g\", así que se descartó",
-  "Pimiento morrón": "sin observaciones; además el precio anterior estaba en \"pz\" y ahora la unidad es \"g\", así que se descartó",
+  "Pepino": "sin observaciones",
+  "Pimiento morrón": "sin observaciones",
   "Queso panela": "sin observaciones",
   "Tortilla integral grande": "ningún producto del tipo \"TORTILLA DE HARINA DE TRIGO\"",
   "Vinagre de manzana": "sin observaciones",
   "Yogur griego natural": "sin observaciones"
  },
- "alertas": [],
+ "alertas": [
+  "Zanahoria: 0.0150 -> 0.0260 (73%)"
+ ],
  "incoherencias_mayoreo": [],
  "contraste_mayoreo": {},
  "precios": {
@@ -135,7 +137,9 @@
    "fecha_observacion": "2026-09-17"
   },
   "Arroz": {
-   "precio_unidad": 0.019846,
+   "precio_unidad": 0.020948,
+   "mediana": 0.019846,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "g",
    "observaciones": 13,
    "cadenas": [
@@ -155,7 +159,9 @@
    "fecha_observacion": "2026-09-30"
   },
   "Atún en lata": {
-   "precio_unidad": 0.1375,
+   "precio_unidad": 0.171429,
+   "mediana": 0.1375,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "g",
    "observaciones": 18,
    "cadenas": [
@@ -239,7 +245,9 @@
    "fecha_observacion": "2026-09-17"
   },
   "Cebolla blanca": {
-   "precio_unidad": 0.04495,
+   "precio_unidad": 0.05499,
+   "mediana": 0.04495,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "g",
    "observaciones": 14,
    "cadenas": [
@@ -260,7 +268,9 @@
    "fecha_observacion": "2026-10-01"
   },
   "Cebolla morada": {
-   "precio_unidad": 0.04495,
+   "precio_unidad": 0.05499,
+   "mediana": 0.04495,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "g",
    "observaciones": 14,
    "cadenas": [
@@ -281,7 +291,9 @@
    "fecha_observacion": "2026-10-01"
   },
   "Chile jalapeño": {
-   "precio_unidad": 0.02,
+   "precio_unidad": 0.0261,
+   "mediana": 0.02,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "g",
    "observaciones": 5,
    "cadenas": [
@@ -432,7 +444,9 @@
    "fecha_observacion": "2026-09-17"
   },
   "Huevo": {
-   "precio_unidad": 2.444444,
+   "precio_unidad": 2.555556,
+   "mediana": 2.444444,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "pz",
    "observaciones": 4,
    "cadenas": [
@@ -451,7 +465,9 @@
    "fecha_observacion": "2026-09-30"
   },
   "Jitomate": {
-   "precio_unidad": 0.027,
+   "precio_unidad": 0.0289,
+   "mediana": 0.027,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "g",
    "observaciones": 7,
    "cadenas": [
@@ -471,7 +487,9 @@
    "fecha_observacion": "2026-09-30"
   },
   "Leche": {
-   "precio_unidad": 0.0235,
+   "precio_unidad": 0.033,
+   "mediana": 0.0235,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "ml",
    "observaciones": 13,
    "cadenas": [
@@ -513,7 +531,9 @@
    "fecha_observacion": "2026-09-17"
   },
   "Limón": {
-   "precio_unidad": 2.52,
+   "precio_unidad": 2.94,
+   "mediana": 2.52,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "pz",
    "observaciones": 6,
    "cadenas": [
@@ -599,7 +619,9 @@
    "fecha_observacion": "2026-09-17"
   },
   "Papa": {
-   "precio_unidad": 0.04645,
+   "precio_unidad": 0.059,
+   "mediana": 0.04645,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "g",
    "observaciones": 10,
    "cadenas": [
@@ -619,7 +641,9 @@
    "fecha_observacion": "2026-09-30"
   },
   "Pasta para sopa": {
-   "precio_unidad": 0.0225,
+   "precio_unidad": 0.0275,
+   "mediana": 0.0225,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "g",
    "observaciones": 26,
    "cadenas": [
@@ -662,7 +686,9 @@
    "fecha_observacion": "2026-09-17"
   },
   "Pierna con muslo de pollo": {
-   "precio_unidad": 0.03,
+   "precio_unidad": 0.03799,
+   "mediana": 0.03,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "g",
    "observaciones": 7,
    "cadenas": [
@@ -703,7 +729,9 @@
    "fecha_observacion": "2026-09-17"
   },
   "Sardina en lata": {
-   "precio_unidad": 0.091035,
+   "precio_unidad": 0.096471,
+   "mediana": 0.091035,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "g",
    "observaciones": 11,
    "cadenas": [
@@ -725,6 +753,8 @@
   },
   "Tortilla de maíz": {
    "precio_unidad": 0.78,
+   "mediana": 0.78,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "pz",
    "observaciones": 31,
    "cadenas": [
@@ -806,7 +836,9 @@
    "fecha_observacion": "2026-09-17"
   },
   "Zanahoria": {
-   "precio_unidad": 0.015,
+   "precio_unidad": 0.02599,
+   "mediana": 0.015,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
    "unidad": "g",
    "observaciones": 5,
    "cadenas": [

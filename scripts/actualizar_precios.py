@@ -16,6 +16,7 @@ de precios: ese es el orden que evita recetas con precio fantasma.
 import argparse
 import json
 import re
+import math
 import statistics
 import sys
 import urllib.parse
@@ -117,8 +118,18 @@ def resolver(nombre, cfg):
 
     valores = sorted(x[0] for x in puntos)
     barato = min(puntos, key=lambda x: x[0])
+
+    # El presupuesto se calcula con el PEOR escenario razonable, no con el
+    # promedio: que la cuenta del súper nunca salga más cara de lo anunciado.
+    # El máximo sería demasiado -lo fija una sola tienda cara- así que usamos
+    # el percentil 75: tres de cada cuatro tiendas cuestan esto o menos.
+    i75 = max(0, math.ceil(0.75 * len(valores)) - 1)
+    p75 = valores[i75]
+
     return {
-        "precio_unidad": round(statistics.median(valores), 6),
+        "precio_unidad": round(p75, 6),
+        "mediana": round(statistics.median(valores), 6),
+        "criterio": "percentil 75 entre cadenas (escenario conservador)",
         "unidad": cfg["unidad"],
         "observaciones": len(puntos),
         "cadenas": sorted({p["cadena_comercial"] for _, p in puntos}),
@@ -253,7 +264,7 @@ def main():
         "fuente": "PROFECO — Quién es Quién en los Precios",
         "fuente_url": "https://qqp.profeco.gob.mx/",
         "ciudad": CIUDAD_NOMBRE,
-        "estrategia": "mediana entre cadenas",
+        "estrategia": "percentil 75 entre cadenas — presupuesto de peor escenario",
         "actualizado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "sin_fuente": sin_fuente,
         "fallos": fallos,

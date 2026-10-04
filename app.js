@@ -546,10 +546,26 @@ function generarLista(){
   // Si ya ibas a medio súper, respetamos lo que llevas marcado
   const vigentes=new Set(items.map(i=>i.n+'|'+i.u));
   Object.keys(S.marcados).forEach(k=>{ if(!vigentes.has(k)) delete S.marcados[k]; });
+  /* El total es el peor escenario razonable. Pero sabemos en qué cadena está
+     más barato cada cosa, así que decimos cuánto se puede recortar y dónde. */
+  let ahorro = 0; const cadenas = {};
+  items.forEach(i => {
+    const pf = S.profeco[i.n];
+    if (S.precios[i.n] !== undefined) return;        // si tú lo corregiste, mandas tú
+    if (!pf || !pf.mas_barato || pf.unidad !== i.u) return;
+    const dif = (i.unit - pf.mas_barato.precio_unidad) * i.c;
+    if (dif > 0){
+      ahorro += dif;
+      cadenas[pf.mas_barato.cadena] = (cadenas[pf.mas_barato.cadena] || 0) + dif;
+    }
+  });
+  const mejor = Object.entries(cadenas).sort((a,b)=>b[1]-a[1])[0];
+
   S.lista={
     grupos: PASILLOS.map(p=>({pasillo:p, items:items.filter(i=>i.p===p).sort((a,b)=>b.precio-a.precio)}))
                     .filter(g=>g.items.length),
     total: items.reduce((a,i)=>a+i.precio,0),
+    ahorro, mejorCadena: mejor ? mejor[0] : null,
     n: items.length
   };
   renderMandado();
@@ -575,6 +591,11 @@ function renderMandado(){
       <p class="budget-note">${resta>=0
         ? `Te sobran <strong>${mxn(resta)}</strong> del presupuesto · ${hechos} de ${S.lista.n} marcados`
         : `Te pasas por <strong>${mxn(-resta)}</strong> · ${hechos} de ${S.lista.n} marcados`}</p>
+      <p class="budget-note" style="margin-top:4px">
+        Calculado con el <strong>precio más alto probable</strong>, para que no te sorprenda la cuenta.${
+        S.lista.ahorro > 10 && S.lista.mejorCadena
+          ? ` Buscando lo barato bajarías hasta <strong>${mxn(S.lista.ahorro)}</strong>; donde más se ahorra es en <strong>${esc(S.lista.mejorCadena)}</strong>.`
+          : ''}</p>
     </div>
     ${S.lista.grupos.map(g=>`
       <div class="aisle"><span>${esc(g.pasillo)}</span><span>${mxn(g.items.reduce((a,i)=>a+i.precio,0))}</span></div>
