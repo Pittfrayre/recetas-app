@@ -206,6 +206,9 @@ ol.steps li::before{content:counter(s);flex:none;width:23px;height:23px;border-r
 /* ---------- Calendario ---------- */
 .day{display:flex;align-items:center;gap:12px;padding:10px 15px;border-bottom:1px solid var(--sep);width:100%;text-align:left}
 .day:last-child{border-bottom:0}
+.plan-recipe-actions{display:flex;gap:10px;padding:12px}
+.plan-recipe-actions .btn{flex:1;min-width:0}
+.recipe-plan-back{margin-bottom:18px}
 .day-n{width:38px;flex:none}
 .day-n b{display:block;font-size:14px;font-weight:800;letter-spacing:-.01em}
 .day-n span{display:block;font-size:11px;color:var(--text-3);font-weight:600}

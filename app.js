@@ -178,7 +178,8 @@ const S = {
   lista:null,
   marcados:{},
   presupuesto:1500,
-  diaEditando:null
+  diaEditando:null,
+  recetaPlanDia:null      // regreso al día al consultar su receta
 };
 
 /* ============================================================
@@ -490,6 +491,7 @@ function renderPlan(){
    Hoja del día: primero la receta, luego quién come
    ============================================================ */
 function sheetDia(k, paso){
+  S.recetaPlanDia = null;
   S.diaEditando = k;
   if (paso) S.pasoDia = paso;
   const d  = DIAS.find(x=>x.k===k);
@@ -518,14 +520,17 @@ function sheetDia(k, paso){
   const r = rec(dd.receta);
   const total = factorDia(k);
   abrirSheet(d.l, `
-    <p class="price-hint" style="text-align:left;padding:0 4px 12px">Paso 2 de 2 · ¿Quién come?</p>
+    <p class="price-hint" style="text-align:left;padding:0 4px 12px">Receta y comensales del día</p>
 
     <div class="card">
-      <button class="day" data-paso="receta">
+      <div class="day">
         <div class="thumb"><img src="img/${r.id}-sq.jpg" alt="" loading="lazy"></div>
-        <div class="day-t"><strong>${esc(r.nombre)}</strong><span>Toca para cambiar la receta</span></div>
-        <div class="chev"></div>
-      </button>
+        <div class="day-t"><strong>${esc(r.nombre)}</strong><span>${r.tiempo} min · ${r.proteina} g proteína</span></div>
+      </div>
+      <div class="plan-recipe-actions">
+        <button class="btn sm" data-ver-plan-dia="${k}">Ver receta</button>
+        <button class="btn ghost sm" data-paso="receta">Cambiar receta</button>
+      </div>
     </div>
 
     <div class="sec"><h2>De casa</h2></div>
@@ -809,6 +814,7 @@ function abrirSheet(t,html){
 function cerrarSheet(){
   $('#sheet').classList.remove('on'); $('#scrim').classList.remove('on');
   S.diaEditando=null;
+  S.recetaPlanDia=null;
 }
 
 function verReceta(id){
@@ -827,6 +833,9 @@ function verReceta(id){
     : null;
 
   abrirSheet(r.nombre, `
+    ${S.recetaPlanDia ? `<button class="btn ghost sm recipe-plan-back" data-volver-plan-dia="${S.recetaPlanDia}">
+      ← Volver al ${esc(DIAS.find(x=>x.k===S.recetaPlanDia).l.toLowerCase())}
+    </button>` : ''}
     <img class="hero-img" src="img/${r.id}-w.jpg" alt="">
     <div class="hero-t">
       <h4>${esc(r.nombre)}</h4>
@@ -1071,8 +1080,25 @@ document.addEventListener('click', e=>{
   if(t.closest('#hdrAction'))             return nuevaReceta();
   if(t.closest('#sheetClose')||t.closest('#scrim')) return cerrarSheet();
 
-  // Día del calendario → selector
-  const day=t.closest('[data-dia]');      if(day) return sheetDia(day.dataset.dia,'receta');
+  // Día con platillo → consultar receta o editar; día libre → selector.
+  const day=t.closest('[data-dia]');
+  if(day) return sheetDia(day.dataset.dia, S.semana[day.dataset.dia] ? 'comensales' : 'receta');
+
+  const verPlan=t.closest('[data-ver-plan-dia]');
+  if(verPlan){
+    const k=verPlan.dataset.verPlanDia, receta=S.semana[k] && rec(S.semana[k].receta);
+    if(!receta) return sheetDia(k,'receta');
+    S.recetaPlanDia=k;
+    verReceta(receta.id);
+    $('#sheetBody').scrollTop=0;
+    return;
+  }
+  const volverPlan=t.closest('[data-volver-plan-dia]');
+  if(volverPlan){
+    sheetDia(volverPlan.dataset.volverPlanDia,'comensales');
+    $('#sheetBody').scrollTop=0;
+    return;
+  }
 
   // Elegir receta para el día
   const pick=t.closest('[data-pick]');
