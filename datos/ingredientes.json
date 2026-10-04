@@ -116,6 +116,13 @@
     "g": 40
    }
   },
+  "Alubias": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.055,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos el 2026-10-04. Precio estimado, cercano al del frijol."
+  },
   "Arroz": {
    "unidad": "g",
    "pasillo": "Abarrotes",
@@ -188,6 +195,27 @@
     "nombre": "kilo",
     "g": 1000
    }
+  },
+  "Caldo de pollo": {
+   "unidad": "ml",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.02,
+   "profeco": null,
+   "nota": "Caldo de cubo o casero; PROFECO no lo levanta como tal. Precio estimado."
+  },
+  "Camarón": {
+   "unidad": "g",
+   "pasillo": "Carnes y pescado",
+   "precio_referencia": 0.32,
+   "profeco": null,
+   "nota": "PROFECO no levanta mariscos frescos en Juárez, igual que el pescado. Precio estimado; es el ingrediente más caro del recetario."
+  },
+  "Camote": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.045,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos el 2026-10-04. Precio estimado."
   },
   "Carne molida de res 80/20": {
    "unidad": "g",
@@ -265,6 +293,13 @@
    "precio_referencia": 0.12,
    "profeco": null,
    "nota": "Hierba de manojo chico, sin fuente pública. Precio estimado."
+  },
+  "Chayote": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.03,
+   "profeco": null,
+   "nota": "SNIIM lo publica a $15/kg al mayoreo; precio de tienda estimado del doble."
   },
   "Chile chipotle adobado": {
    "unidad": "g",
@@ -361,6 +396,40 @@
     "g": 40
    }
   },
+  "Consomé de verduras": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.2,
+   "profeco": null,
+   "nota": "Sazonador en polvo sin sal; sin fuente pública.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 2,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 100
+   }
+  },
+  "Cúrcuma": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.35,
+   "profeco": null,
+   "nota": "Especia de frasco; sin fuente pública.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 2.2,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
+   }
+  },
   "Ejotes": {
    "unidad": "g",
    "pasillo": "Frutas y verduras",
@@ -398,6 +467,13 @@
     "nombre": "kilo",
     "g": 1000
    }
+  },
+  "Frijol rojo": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.045,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos el 2026-10-04. Precio estimado, cercano al frijol negro."
   },
   "Frijoles cocidos": {
    "unidad": "g",
@@ -442,6 +518,54 @@
    "medida_compra": {
     "nombre": "bolsa",
     "g": 1000
+   }
+  },
+  "Harina de maíz": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.028,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos el 2026-10-04. Precio estimado."
+  },
+  "Harina de trigo": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.03,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos el 2026-10-04. Precio estimado."
+  },
+  "Hierbas italianas": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.3,
+   "profeco": null,
+   "nota": "Mezcla de frasco; sin fuente pública.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 1.2,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 30
+   }
+  },
+  "Hojuelas de chile": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.25,
+   "profeco": null,
+   "nota": "Especia de frasco; sin fuente pública.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 2,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 40
    }
   },
   "Huevo": {
@@ -552,6 +676,13 @@
     "g": 1000
    }
   },
+  "Levadura nutricional": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.5,
+   "profeco": null,
+   "nota": "Producto de especialidad; PROFECO no lo levanta. Si no la consigues, cámbiala por queso parmesano rallado."
+  },
   "Limón": {
    "unidad": "pz",
    "pasillo": "Frutas y verduras",
@@ -574,6 +705,20 @@
     "g": 1000
    }
   },
+  "Manzana": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.084,
+   "profeco": null,
+   "nota": "SNIIM publica manzana Red Delicious a $42/kg al mayoreo; precio de tienda estimado del doble."
+  },
+  "Mayonesa light": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.09,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos el 2026-10-04. Precio estimado."
+  },
   "Maíz en grano": {
    "unidad": "g",
    "pasillo": "Abarrotes",
@@ -594,6 +739,13 @@
     "g": 1000
    }
   },
+  "Menta": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.12,
+   "profeco": null,
+   "nota": "Hierba de manojo chico, sin fuente pública."
+  },
   "Miel": {
    "unidad": "g",
    "pasillo": "Abarrotes",
@@ -602,6 +754,13 @@
     "busqueda": "miel",
     "tipo": "MIEL DE ABEJA"
    }
+  },
+  "Mostaza": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.08,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos el 2026-10-04. Precio estimado."
   },
   "Mozzarella": {
    "unidad": "g",
@@ -640,6 +799,13 @@
     "g": 40
    }
   },
+  "Pan": {
+   "unidad": "g",
+   "pasillo": "Panadería",
+   "precio_referencia": 0.07,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos de pan el 2026-10-04. Precio estimado de bolillo."
+  },
   "Papa": {
    "unidad": "g",
    "pasillo": "Frutas y verduras",
@@ -669,6 +835,15 @@
    "medida_compra": {
     "nombre": "frasco",
     "g": 40
+   }
+  },
+  "Pasta de letras": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.06,
+   "profeco": {
+    "busqueda": "pasta",
+    "tipo": "PASTA PARA SOPA"
    }
   },
   "Pasta para sopa": {
@@ -771,12 +946,40 @@
     "g": 1000
    }
   },
+  "Piña": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.042,
+   "profeco": null,
+   "nota": "SNIIM la publica a $21/kg al mayoreo; precio de tienda estimado del doble. PROFECO no devolvió datos el 2026-10-04."
+  },
+  "Puré de tomate": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.035,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos el 2026-10-04. Precio estimado."
+  },
   "Queso crema": {
    "unidad": "g",
    "pasillo": "Lácteos",
    "precio_referencia": 0.16,
    "profeco": null,
    "nota": "Precio estimado; sin dato público ese día."
+  },
+  "Queso fresco": {
+   "unidad": "g",
+   "pasillo": "Lácteos",
+   "precio_referencia": 0.14,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos de queso el 2026-10-04. Precio estimado."
+  },
+  "Queso havarti": {
+   "unidad": "g",
+   "pasillo": "Lácteos",
+   "precio_referencia": 0.22,
+   "profeco": null,
+   "nota": "Queso de especialidad; PROFECO no lo levanta. Se puede cambiar por manchego o panela."
   },
   "Queso panela": {
    "unidad": "g",
@@ -800,6 +1003,23 @@
    "precio_referencia": 0.18,
    "profeco": null,
    "nota": "Grano de especialidad; PROFECO no lo levanta en Juárez. Precio estimado de tienda."
+  },
+  "Romero": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.3,
+   "profeco": null,
+   "nota": "Especia de frasco; sin fuente pública.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 1.2,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 30
+   }
   },
   "Rúcula": {
    "unidad": "g",
@@ -826,6 +1046,23 @@
    "medida_compra": {
     "nombre": "lata",
     "g": null
+   }
+  },
+  "Tomillo": {
+   "unidad": "g",
+   "pasillo": "Especias",
+   "precio_referencia": 0.3,
+   "profeco": null,
+   "nota": "Especia de frasco; sin fuente pública.",
+   "medida_cocina": {
+    "nombre": "cucharadita",
+    "abrev": "cdta",
+    "g": 1.2,
+    "modo": "reemplaza"
+   },
+   "medida_compra": {
+    "nombre": "frasco",
+    "g": 30
    }
   },
   "Tortilla de maíz": {

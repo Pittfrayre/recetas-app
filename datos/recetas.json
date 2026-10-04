@@ -3509,6 +3509,2327 @@
     }
    ],
    "notas": "Embarazo: el huevo debe quedar totalmente cuajado y el atún cuenta dentro de las 2 o 3 porciones de pescado por semana. El video la llama «alta en proteína», pero con 22 g por porción se queda corta frente a los 30-40 g que buscamos en una comida fuerte: va mejor como cena ligera, o acompáñala con algo más."
+  },
+  {
+   "id": "ensalada-quinoa-legumbres",
+   "nombre": "Ensalada de quinoa con garbanzo, frijol y piña",
+   "emoji": "🥗",
+   "familia": "Platillo",
+   "grupo": "Leguminosa",
+   "categoria": "Comida",
+   "porciones": 5,
+   "tiempo": 30,
+   "kcal": 418,
+   "proteina": 11,
+   "tags": [
+    "Económico",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Quinoa",
+     "c": 200
+    },
+    {
+     "n": "Garbanzo",
+     "c": 110
+    },
+    {
+     "n": "Frijoles cocidos",
+     "c": 250
+    },
+    {
+     "n": "Pimiento morrón",
+     "c": 180
+    },
+    {
+     "n": "Piña",
+     "c": 200
+    },
+    {
+     "n": "Cebolla morada",
+     "c": 75
+    },
+    {
+     "n": "Aguacate",
+     "c": 1
+    },
+    {
+     "n": "Cilantro",
+     "c": 12
+    },
+    {
+     "n": "Menta",
+     "c": 12
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 60
+    },
+    {
+     "n": "Limón",
+     "c": 3
+    },
+    {
+     "n": "Vinagre de manzana",
+     "c": 30
+    },
+    {
+     "n": "Miel",
+     "c": 7
+    },
+    {
+     "n": "Hojuelas de chile",
+     "c": 2
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Cuece la quinoa (ver la receta base) y déjala enfriar por completo: si la mezclas caliente, el aguacate se oxida y las hierbas se marchitan.",
+     "usa": [
+      {
+       "n": "Quinoa",
+       "c": 200
+      }
+     ]
+    },
+    {
+     "t": "Cuece el garbanzo, o usa el de lata bien enjuagado. Enjuaga también los frijoles.",
+     "usa": [
+      {
+       "n": "Garbanzo",
+       "c": 110
+      },
+      {
+       "n": "Frijoles cocidos",
+       "c": 250
+      }
+     ]
+    },
+    {
+     "t": "Corta el pimiento, la piña, la cebolla morada y el aguacate en cubos del mismo tamaño. Pica el cilantro y la menta.",
+     "usa": [
+      {
+       "n": "Pimiento morrón",
+       "c": 180
+      },
+      {
+       "n": "Piña",
+       "c": 200
+      },
+      {
+       "n": "Cebolla morada",
+       "c": 75
+      },
+      {
+       "n": "Aguacate",
+       "c": 1
+      },
+      {
+       "n": "Cilantro",
+       "c": 12
+      },
+      {
+       "n": "Menta",
+       "c": 12
+      }
+     ]
+    },
+    {
+     "t": "Agita en un frasco el aceite de oliva, el jugo de limón, el vinagre, la miel y las hojuelas de chile, con sal y pimienta.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 60
+      },
+      {
+       "n": "Limón",
+       "c": 3
+      },
+      {
+       "n": "Vinagre de manzana",
+       "c": 30
+      },
+      {
+       "n": "Miel",
+       "c": 7
+      },
+      {
+       "n": "Hojuelas de chile",
+       "c": 2
+      }
+     ]
+    },
+    {
+     "t": "Junta la quinoa, las legumbres, la fruta y las verduras. Vierte el aliño y mezcla con cuidado para no aplastar el aguacate. Deja reposar 10 minutos antes de servir.",
+     "usa": []
+    }
+   ],
+   "notas": "La receta original llevaba MANGO; se cambió por piña porque el mango está en la lista de la casa. La piña hace el mismo trabajo: dulzor y textura que aguanta el aliño sin deshacerse. Embarazo: lava bien la fruta y las hierbas, van crudas. Ojo con la proteína: 11 g por porción es poco para una comida fuerte, así que va mejor como acompañamiento de algo con pollo o huevo, o sírvela en porciones más grandes."
+  },
+  {
+   "id": "quinoa-mexicana",
+   "nombre": "Quinoa mexicana con frijoles y jitomate",
+   "emoji": "🌶️",
+   "familia": "Platillo",
+   "grupo": "Leguminosa",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 30,
+   "kcal": 337,
+   "proteina": 11,
+   "tags": [
+    "Económico",
+    "Alto en hierro",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Quinoa",
+     "c": 170
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Ajo",
+     "c": 2
+    },
+    {
+     "n": "Hojuelas de chile",
+     "c": 2
+    },
+    {
+     "n": "Frijoles cocidos",
+     "c": 250
+    },
+    {
+     "n": "Jitomate",
+     "c": 400
+    },
+    {
+     "n": "Comino",
+     "c": 0.6
+    },
+    {
+     "n": "Paprika",
+     "c": 0.6
+    },
+    {
+     "n": "Chile en polvo",
+     "c": 0.6
+    },
+    {
+     "n": "Cilantro",
+     "c": 4
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    },
+    {
+     "n": "Aguacate",
+     "c": 1
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Ten lista la quinoa cocida (ver la receta base).",
+     "usa": [
+      {
+       "n": "Quinoa",
+       "c": 170
+      }
+     ]
+    },
+    {
+     "t": "Calienta el aceite a fuego medio. Agrega el ajo picado y las hojuelas de chile, y remueve 1 o 2 minutos sin que el ajo se queme.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 15
+      },
+      {
+       "n": "Ajo",
+       "c": 2
+      },
+      {
+       "n": "Hojuelas de chile",
+       "c": 2
+      }
+     ]
+    },
+    {
+     "t": "Incorpora los frijoles enjuagados y el jitomate picado con sus jugos. Sazona con el comino, la paprika, el chile en polvo y sal.",
+     "usa": [
+      {
+       "n": "Frijoles cocidos",
+       "c": 250
+      },
+      {
+       "n": "Jitomate",
+       "c": 400
+      },
+      {
+       "n": "Comino",
+       "c": 0.6
+      },
+      {
+       "n": "Paprika",
+       "c": 0.6
+      },
+      {
+       "n": "Chile en polvo",
+       "c": 0.6
+      }
+     ]
+    },
+    {
+     "t": "Cocina 3 a 5 minutos para que se integren los sabores, agrega la quinoa cocida y remueve hasta calentarla bien.",
+     "usa": []
+    },
+    {
+     "t": "Apaga, agrega el cilantro y el jugo de limón, y sirve con el aguacate en gajos.",
+     "usa": [
+      {
+       "n": "Cilantro",
+       "c": 4
+      },
+      {
+       "n": "Limón",
+       "c": 1
+      },
+      {
+       "n": "Aguacate",
+       "c": 1
+      }
+     ]
+    }
+   ],
+   "notas": "La fuente usa tomate de lata; aquí va jitomate fresco, que sale más barato en Juárez y ya está en tu despensa. Embarazo: el hierro del frijol y la quinoa se absorbe mucho mejor con el limón del final, no te lo saltes. Con 11 g de proteína por porción se queda corta como comida fuerte: súmale un huevo cocido encima y sube a 17 g."
+  },
+  {
+   "id": "quinoa-coliflor-espinaca",
+   "nombre": "Quinoa con coliflor dorada y espinaca",
+   "emoji": "🌾",
+   "familia": "Platillo",
+   "grupo": "Vegetariano",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 35,
+   "kcal": 352,
+   "proteina": 13,
+   "tags": [
+    "Ligero",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Quinoa",
+     "c": 170
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 45
+    },
+    {
+     "n": "Ajo",
+     "c": 3
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 75
+    },
+    {
+     "n": "Coliflor",
+     "c": 400
+    },
+    {
+     "n": "Espinaca fresca",
+     "c": 300
+    },
+    {
+     "n": "Caldo de pollo",
+     "c": 125
+    },
+    {
+     "n": "Orégano",
+     "c": 2
+    },
+    {
+     "n": "Queso parmesano",
+     "c": 60
+    },
+    {
+     "n": "Hojuelas de chile",
+     "c": 2
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Enjuaga la quinoa y cuécela con el doble de agua hasta que esté tierna y haya absorbido el líquido, unos 15 minutos. Reserva.",
+     "usa": [
+      {
+       "n": "Quinoa",
+       "c": 170
+      }
+     ]
+    },
+    {
+     "t": "Corta la coliflor en trozos chicos. Calienta dos tercios del aceite a fuego medio alto y dórala unos minutos: queremos que tome color, ahí está el sabor.",
+     "usa": [
+      {
+       "n": "Coliflor",
+       "c": 400
+      },
+      {
+       "n": "Aceite de oliva",
+       "c": 30
+      }
+     ]
+    },
+    {
+     "t": "Agrega el ajo picado. Cuando suelte aroma, vierte el caldo y cocina 1 o 2 minutos para ablandar la coliflor. Retira y reserva.",
+     "usa": [
+      {
+       "n": "Ajo",
+       "c": 3
+      },
+      {
+       "n": "Caldo de pollo",
+       "c": 125
+      }
+     ]
+    },
+    {
+     "t": "En la misma sartén pon el aceite restante y la cebolla picada. Cuando se ablande, incorpora la espinaca y remueve hasta que reduzca su volumen.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 15
+      },
+      {
+       "n": "Cebolla blanca",
+       "c": 75
+      },
+      {
+       "n": "Espinaca fresca",
+       "c": 300
+      }
+     ]
+    },
+    {
+     "t": "Devuelve la coliflor y toda la quinoa. Agrega el orégano, el parmesano, sal, pimienta y las hojuelas de chile. Mezcla y calienta hasta integrar.",
+     "usa": [
+      {
+       "n": "Orégano",
+       "c": 2
+      },
+      {
+       "n": "Queso parmesano",
+       "c": 60
+      },
+      {
+       "n": "Hojuelas de chile",
+       "c": 2
+      }
+     ]
+    }
+   ],
+   "notas": "La receta original llevaba CHAMPIÑONES; se cambiaron por coliflor dorada porque están en la lista de la casa. La coliflor hace un papel parecido: dorada al sartén toma color y sabor tostado, y aguanta sin aguarse. Embarazo: sin problema, todo va cocido; usa parmesano pasteurizado."
+  },
+  {
+   "id": "bowl-quinoa-pollo",
+   "nombre": "Bowl de quinoa con pollo y aliño de yogur",
+   "emoji": "🍚",
+   "familia": "Platillo",
+   "grupo": "Pollo",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 30,
+   "kcal": 455,
+   "proteina": 34,
+   "tags": [
+    "Alto en proteína",
+    "Económico"
+   ],
+   "ingredientes": [
+    {
+     "n": "Quinoa",
+     "c": 85
+    },
+    {
+     "n": "Pierna con muslo de pollo",
+     "c": 320
+    },
+    {
+     "n": "Lechuga romana",
+     "c": 80
+    },
+    {
+     "n": "Zanahoria",
+     "c": 80
+    },
+    {
+     "n": "Jitomate",
+     "c": 140
+    },
+    {
+     "n": "Frijoles cocidos",
+     "c": 60
+    },
+    {
+     "n": "Yogur griego natural",
+     "c": 60
+    },
+    {
+     "n": "Mayonesa light",
+     "c": 10
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 5
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Ten lista la quinoa cocida (ver la receta base).",
+     "usa": [
+      {
+       "n": "Quinoa",
+       "c": 85
+      }
+     ]
+    },
+    {
+     "t": "Deshuesa la pierna con muslo, sazona con sal y pimienta y cocínala en la sartén untada con el aceite hasta que esté completamente hecha.",
+     "usa": [
+      {
+       "n": "Pierna con muslo de pollo",
+       "c": 320
+      },
+      {
+       "n": "Aceite de oliva",
+       "c": 5
+      }
+     ]
+    },
+    {
+     "t": "Lava y corta la lechuga, ralla la zanahoria y pica el jitomate. Enjuaga los frijoles.",
+     "usa": [
+      {
+       "n": "Lechuga romana",
+       "c": 80
+      },
+      {
+       "n": "Zanahoria",
+       "c": 80
+      },
+      {
+       "n": "Jitomate",
+       "c": 140
+      },
+      {
+       "n": "Frijoles cocidos",
+       "c": 60
+      }
+     ]
+    },
+    {
+     "t": "Mezcla el yogur griego, la mayonesa y el jugo de limón, con sal y pimienta, hasta tener un aliño cremoso.",
+     "usa": [
+      {
+       "n": "Yogur griego natural",
+       "c": 60
+      },
+      {
+       "n": "Mayonesa light",
+       "c": 10
+      },
+      {
+       "n": "Limón",
+       "c": 1
+      }
+     ]
+    },
+    {
+     "t": "Arma el bowl: la quinoa de base, encima las verduras, los frijoles y el pollo en trozos. Baña con el aliño.",
+     "usa": []
+    }
+   ],
+   "notas": "Embarazo: el pollo debe quedar completamente cocido y la lechuga hay que desinfectarla, va cruda. Usé pierna con muslo en vez de pechuga como en el video: más barata y más jugosa al recalentar. Para el táper, lleva el aliño y la lechuga aparte."
+  },
+  {
+   "id": "sopa-quinoa-alubias",
+   "nombre": "Sopa de quinoa con verduras y alubias",
+   "emoji": "🍲",
+   "familia": "Sopa",
+   "grupo": "Leguminosa",
+   "categoria": "Comida",
+   "porciones": 6,
+   "tiempo": 40,
+   "kcal": 245,
+   "proteina": 11,
+   "tags": [
+    "Económico",
+    "Ligero",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 150
+    },
+    {
+     "n": "Zanahoria",
+     "c": 160
+    },
+    {
+     "n": "Ajo",
+     "c": 3
+    },
+    {
+     "n": "Tomillo",
+     "c": 3
+    },
+    {
+     "n": "Quinoa",
+     "c": 85
+    },
+    {
+     "n": "Alubias",
+     "c": 250
+    },
+    {
+     "n": "Jitomate",
+     "c": 400
+    },
+    {
+     "n": "Caldo de pollo",
+     "c": 1800
+    },
+    {
+     "n": "Espinaca fresca",
+     "c": 60
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Enjuaga la quinoa. Pica la cebolla, la zanahoria y el ajo.",
+     "usa": [
+      {
+       "n": "Quinoa",
+       "c": 85
+      },
+      {
+       "n": "Cebolla blanca",
+       "c": 150
+      },
+      {
+       "n": "Zanahoria",
+       "c": 160
+      },
+      {
+       "n": "Ajo",
+       "c": 3
+      }
+     ]
+    },
+    {
+     "t": "Calienta el aceite y sofríe la cebolla y la zanahoria hasta que empiecen a ablandarse. Agrega el ajo y la quinoa escurrida, y remueve unos minutos para tostarla ligeramente.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 15
+      }
+     ]
+    },
+    {
+     "t": "Añade las alubias enjuagadas, el jitomate picado, el caldo y el tomillo, con sal y pimienta.",
+     "usa": [
+      {
+       "n": "Alubias",
+       "c": 250
+      },
+      {
+       "n": "Jitomate",
+       "c": 400
+      },
+      {
+       "n": "Caldo de pollo",
+       "c": 1800
+      },
+      {
+       "n": "Tomillo",
+       "c": 3
+      }
+     ]
+    },
+    {
+     "t": "Lleva a ebullición y cuece 15 a 20 minutos, hasta que la quinoa y las verduras estén tiernas. Guíate por la textura, no por el reloj.",
+     "usa": []
+    },
+    {
+     "t": "Incorpora la espinaca, remueve hasta que se ablande, apaga y sirve.",
+     "usa": [
+      {
+       "n": "Espinaca fresca",
+       "c": 60
+      }
+     ]
+    }
+   ],
+   "notas": "La receta original llevaba APIO, que está en la lista de la casa; simplemente se quitó, porque ahí solo aportaba fondo aromático y la cebolla con la zanahoria ya lo cubren. También se omitió la lavanda del original, que es difícil de conseguir y muy fácil de arruinar. Embarazo: sin problema, todo va cocido."
+  },
+  {
+   "id": "ensalada-pollo-manzana",
+   "nombre": "Ensalada de pollo, manzana y huevo",
+   "emoji": "🍎",
+   "familia": "Platillo",
+   "grupo": "Pollo",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 30,
+   "kcal": 365,
+   "proteina": 33,
+   "tags": [
+    "Alto en proteína",
+    "Ligero"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 280
+    },
+    {
+     "n": "Manzana",
+     "c": 150
+    },
+    {
+     "n": "Zanahoria",
+     "c": 80
+    },
+    {
+     "n": "Huevo",
+     "c": 3
+    },
+    {
+     "n": "Yogur griego natural",
+     "c": 120
+    },
+    {
+     "n": "Cebolla en polvo",
+     "c": 2
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Cebollín",
+     "c": 4
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Cuece los huevos hasta que la yema quede firme, unos 9 minutos. Pélalos y separa claras de yemas: las claras van en la ensalada y las yemas en la salsa.",
+     "usa": [
+      {
+       "n": "Huevo",
+       "c": 3
+      }
+     ]
+    },
+    {
+     "t": "Cocina la pechuga sazonada hasta que no quede nada rosa por dentro y déjala enfriar.",
+     "usa": [
+      {
+       "n": "Pechuga de pollo",
+       "c": 280
+      }
+     ]
+    },
+    {
+     "t": "Corta el pollo frío, la manzana y las claras en trozos chicos. Ralla la zanahoria y mézclalo todo.",
+     "usa": [
+      {
+       "n": "Manzana",
+       "c": 150
+      },
+      {
+       "n": "Zanahoria",
+       "c": 80
+      }
+     ]
+    },
+    {
+     "t": "Tritura las yemas cocidas con el yogur griego, la cebolla en polvo, el aceite de oliva y sal, hasta obtener una salsa uniforme.",
+     "usa": [
+      {
+       "n": "Yogur griego natural",
+       "c": 120
+      },
+      {
+       "n": "Cebolla en polvo",
+       "c": 2
+      },
+      {
+       "n": "Aceite de oliva",
+       "c": 15
+      }
+     ]
+    },
+    {
+     "t": "Vierte la salsa sobre la mezcla y remueve para cubrirla bien. Refrigera 20 a 30 minutos y termina con el cebollín picado.",
+     "usa": [
+      {
+       "n": "Cebollín",
+       "c": 4
+      }
+     ]
+    }
+   ],
+   "notas": "Embarazo: el pollo completamente cocido y el huevo con la yema firme, nunca tierna. La yema cocida en la salsa es el truco de la receta: espesa sin mayonesa y suma colina, que en el embarazo cuesta cubrir. Aguanta bien dos días en el refrigerador."
+  },
+  {
+   "id": "sopa-verduras-avena-huevo",
+   "nombre": "Sopa de verduras con avena y huevo",
+   "emoji": "🍲",
+   "familia": "Sopa",
+   "grupo": "Huevo",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 30,
+   "kcal": 215,
+   "proteina": 12,
+   "tags": [
+    "Económico",
+    "Ligero",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Ejotes",
+     "c": 300
+    },
+    {
+     "n": "Zanahoria",
+     "c": 160
+    },
+    {
+     "n": "Orégano",
+     "c": 1.5
+    },
+    {
+     "n": "Cúrcuma",
+     "c": 2
+    },
+    {
+     "n": "Avena",
+     "c": 90
+    },
+    {
+     "n": "Huevo",
+     "c": 4
+    },
+    {
+     "n": "Chícharos",
+     "c": 145
+    },
+    {
+     "n": "Cilantro",
+     "c": 4
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Corta los ejotes y la zanahoria en trozos pequeños y parejos, para que se cuezan al mismo tiempo.",
+     "usa": [
+      {
+       "n": "Ejotes",
+       "c": 300
+      },
+      {
+       "n": "Zanahoria",
+       "c": 160
+      }
+     ]
+    },
+    {
+     "t": "Pon a calentar 2.5 litros de agua con el orégano, la cúrcuma y sal. Cuando suelte el hervor, echa la zanahoria.",
+     "usa": [
+      {
+       "n": "Orégano",
+       "c": 1.5
+      },
+      {
+       "n": "Cúrcuma",
+       "c": 2
+      }
+     ]
+    },
+    {
+     "t": "Agrega la avena, remueve, tapa y cocina 5 minutos a fuego medio bajo.",
+     "usa": [
+      {
+       "n": "Avena",
+       "c": 90
+      }
+     ]
+    },
+    {
+     "t": "Incorpora los ejotes. Aparte, bate los huevos con sal.",
+     "usa": [
+      {
+       "n": "Huevo",
+       "c": 4
+      }
+     ]
+    },
+    {
+     "t": "Sube el fuego y remueve la sopa en círculos. Vierte el huevo batido en hilo mientras sigues moviendo: se forman hebras cuajadas.",
+     "usa": []
+    },
+    {
+     "t": "Añade los chícharos, ajusta la sal y cocina 4 minutos más. Apaga y agrega el cilantro.",
+     "usa": [
+      {
+       "n": "Chícharos",
+       "c": 145
+      },
+      {
+       "n": "Cilantro",
+       "c": 4
+      }
+     ]
+    }
+   ],
+   "notas": "La receta original llevaba CALABACITA; se cambió por más ejotes, que dan la misma textura en la sopa sin deshacerse. Embarazo: el huevo se cuaja al contacto con el caldo hirviendo, pero asegúrate de que no queden hilos crudos. La avena espesa la sopa y la vuelve una comida completa."
+  },
+  {
+   "id": "crema-papa-pollo",
+   "nombre": "Crema de papa con pollo",
+   "emoji": "🥔",
+   "familia": "Sopa",
+   "grupo": "Pollo",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 35,
+   "kcal": 310,
+   "proteina": 20,
+   "tags": [
+    "Económico",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Papa",
+     "c": 600
+    },
+    {
+     "n": "Pechuga de pollo",
+     "c": 250
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Perejil seco",
+     "c": 2
+    },
+    {
+     "n": "Ajo en polvo",
+     "c": 1.5
+    },
+    {
+     "n": "Pan",
+     "c": 80
+    },
+    {
+     "n": "Cilantro",
+     "c": 4
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Pon la papa en cubos, con la cáscara bien lavada, y la pechuga cruda en 1.5 litros de agua tibia, sin sal todavía.",
+     "usa": [
+      {
+       "n": "Papa",
+       "c": 600
+      },
+      {
+       "n": "Pechuga de pollo",
+       "c": 250
+      }
+     ]
+    },
+    {
+     "t": "Cuando hierva, retira la espuma. Tapa, baja el fuego al mínimo y cuece 15 minutos: la papa tierna y el pollo completamente cocido.",
+     "usa": []
+    },
+    {
+     "t": "Deja entibiar. Saca el pollo y deshébralo. Licúa la papa con 500 ml del mismo caldo, el perejil y el ajo en polvo.",
+     "usa": [
+      {
+       "n": "Perejil seco",
+       "c": 2
+      },
+      {
+       "n": "Ajo en polvo",
+       "c": 1.5
+      }
+     ]
+    },
+    {
+     "t": "Devuelve la crema a la olla con el resto del caldo. Agrega el aceite y sal, y cocina 5 minutos a fuego bajo. Si queda espesa, afloja con agua.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 15
+      }
+     ]
+    },
+    {
+     "t": "Corta el pan en cubos y tuéstalo en el horno o la freidora de aire hasta dorarlo.",
+     "usa": [
+      {
+       "n": "Pan",
+       "c": 80
+      }
+     ]
+    },
+    {
+     "t": "Sirve la crema con el pollo deshebrado, los crotones y el cilantro.",
+     "usa": [
+      {
+       "n": "Cilantro",
+       "c": 4
+      }
+     ]
+    }
+   ],
+   "notas": "Embarazo: el pollo debe quedar completamente cocido. Licuar la papa con su propio caldo es lo que da la cremosidad: no hace falta crema ni leche. Los crotones van aparte si la guardas, o se ablandan."
+  },
+  {
+   "id": "minestrone-verduras",
+   "nombre": "Minestrone de verduras, frijoles y pasta",
+   "emoji": "🍅",
+   "familia": "Sopa",
+   "grupo": "Leguminosa",
+   "categoria": "Comida",
+   "porciones": 8,
+   "tiempo": 45,
+   "kcal": 255,
+   "proteina": 12,
+   "tags": [
+    "Económico",
+    "Alto en hierro",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Aceite de oliva",
+     "c": 45
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 75
+    },
+    {
+     "n": "Ajo",
+     "c": 3
+    },
+    {
+     "n": "Zanahoria",
+     "c": 240
+    },
+    {
+     "n": "Ejotes",
+     "c": 200
+    },
+    {
+     "n": "Jitomate",
+     "c": 600
+    },
+    {
+     "n": "Alubias",
+     "c": 400
+    },
+    {
+     "n": "Frijol rojo",
+     "c": 400
+    },
+    {
+     "n": "Pasta para sopa",
+     "c": 60
+    },
+    {
+     "n": "Puré de tomate",
+     "c": 210
+    },
+    {
+     "n": "Cúrcuma",
+     "c": 2
+    },
+    {
+     "n": "Paprika",
+     "c": 4.6
+    },
+    {
+     "n": "Hierbas italianas",
+     "c": 3
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Calienta el aceite y sofríe la cebolla picada y el ajo a fuego alto, minuto y medio, removiendo.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 45
+      },
+      {
+       "n": "Cebolla blanca",
+       "c": 75
+      },
+      {
+       "n": "Ajo",
+       "c": 3
+      }
+     ]
+    },
+    {
+     "t": "Agrega la cúrcuma, la paprika y las hierbas italianas, y remueve 30 segundos para que suelten su aroma en el aceite.",
+     "usa": [
+      {
+       "n": "Cúrcuma",
+       "c": 2
+      },
+      {
+       "n": "Paprika",
+       "c": 4.6
+      },
+      {
+       "n": "Hierbas italianas",
+       "c": 3
+      }
+     ]
+    },
+    {
+     "t": "Incorpora la zanahoria en cubitos, añade un chorro de agua y raspa el fondo para recuperar todo el sofrito.",
+     "usa": [
+      {
+       "n": "Zanahoria",
+       "c": 240
+      }
+     ]
+    },
+    {
+     "t": "Vierte 2 litros de agua con sal y una hoja de laurel. Cuando hierva, tapa y cuece 7 minutos.",
+     "usa": []
+    },
+    {
+     "t": "Agrega el jitomate picado con sus jugos, las alubias, el frijol rojo, la pasta, los ejotes y el puré de tomate.",
+     "usa": [
+      {
+       "n": "Jitomate",
+       "c": 600
+      },
+      {
+       "n": "Alubias",
+       "c": 400
+      },
+      {
+       "n": "Frijol rojo",
+       "c": 400
+      },
+      {
+       "n": "Pasta para sopa",
+       "c": 60
+      },
+      {
+       "n": "Ejotes",
+       "c": 200
+      },
+      {
+       "n": "Puré de tomate",
+       "c": 210
+      }
+     ]
+    },
+    {
+     "t": "Cuando vuelva a hervir, tapa y cocina 10 minutos, hasta que la pasta y las verduras estén listas. Ajusta la sal.",
+     "usa": []
+    }
+   ],
+   "notas": "La receta original llevaba APIO y CALABACITA, los dos en la lista de la casa. El apio se quitó —la cebolla y la zanahoria ya dan el fondo— y la calabacita se cambió por ejotes, que aguantan mejor el hervor largo. También se omitió la soya texturizada del original: la fuente no aclaraba si iba seca o hidratada, y las dos legumbres ya cubren la proteína. Embarazo: sin problema. Rinde 8 porciones, así que congela la mitad."
+  },
+  {
+   "id": "sopa-pollo-bolitas-maiz",
+   "nombre": "Sopa de pollo con bolitas de maíz y queso",
+   "emoji": "🍜",
+   "familia": "Sopa",
+   "grupo": "Pollo",
+   "categoria": "Comida",
+   "porciones": 6,
+   "tiempo": 50,
+   "kcal": 330,
+   "proteina": 26,
+   "tags": [
+    "Alto en proteína",
+    "Económico",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 900
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 40
+    },
+    {
+     "n": "Ajo",
+     "c": 3
+    },
+    {
+     "n": "Zanahoria",
+     "c": 240
+    },
+    {
+     "n": "Chayote",
+     "c": 400
+    },
+    {
+     "n": "Ejotes",
+     "c": 200
+    },
+    {
+     "n": "Harina de maíz",
+     "c": 240
+    },
+    {
+     "n": "Queso fresco",
+     "c": 150
+    },
+    {
+     "n": "Perejil seco",
+     "c": 3
+    },
+    {
+     "n": "Cúrcuma",
+     "c": 1.5
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Calienta 2 litros de agua con la cebolla, un diente de ajo, la pechuga y sal. Al hervir, tapa y cuece 15 minutos a fuego medio bajo, hasta que el pollo esté hecho.",
+     "usa": [
+      {
+       "n": "Pechuga de pollo",
+       "c": 900
+      },
+      {
+       "n": "Cebolla blanca",
+       "c": 40
+      },
+      {
+       "n": "Ajo",
+       "c": 3
+      }
+     ]
+    },
+    {
+     "t": "Mezcla la harina de maíz con el perejil y sal. Ve añadiendo agua poco a poco hasta tener una masa que se una y no se pegue a las manos.",
+     "usa": [
+      {
+       "n": "Harina de maíz",
+       "c": 240
+      },
+      {
+       "n": "Perejil seco",
+       "c": 3
+      }
+     ]
+    },
+    {
+     "t": "Incorpora el queso fresco bien desmoronado a la masa y amasa hasta repartirlo parejo.",
+     "usa": [
+      {
+       "n": "Queso fresco",
+       "c": 150
+      }
+     ]
+    },
+    {
+     "t": "Saca los aromáticos del caldo. Agrega la zanahoria, el chayote y los ejotes, todo cortado chico, con la cúrcuma y sal. Al hervir, tapa y cuece 7 minutos.",
+     "usa": [
+      {
+       "n": "Zanahoria",
+       "c": 240
+      },
+      {
+       "n": "Chayote",
+       "c": 400
+      },
+      {
+       "n": "Ejotes",
+       "c": 200
+      },
+      {
+       "n": "Cúrcuma",
+       "c": 1.5
+      }
+     ]
+    },
+    {
+     "t": "Forma bolitas pequeñas con la masa y hazles una hendidura en el centro con el dedo: así se cuecen parejo por dentro.",
+     "usa": []
+    },
+    {
+     "t": "Saca la pechuga y deshébrala. Baja el fuego, incorpora las bolitas, sube a medio y cocina 5 minutos con la tapa entreabierta. Devuelve el pollo y sirve.",
+     "usa": []
+    }
+   ],
+   "notas": "La receta original llevaba CALABACITA y APIO. La calabacita se cambió por chayote, que es lo que se usa en esta sopa en el norte y aguanta mejor; el apio simplemente se quitó. Embarazo: el pollo completamente cocido y el queso fresco pasteurizado. Las bolitas son parecidas a los chochoyotes: la hendidura no es adorno, evita que queden crudas al centro."
+  },
+  {
+   "id": "sopa-letras-res",
+   "nombre": "Sopa de letras con res y chayote",
+   "emoji": "🔤",
+   "familia": "Sopa",
+   "grupo": "Res",
+   "categoria": "Comida",
+   "porciones": 8,
+   "tiempo": 35,
+   "kcal": 215,
+   "proteina": 14,
+   "tags": [
+    "Económico",
+    "Alto en hierro"
+   ],
+   "ingredientes": [
+    {
+     "n": "Carne molida de res 80/20",
+     "c": 500
+    },
+    {
+     "n": "Chayote",
+     "c": 400
+    },
+    {
+     "n": "Zanahoria",
+     "c": 240
+    },
+    {
+     "n": "Paprika",
+     "c": 7.6
+    },
+    {
+     "n": "Ajo en polvo",
+     "c": 2.8
+    },
+    {
+     "n": "Cebolla en polvo",
+     "c": 2.4
+    },
+    {
+     "n": "Comino",
+     "c": 0.5
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 7.5
+    },
+    {
+     "n": "Pasta de letras",
+     "c": 120
+    },
+    {
+     "n": "Puré de tomate",
+     "c": 200
+    },
+    {
+     "n": "Consomé de verduras",
+     "c": 4
+    },
+    {
+     "n": "Cilantro",
+     "c": 8
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Mezcla la carne molida con la paprika, el ajo en polvo, la cebolla en polvo, el comino, pimienta y sal.",
+     "usa": [
+      {
+       "n": "Carne molida de res 80/20",
+       "c": 500
+      },
+      {
+       "n": "Paprika",
+       "c": 5.6
+      },
+      {
+       "n": "Ajo en polvo",
+       "c": 2.8
+      },
+      {
+       "n": "Cebolla en polvo",
+       "c": 2.4
+      },
+      {
+       "n": "Comino",
+       "c": 0.5
+      }
+     ]
+    },
+    {
+     "t": "Pon porciones pequeñas de esa carne en una sartén caliente, con una cucharita. Dóralas a fuego alto y resérvalas.",
+     "usa": []
+    },
+    {
+     "t": "En una olla, calienta el aceite y agrega la pasta de letras. Remueve unos minutos hasta que dore ligeramente: ese paso le da el sabor.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 7.5
+      },
+      {
+       "n": "Pasta de letras",
+       "c": 120
+      }
+     ]
+    },
+    {
+     "t": "Vierte 2 litros de agua. Incorpora el chayote y la zanahoria rallados y toda la carne dorada.",
+     "usa": [
+      {
+       "n": "Chayote",
+       "c": 400
+      },
+      {
+       "n": "Zanahoria",
+       "c": 240
+      }
+     ]
+    },
+    {
+     "t": "Agrega el puré de tomate, el resto de la paprika, el consomé de verduras y sal.",
+     "usa": [
+      {
+       "n": "Puré de tomate",
+       "c": 200
+      },
+      {
+       "n": "Paprika",
+       "c": 2
+      },
+      {
+       "n": "Consomé de verduras",
+       "c": 4
+      }
+     ]
+    },
+    {
+     "t": "Al hervir, retira la espuma y cocina 8 minutos a fuego medio bajo, hasta que la pasta, las verduras y la carne estén cocidas. Termina con el cilantro.",
+     "usa": [
+      {
+       "n": "Cilantro",
+       "c": 8
+      }
+     ]
+    }
+   ],
+   "notas": "Embarazo: la carne debe quedar completamente cocida, sin nada rosa en el centro de las bolitas. Rinde 8 porciones; a los niños les encanta y es de lo más barato del recetario."
+  },
+  {
+   "id": "crema-coliflor-espinaca",
+   "nombre": "Crema de coliflor y espinaca con alubias",
+   "emoji": "🥣",
+   "familia": "Sopa",
+   "grupo": "Leguminosa",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 30,
+   "kcal": 215,
+   "proteina": 11,
+   "tags": [
+    "Ligero",
+    "Económico",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Coliflor",
+     "c": 800
+    },
+    {
+     "n": "Espinaca fresca",
+     "c": 150
+    },
+    {
+     "n": "Alubias",
+     "c": 400
+    },
+    {
+     "n": "Levadura nutricional",
+     "c": 15
+    },
+    {
+     "n": "Cebolla en polvo",
+     "c": 2.4
+    },
+    {
+     "n": "Ajo en polvo",
+     "c": 2.8
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Separa la coliflor en floretes. Pon a hervir 1 litro de agua con sal y échalos.",
+     "usa": [
+      {
+       "n": "Coliflor",
+       "c": 800
+      }
+     ]
+    },
+    {
+     "t": "Cuece 5 minutos a fuego alto, hasta que un cuchillo entre con facilidad. Apaga, incorpora la espinaca, tapa y deja que el calor residual la ablande.",
+     "usa": [
+      {
+       "n": "Espinaca fresca",
+       "c": 150
+      }
+     ]
+    },
+    {
+     "t": "Saca las verduras y guarda el caldo. Licúalas con las alubias, la levadura nutricional, la cebolla en polvo, el ajo en polvo y parte del caldo.",
+     "usa": [
+      {
+       "n": "Alubias",
+       "c": 400
+      },
+      {
+       "n": "Levadura nutricional",
+       "c": 15
+      },
+      {
+       "n": "Cebolla en polvo",
+       "c": 2.4
+      },
+      {
+       "n": "Ajo en polvo",
+       "c": 2.8
+      }
+     ]
+    },
+    {
+     "t": "Pasa la crema a la olla con el resto del caldo. Si queda espesa, afloja con agua.",
+     "usa": []
+    },
+    {
+     "t": "Agrega el aceite, ajusta la sal y deja hervir suavemente 5 minutos antes de servir.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 15
+      }
+     ]
+    }
+   ],
+   "notas": "Las alubias licuadas son lo que da la cremosidad y la proteína: sin ellas quedaría agua de coliflor. La levadura nutricional aporta el sabor a queso sin lácteo; si no la encuentras, usa parmesano rallado. Embarazo: sin problema, todo va cocido. Se omitieron las semillas de hinojo y de cáñamo del original, difíciles de conseguir aquí."
+  },
+  {
+   "id": "pollo-verduras-horno",
+   "nombre": "Pollo con verduras al horno y salsa de yogur",
+   "emoji": "🍗",
+   "familia": "Platillo",
+   "grupo": "Pollo",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 45,
+   "kcal": 425,
+   "proteina": 38,
+   "tags": [
+    "Alto en proteína",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 600
+    },
+    {
+     "n": "Camote",
+     "c": 250
+    },
+    {
+     "n": "Zanahoria",
+     "c": 250
+    },
+    {
+     "n": "Ejotes",
+     "c": 200
+    },
+    {
+     "n": "Tomillo",
+     "c": 0.6
+    },
+    {
+     "n": "Romero",
+     "c": 0.6
+    },
+    {
+     "n": "Ajo en polvo",
+     "c": 1.4
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 20
+    },
+    {
+     "n": "Yogur griego natural",
+     "c": 120
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    },
+    {
+     "n": "Vinagre de manzana",
+     "c": 7
+    },
+    {
+     "n": "Mostaza",
+     "c": 5
+    },
+    {
+     "n": "Miel",
+     "c": 7
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Calienta el horno a 200 °C. Corta el camote, la zanahoria y los ejotes en trozos de alrededor de un centímetro, para que se cuezan parejo.",
+     "usa": [
+      {
+       "n": "Camote",
+       "c": 250
+      },
+      {
+       "n": "Zanahoria",
+       "c": 250
+      },
+      {
+       "n": "Ejotes",
+       "c": 200
+      }
+     ]
+    },
+    {
+     "t": "Mezcla las verduras con la mitad del aceite, el tomillo, el romero, el ajo en polvo, sal y pimienta. Extiéndelas en la bandeja sin amontonarlas, o se cuecen al vapor en vez de dorarse.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 10
+      },
+      {
+       "n": "Tomillo",
+       "c": 0.6
+      },
+      {
+       "n": "Romero",
+       "c": 0.6
+      },
+      {
+       "n": "Ajo en polvo",
+       "c": 1.4
+      }
+     ]
+    },
+    {
+     "t": "Hornea 25 a 30 minutos, volteándolas a la mitad, hasta que doren y estén suaves.",
+     "usa": []
+    },
+    {
+     "t": "Mezcla el yogur griego con el jugo de limón, la mostaza, el vinagre y la miel, con sal y pimienta.",
+     "usa": [
+      {
+       "n": "Yogur griego natural",
+       "c": 120
+      },
+      {
+       "n": "Limón",
+       "c": 1
+      },
+      {
+       "n": "Mostaza",
+       "c": 5
+      },
+      {
+       "n": "Vinagre de manzana",
+       "c": 7
+      },
+      {
+       "n": "Miel",
+       "c": 7
+      }
+     ]
+    },
+    {
+     "t": "Sazona la pechuga con sal y pimienta y cocínala en la sartén con el resto del aceite, hasta que esté dorada y completamente hecha, unos 4 a 5 minutos por lado.",
+     "usa": [
+      {
+       "n": "Pechuga de pollo",
+       "c": 600
+      },
+      {
+       "n": "Aceite de oliva",
+       "c": 10
+      }
+     ]
+    },
+    {
+     "t": "Corta el pollo en trozos y sirve con las verduras y la salsa de yogur.",
+     "usa": []
+    }
+   ],
+   "notas": "La receta original llevaba CALABACITA; se cambió por ejotes, que al horno quedan mejor y no sueltan tanta agua. Embarazo: el pollo debe quedar completamente cocido; si tienes termómetro, 74 °C al centro. El camote aporta vitamina A y hace que el plato llene más sin subir mucho las calorías."
+  },
+  {
+   "id": "pollo-cremoso-pimenton",
+   "nombre": "Pollo en salsa cremosa de pimentón",
+   "emoji": "🥘",
+   "familia": "Platillo",
+   "grupo": "Pollo",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 35,
+   "kcal": 440,
+   "proteina": 40,
+   "tags": [
+    "Alto en proteína",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 600
+    },
+    {
+     "n": "Harina de trigo",
+     "c": 80
+    },
+    {
+     "n": "Paprika",
+     "c": 4.6
+    },
+    {
+     "n": "Ajo",
+     "c": 4
+    },
+    {
+     "n": "Caldo de pollo",
+     "c": 150
+    },
+    {
+     "n": "Leche",
+     "c": 150
+    },
+    {
+     "n": "Perejil seco",
+     "c": 3
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 10
+    },
+    {
+     "n": "Camote",
+     "c": 400
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Mezcla la harina con la mitad de la paprika, sal y pimienta en un plato hondo.",
+     "usa": [
+      {
+       "n": "Harina de trigo",
+       "c": 80
+      },
+      {
+       "n": "Paprika",
+       "c": 2.3
+      }
+     ]
+    },
+    {
+     "t": "Abre la pechuga en filetes delgados y pásalos por la mezcla, presionando para que se adhiera una capa fina. Sacude el exceso: no toda la harina tiene que acabar en el plato.",
+     "usa": [
+      {
+       "n": "Pechuga de pollo",
+       "c": 600
+      }
+     ]
+    },
+    {
+     "t": "Calienta el aceite y dora los filetes a fuego medio alto, 4 a 5 minutos por lado según el grosor, hasta que estén completamente cocidos. Retíralos.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 10
+      }
+     ]
+    },
+    {
+     "t": "Baja el fuego y cocina el ajo picado 30 segundos, sin que se queme.",
+     "usa": [
+      {
+       "n": "Ajo",
+       "c": 4
+      }
+     ]
+    },
+    {
+     "t": "Vierte el caldo, la leche y el resto de la paprika. Remueve, regresa el pollo y deja hervir suavemente hasta que la salsa espese y lo cubra.",
+     "usa": [
+      {
+       "n": "Caldo de pollo",
+       "c": 150
+      },
+      {
+       "n": "Leche",
+       "c": 150
+      },
+      {
+       "n": "Paprika",
+       "c": 2.3
+      }
+     ]
+    },
+    {
+     "t": "Apaga, incorpora el perejil y sirve con el camote cocido.",
+     "usa": [
+      {
+       "n": "Perejil seco",
+       "c": 3
+      },
+      {
+       "n": "Camote",
+       "c": 400
+      }
+     ]
+    }
+   ],
+   "notas": "La harina del empanizado es lo que espesa la salsa: por eso no lleva crema. Embarazo: el pollo debe quedar completamente cocido, 74 °C al centro si tienes termómetro. Si la salsa no espesa, disuelve una cucharadita de fécula de maíz en dos cucharadas de agua fría y hierve un minuto."
+  },
+  {
+   "id": "pollo-arroz-amarillo",
+   "nombre": "Pollo con arroz amarillo y ensalada",
+   "emoji": "🍛",
+   "familia": "Platillo",
+   "grupo": "Pollo",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 45,
+   "kcal": 520,
+   "proteina": 36,
+   "tags": [
+    "Alto en proteína",
+    "Económico",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 500
+    },
+    {
+     "n": "Arroz",
+     "c": 370
+    },
+    {
+     "n": "Paprika",
+     "c": 3
+    },
+    {
+     "n": "Orégano",
+     "c": 0.8
+    },
+    {
+     "n": "Comino",
+     "c": 1.5
+    },
+    {
+     "n": "Ajo en polvo",
+     "c": 2.8
+    },
+    {
+     "n": "Cúrcuma",
+     "c": 2.2
+    },
+    {
+     "n": "Limón",
+     "c": 2
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 20
+    },
+    {
+     "n": "Lechuga romana",
+     "c": 150
+    },
+    {
+     "n": "Pepino",
+     "c": 200
+    },
+    {
+     "n": "Jitomate",
+     "c": 240
+    },
+    {
+     "n": "Aguacate",
+     "c": 1
+    },
+    {
+     "n": "Yogur griego natural",
+     "c": 60
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Mezcla la paprika, el orégano, la mitad del comino, la mitad del ajo en polvo, sal y pimienta. Unta la pechuga por los dos lados, añade el jugo de un limón y deja marinar 15 a 20 minutos.",
+     "usa": [
+      {
+       "n": "Pechuga de pollo",
+       "c": 500
+      },
+      {
+       "n": "Paprika",
+       "c": 3
+      },
+      {
+       "n": "Orégano",
+       "c": 0.8
+      },
+      {
+       "n": "Comino",
+       "c": 0.7
+      },
+      {
+       "n": "Ajo en polvo",
+       "c": 1.4
+      },
+      {
+       "n": "Limón",
+       "c": 1
+      }
+     ]
+    },
+    {
+     "t": "Unta la sartén con la mitad del aceite y cocina el pollo 4 a 5 minutos por lado, hasta que esté completamente hecho. Retira y reserva.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 10
+      }
+     ]
+    },
+    {
+     "t": "Lava y escurre el arroz. Échalo a la misma sartén y remueve 2 minutos para que recoja el sabor del fondo y se tueste un poco.",
+     "usa": [
+      {
+       "n": "Arroz",
+       "c": 370
+      }
+     ]
+    },
+    {
+     "t": "Agrega el resto del ajo en polvo, la cúrcuma y el resto del comino, y remueve 2 minutos más.",
+     "usa": [
+      {
+       "n": "Ajo en polvo",
+       "c": 1.4
+      },
+      {
+       "n": "Cúrcuma",
+       "c": 2.2
+      },
+      {
+       "n": "Comino",
+       "c": 0.8
+      }
+     ]
+    },
+    {
+     "t": "Vierte el agua que indique el paquete para esa cantidad de arroz, agrega sal, lleva a ebullición, tapa y baja el fuego. Cuece 15 a 20 minutos hasta que esté tierno y haya absorbido el líquido.",
+     "usa": []
+    },
+    {
+     "t": "Corta la lechuga, el pepino, el jitomate y el aguacate. Mezcla el yogur con el jugo del otro limón, sal y pimienta para el aliño. Sirve el pollo en cubos con el arroz y la ensalada.",
+     "usa": [
+      {
+       "n": "Lechuga romana",
+       "c": 150
+      },
+      {
+       "n": "Pepino",
+       "c": 200
+      },
+      {
+       "n": "Jitomate",
+       "c": 240
+      },
+      {
+       "n": "Aguacate",
+       "c": 1
+      },
+      {
+       "n": "Yogur griego natural",
+       "c": 60
+      },
+      {
+       "n": "Limón",
+       "c": 1
+      },
+      {
+       "n": "Aceite de oliva",
+       "c": 10
+      }
+     ]
+    }
+   ],
+   "notas": "La cúrcuma es lo que pinta el arroz de amarillo, no el azafrán: cuesta una fracción y el color queda igual. Embarazo: el pollo completamente cocido y la lechuga bien desinfectada, va cruda. Lleva la ensalada y el aliño aparte si es para el táper."
+  },
+  {
+   "id": "burrito-zanahoria-pollo",
+   "nombre": "Burrito de zanahoria con pollo y huevo",
+   "emoji": "🥕",
+   "familia": "Platillo",
+   "grupo": "Pollo",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 30,
+   "kcal": 395,
+   "proteina": 34,
+   "tags": [
+    "Alto en proteína",
+    "Ligero"
+   ],
+   "ingredientes": [
+    {
+     "n": "Zanahoria",
+     "c": 240
+    },
+    {
+     "n": "Huevo",
+     "c": 4
+    },
+    {
+     "n": "Perejil seco",
+     "c": 2
+    },
+    {
+     "n": "Mozzarella",
+     "c": 40
+    },
+    {
+     "n": "Aguacate",
+     "c": 1
+    },
+    {
+     "n": "Pechuga de pollo",
+     "c": 200
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Ralla la zanahoria y mézclala con dos de los huevos, el perejil, sal y pimienta. Incorpora la mozzarella.",
+     "usa": [
+      {
+       "n": "Zanahoria",
+       "c": 240
+      },
+      {
+       "n": "Huevo",
+       "c": 2
+      },
+      {
+       "n": "Perejil seco",
+       "c": 2
+      },
+      {
+       "n": "Mozzarella",
+       "c": 40
+      }
+     ]
+    },
+    {
+     "t": "Extiende toda la mezcla sobre papel para hornear dentro de una sandwichera, formando una base delgada. Cierra y cocina 4 a 6 minutos, hasta que el huevo cuaje y la lámina se despegue.",
+     "usa": []
+    },
+    {
+     "t": "Cuece los otros dos huevos hasta que la yema quede firme. Pélalos, aplástalos y mézclalos con el aguacate.",
+     "usa": [
+      {
+       "n": "Huevo",
+       "c": 2
+      },
+      {
+       "n": "Aguacate",
+       "c": 1
+      }
+     ]
+    },
+    {
+     "t": "Cocina la pechuga sazonada hasta que esté completamente hecha y deshébrala.",
+     "usa": [
+      {
+       "n": "Pechuga de pollo",
+       "c": 200
+      }
+     ]
+    },
+    {
+     "t": "Pasa la base con su papel a la mesa. Extiende la mezcla de huevo y aguacate, reparte el pollo, y enrolla ayudándote con el papel mientras lo retiras. Corta por la mitad.",
+     "usa": []
+    }
+   ],
+   "notas": "Si no tienes sandwichera, extiende la mezcla en una sartén antiadherente tapada a fuego bajo; tarda un poco más. Embarazo: tanto el huevo de la base como el cocido deben quedar firmes, y el pollo sin partes rosadas. La zanahoria sustituye a la tortilla, así que baja mucho los carbohidratos."
+  },
+  {
+   "id": "empanada-aguacate-huevo",
+   "nombre": "Empanada de tortilla con aguacate, huevo y queso",
+   "emoji": "🥟",
+   "familia": "Platillo",
+   "grupo": "Huevo",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 20,
+   "kcal": 450,
+   "proteina": 22,
+   "tags": [
+    "Ligero"
+   ],
+   "ingredientes": [
+    {
+     "n": "Tortilla integral grande",
+     "c": 2
+    },
+    {
+     "n": "Aguacate",
+     "c": 1
+    },
+    {
+     "n": "Huevo",
+     "c": 2
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    },
+    {
+     "n": "Jitomate",
+     "c": 120
+    },
+    {
+     "n": "Queso havarti",
+     "c": 80
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 5
+    },
+    {
+     "n": "Ajonjolí",
+     "c": 2
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Cuece los huevos hasta que la yema quede firme, pélalos y aplástalos con el aguacate, el jugo de limón, sal y pimienta, hasta formar una pasta.",
+     "usa": [
+      {
+       "n": "Huevo",
+       "c": 2
+      },
+      {
+       "n": "Aguacate",
+       "c": 1
+      },
+      {
+       "n": "Limón",
+       "c": 1
+      }
+     ]
+    },
+    {
+     "t": "Reparte la pasta sobre la mitad de cada tortilla. Encima pon el jitomate en rodajas y el queso.",
+     "usa": [
+      {
+       "n": "Tortilla integral grande",
+       "c": 2
+      },
+      {
+       "n": "Jitomate",
+       "c": 120
+      },
+      {
+       "n": "Queso havarti",
+       "c": 80
+      }
+     ]
+    },
+    {
+     "t": "Humedece el borde con un poco de agua, dobla la mitad libre sobre el relleno y presiona las orillas con un tenedor para sellarlas.",
+     "usa": []
+    },
+    {
+     "t": "Pincela con el aceite y espolvorea el ajonjolí.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 5
+      },
+      {
+       "n": "Ajonjolí",
+       "c": 2
+      }
+     ]
+    },
+    {
+     "t": "Cocina en freidora de aire a 180 °C durante 8 minutos, hasta que dore. El tiempo varía según el aparato.",
+     "usa": []
+    }
+   ],
+   "notas": "La receta original usa tortilla de trigo sarraceno; aquí va tortilla integral, que consigues en cualquier súper de Juárez y cuesta mucho menos. Embarazo: el huevo con la yema firme y el queso pasteurizado. Con 22 g de proteína se queda corta como comida fuerte: va mejor de cena o acompañada."
+  },
+  {
+   "id": "camarones-ajo-cilantro",
+   "nombre": "Camarones en salsa de ajo y cilantro",
+   "emoji": "🍤",
+   "familia": "Platillo",
+   "grupo": "Mariscos",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 25,
+   "kcal": 410,
+   "proteina": 38,
+   "tags": [
+    "Alto en proteína",
+    "Ligero"
+   ],
+   "ingredientes": [
+    {
+     "n": "Camarón",
+     "c": 360
+    },
+    {
+     "n": "Ajo",
+     "c": 4
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 30
+    },
+    {
+     "n": "Cilantro",
+     "c": 12
+    },
+    {
+     "n": "Limón",
+     "c": 1
+    },
+    {
+     "n": "Orégano",
+     "c": 1.5
+    },
+    {
+     "n": "Arroz",
+     "c": 120
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Cuece el arroz. Limpia los camarones: quítales la cáscara y la vena, y sécalos bien o no se doran.",
+     "usa": [
+      {
+       "n": "Arroz",
+       "c": 120
+      },
+      {
+       "n": "Camarón",
+       "c": 360
+      }
+     ]
+    },
+    {
+     "t": "Calienta dos tercios del aceite y dora el ajo entero o en trozos grandes, a fuego medio bajo, 1 a 3 minutos, sin que se queme.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 20
+      },
+      {
+       "n": "Ajo",
+       "c": 4
+      }
+     ]
+    },
+    {
+     "t": "Saca el ajo y pásalo a la licuadora, dejando el aceite aromatizado en la sartén. Agrega el cilantro, el jugo de limón, el orégano, sal, pimienta y el aceite restante.",
+     "usa": [
+      {
+       "n": "Cilantro",
+       "c": 12
+      },
+      {
+       "n": "Limón",
+       "c": 1
+      },
+      {
+       "n": "Orégano",
+       "c": 1.5
+      },
+      {
+       "n": "Aceite de oliva",
+       "c": 10
+      }
+     ]
+    },
+    {
+     "t": "Licúa hasta tener una salsa verde cremosa. Aparta una cucharadita para terminar el plato.",
+     "usa": []
+    },
+    {
+     "t": "En la sartén con el aceite aromatizado, extiende los camarones y cocínalos 1 a 2 minutos, hasta que empiecen a cambiar de color pero sigan a medio hacer.",
+     "usa": []
+    },
+    {
+     "t": "Incorpora la salsa, remueve y termina de cocinar 1 a 3 minutos, hasta que los camarones estén opacos y firmes. Sirve con el arroz y la salsa reservada por encima.",
+     "usa": []
+    }
+   ],
+   "notas": "Embarazo: el camarón es seguro siempre que quede completamente cocido, opaco y firme; nunca translúcido al centro. No te pases de cocción o quedan como goma: en cuanto se ponen opacos, apaga. Es la receta más cara del recetario, así que déjala para una ocasión."
   }
  ],
  "_familias": {
