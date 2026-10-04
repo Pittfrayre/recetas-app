@@ -1,8 +1,10 @@
 /* Service worker: la app abre aunque no haya internet. */
-const VERSION = 'recetas-v21';
+const VERSION = 'recetas-v22';
 const CONCHA = [
-  './', './index.html', './styles.css?v=21', './app.js?v=21', './github.js?v=21',
+  './', './index.html', './styles.css?v=22', './app.js?v=22', './github.js?v=22',
   './manifest.webmanifest',
+  './assets/sunu-wordmark.png', './assets/fonts/manrope.ttf', './assets/fonts/cormorant-garamond-600.ttf',
+  './icons/icon-512-maskable.png',
   './datos/recetas.json', './datos/precios.json', './datos/ingredientes.json',
   './icons/icon-180.png', './icons/icon-192.png', './icons/icon-512.png',
   './img/wrap-pollo-sq.jpg',     './img/wrap-pollo-w.jpg',

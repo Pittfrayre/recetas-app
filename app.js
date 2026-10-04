@@ -154,7 +154,7 @@ let RECETAS = [
    Estado
    ============================================================ */
 const S = {
-  vista:'recetas', filtro:'Todas', busqueda:'',
+  vista:'recetas', filtro:'Todas', familia:'Todas', grupo:'Todos', busqueda:'',
   personas:[
     { id:'p1', nombre:'Persona 1', nota:'Embarazo',      factor:1.0 },
     { id:'p2', nombre:'Persona 2', nota:'Entrenamiento', factor:1.3 }
@@ -384,17 +384,23 @@ const firmaComensales = g => g.comensales.map(p=>p.nombre+':'+p.factor).join('|'
    Vista: Recetas
    ============================================================ */
 function renderChips(){
-  const fams   = [...new Set(RECETAS.map(familiaDe))];
-  const grupos = [...new Set(RECETAS.filter(r=>r.grupo).map(r=>r.grupo))].sort();
-  const cats = ['Todas', ...fams.filter(f=>f!=='Platillo'), ...grupos,
-                'Apto embarazo','Económico'];
-  $('#chips').innerHTML = cats.map(c =>
-    `<button class="chip ${c===S.filtro?'on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('');
+  const fams = ['Todas', ...new Set(RECETAS.map(familiaDe))];
+  const grupos = ['Todos', ...new Set(RECETAS.filter(r=>r.grupo).map(r=>r.grupo).sort())];
+  if (!fams.includes(S.familia)) S.familia = 'Todas';
+  if (!grupos.includes(S.grupo)) S.grupo = 'Todos';
+  $('#filterFamily').innerHTML = fams.map(f =>
+    `<option value="${esc(f)}" ${f===S.familia?'selected':''}>${esc(f)}</option>`).join('');
+  $('#filterGroup').innerHTML = grupos.map(g =>
+    `<option value="${esc(g)}" ${g===S.grupo?'selected':''}>${esc(g)}</option>`).join('');
+  $('#chips').innerHTML = ['Todas','Apto embarazo','Económico'].map(c =>
+    `<button class="chip ${c===S.filtro?'on':''}" data-c="${esc(c)}" aria-pressed="${c===S.filtro}">${esc(c)}</button>`).join('');
 }
 
 function renderRecetas(){
   const q = S.busqueda.trim().toLowerCase();
   const list = RECETAS.filter(r => {
+    if (S.familia !== 'Todas' && familiaDe(r) !== S.familia) return false;
+    if (S.grupo !== 'Todos' && r.grupo !== S.grupo) return false;
     if (S.filtro!=='Todas'
         && !r.tags.includes(S.filtro)
         && familiaDe(r) !== S.filtro
@@ -403,17 +409,19 @@ function renderRecetas(){
     return r.nombre.toLowerCase().includes(q) || r.ingredientes.some(i=>i.n.toLowerCase().includes(q));
   });
 
+  $('#recipeCount').textContent = `${list.length} receta${list.length===1?'':'s'}`;
   if(!list.length){
     $('#rlist').innerHTML = `<div class="empty"><div class="ico">🔍</div><b>Sin resultados</b>
       <p>No hay recetas que coincidan con tu búsqueda.</p></div>`;
     return;
   }
 
-  $('#rlist').innerHTML = list.map(r => {
+  $('#rlist').innerHTML = list.map((r,index) => {
     const d = diasDe(r.id);
     return `<button class="rcard" data-r="${r.id}">
-      <div class="thumb"><img src="img/${r.id}-sq.jpg" alt="" loading="lazy"></div>
+      <div class="thumb"><img src="img/${r.id}-${index===0?'w':'sq'}.jpg" alt="" loading="${index===0?'eager':'lazy'}"></div>
       <div class="rcard-body">
+        <span class="recipe-category">${esc(r.grupo || familiaDe(r))}</span>
         <p class="rcard-name">${esc(r.nombre)}</p>
         <div class="rmeta">
           <span>${r.tiempo} min</span>
@@ -1031,7 +1039,7 @@ function renderAjustes(){
    Navegación
    ============================================================ */
 const TITULOS = {
-  recetas:['Cd. Juárez','Recetas'], plan:['Esta semana','Plan'],
+  recetas:['Tu cocina, cada día','Recetas'], plan:['Esta semana','Plan'],
   mandado:['Lista de compras','Mandado'], ajustes:['Preferencias','Ajustes']
 };
 
@@ -1244,12 +1252,34 @@ document.addEventListener('click', e=>{
     return;
   }
 
-  const gsw=t.closest('#swDark');
+  const gsw=t.closest('#swDark, #themeToggle');
   if(gsw){
-    gsw.classList.toggle('on');
-    if(gsw.id==='swDark') document.documentElement.dataset.theme = gsw.classList.contains('on')?'dark':'light';
+    const dark = document.documentElement.dataset.theme
+      ? document.documentElement.dataset.theme === 'dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(dark ? 'light' : 'dark');
     return;
   }
+});
+
+function setTheme(theme){
+  document.documentElement.dataset.theme = theme;
+  $('#swDark').classList.toggle('on', theme === 'dark');
+  $('#swDark').setAttribute('role', 'switch');
+  $('#swDark').setAttribute('aria-checked', theme === 'dark');
+  $('#themeToggle').setAttribute('aria-label', theme === 'dark' ? 'Usar modo claro' : 'Usar modo oscuro');
+  try { localStorage.setItem('sunu_theme', theme); } catch {}
+}
+$('#swDark').setAttribute('tabindex','0');
+$('#swDark').setAttribute('aria-label','Modo oscuro');
+$('#swDark').addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); }
+});
+['filterFamily','filterGroup'].forEach(id => {
+  $('#'+id).addEventListener('change', e => {
+    S[id==='filterFamily'?'familia':'grupo'] = e.target.value;
+    renderRecetas();
+  });
 });
 
 $('#q').addEventListener('input', e=>{ S.busqueda=e.target.value; renderRecetas(); });
@@ -1413,6 +1443,15 @@ function catalogoDeRespaldo(){
 }
 
 function arrancar(){
+  let theme;
+  try { theme = localStorage.getItem('sunu_theme'); } catch {}
+  if (theme === 'dark' || theme === 'light') setTheme(theme);
+  else {
+    const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+    $('#swDark').classList.toggle('on', dark);
+    $('#swDark').setAttribute('role','switch');
+    $('#swDark').setAttribute('aria-checked', dark);
+  }
   recuperar();
   normalizarSemana();
   $('#setBudget').value = S.presupuesto;
