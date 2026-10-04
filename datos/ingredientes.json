@@ -167,6 +167,15 @@
     "g": 1000
    }
   },
+  "Azúcar": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.03,
+   "profeco": {
+    "busqueda": "azucar",
+    "tipo": "AZÚCAR"
+   }
+  },
   "Brócoli": {
    "unidad": "g",
    "pasillo": "Frutas y verduras",
@@ -250,6 +259,13 @@
     "g": 1000
    }
   },
+  "Cebollín": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.12,
+   "profeco": null,
+   "nota": "Hierba de manojo chico, sin fuente pública. Precio estimado."
+  },
   "Chile chipotle adobado": {
    "unidad": "g",
    "pasillo": "Abarrotes",
@@ -320,6 +336,13 @@
     "nombre": "manojo",
     "g": 200
    }
+  },
+  "Coliflor": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.062,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos el 2026-10-04; precio estimado del mayoreo de SNIIM ($31/kg) por el margen típico de tienda. Remapear cuando se restablezca su cobertura."
   },
   "Comino": {
    "unidad": "g",
@@ -467,6 +490,13 @@
     "g": 1000
    }
   },
+  "Jitomate cherry": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.17,
+   "profeco": null,
+   "nota": "PROFECO publica JITOMATE pero no distingue el cherry, que cuesta bastante más. Precio estimado aparte para no subvaluarlo."
+  },
   "Leche": {
    "unidad": "ml",
    "pasillo": "Lácteos",
@@ -475,6 +505,13 @@
     "busqueda": "leche",
     "tipo": "LECHE ULTRAPASTEURIZADA"
    }
+  },
+  "Lechuga mantequilla": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.05,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos de lechuga el 2026-10-04. Precio estimado; remapear a LECHUGA cuando se restablezca."
   },
   "Lechuga romana": {
    "unidad": "g",
@@ -565,6 +602,13 @@
     "busqueda": "miel",
     "tipo": "MIEL DE ABEJA"
    }
+  },
+  "Mozzarella": {
+   "unidad": "g",
+   "pasillo": "Lácteos",
+   "precio_referencia": 0.18,
+   "profeco": null,
+   "nota": "PROFECO no devolvió datos de queso el 2026-10-04. Precio estimado."
   },
   "Nopal": {
    "unidad": "g",
@@ -727,6 +771,13 @@
     "g": 1000
    }
   },
+  "Queso crema": {
+   "unidad": "g",
+   "pasillo": "Lácteos",
+   "precio_referencia": 0.16,
+   "profeco": null,
+   "nota": "Precio estimado; sin dato público ese día."
+  },
   "Queso panela": {
    "unidad": "g",
    "pasillo": "Lácteos",
@@ -742,6 +793,20 @@
    "precio_referencia": 0.45,
    "profeco": null,
    "nota": "PROFECO no levanta quesos madurados en Cd. Juárez. El trozo de 100 g ronda los $45."
+  },
+  "Quinoa": {
+   "unidad": "g",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.18,
+   "profeco": null,
+   "nota": "Grano de especialidad; PROFECO no lo levanta en Juárez. Precio estimado de tienda."
+  },
+  "Rúcula": {
+   "unidad": "g",
+   "pasillo": "Frutas y verduras",
+   "precio_referencia": 0.2,
+   "profeco": null,
+   "nota": "Hoja de especialidad, sin fuente pública."
   },
   "Salsa de soya": {
    "unidad": "ml",
@@ -782,6 +847,13 @@
     "tipo": "TORTILLA DE HARINA DE TRIGO",
     "g_por_pieza": 45
    }
+  },
+  "Vinagre de arroz": {
+   "unidad": "ml",
+   "pasillo": "Abarrotes",
+   "precio_referencia": 0.06,
+   "profeco": null,
+   "nota": "Vinagre de especialidad; PROFECO no lo levanta en Juárez."
   },
   "Vinagre de manzana": {
    "unidad": "ml",

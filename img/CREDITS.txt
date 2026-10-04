@@ -22,3 +22,9 @@ picadillo-papa: https://www.pexels.com/photo/34429590/
 bowl-mediterraneo-pollo: https://www.pexels.com/photo/37233498/
 pollo-chipotle: https://www.pexels.com/photo/39414657/
 albondigas-pure: https://www.pexels.com/photo/25315519/
+coliflor-ajo-pimenton: https://www.pexels.com/photo/29283884/
+sunomono-pepino: https://www.pexels.com/photo/15881321/
+quinoa-cocida: https://www.pexels.com/photo/7421203/
+wraps-lechuga-pollo: https://www.pexels.com/photo/8178929/
+rollitos-zanahoria-atun: https://www.pexels.com/photo/29173095/
+rollitos-verdes-espinaca: https://www.pexels.com/photo/30991982/

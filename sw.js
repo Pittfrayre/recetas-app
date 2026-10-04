@@ -1,7 +1,7 @@
 /* Service worker: la app abre aunque no haya internet. */
-const VERSION = 'recetas-v17';
+const VERSION = 'recetas-v18';
 const CONCHA = [
-  './', './index.html', './styles.css?v=17', './app.js?v=17', './github.js?v=17',
+  './', './index.html', './styles.css?v=18', './app.js?v=18', './github.js?v=18',
   './manifest.webmanifest',
   './datos/recetas.json', './datos/precios.json', './datos/ingredientes.json',
   './icons/icon-180.png', './icons/icon-192.png', './icons/icon-512.png',
@@ -9,7 +9,13 @@ const CONCHA = [
   './img/bowl-carne-sq.jpg',     './img/bowl-carne-w.jpg',
   './img/tilapia-horno-sq.jpg',  './img/tilapia-horno-w.jpg',
   './img/atun-sellado-sq.jpg',   './img/atun-sellado-w.jpg',
-  './img/ensalada-pollo-sq.jpg', './img/ensalada-pollo-w.jpg'
+  './img/ensalada-pollo-sq.jpg', './img/ensalada-pollo-w.jpg',
+  './img/coliflor-ajo-pimenton-sq.jpg',     './img/coliflor-ajo-pimenton-w.jpg',
+  './img/sunomono-pepino-sq.jpg',     './img/sunomono-pepino-w.jpg',
+  './img/quinoa-cocida-sq.jpg',     './img/quinoa-cocida-w.jpg',
+  './img/wraps-lechuga-pollo-sq.jpg',     './img/wraps-lechuga-pollo-w.jpg',
+  './img/rollitos-zanahoria-atun-sq.jpg',     './img/rollitos-zanahoria-atun-w.jpg',
+  './img/rollitos-verdes-espinaca-sq.jpg',     './img/rollitos-verdes-espinaca-w.jpg'
 ];
 
 self.addEventListener('install', e => {

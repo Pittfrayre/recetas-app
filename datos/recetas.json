@@ -2892,6 +2892,623 @@
     }
    ],
    "notas": "Embarazo: parte una albóndiga antes de servir para confirmar que no quede nada rosa por dentro. Pedro pidió carne magra: con la 90/10 en vez de la corriente baja unas 125 kcal por porción. La avena no es relleno: hidrata la carne y las deja suaves al recalentar."
+  },
+  {
+   "id": "coliflor-ajo-pimenton",
+   "nombre": "Coliflor al ajo y pimentón",
+   "emoji": "🥬",
+   "familia": "Guarnición",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 25,
+   "kcal": 385,
+   "proteina": 6,
+   "tags": [
+    "Ligero",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Coliflor",
+     "c": 600
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 67
+    },
+    {
+     "n": "Ajo",
+     "c": 3
+    },
+    {
+     "n": "Paprika",
+     "c": 14
+    },
+    {
+     "n": "Cebollín",
+     "c": 2
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Separa la coliflor en floretes parejos y lávalos. Pon a hervir agua con sal, la suficiente para cubrirlos.",
+     "usa": [
+      {
+       "n": "Coliflor",
+       "c": 600
+      }
+     ]
+    },
+    {
+     "t": "Echa los floretes al agua hirviendo y cuécelos 5 a 8 minutos: tiernos pero con algo de firmeza. Escúrrelos muy bien o la salsa queda aguada.",
+     "usa": []
+    },
+    {
+     "t": "Calienta el aceite de oliva a fuego bajo y agrega el ajo picado. Remueve hasta que suelte aroma, sin dejar que se queme.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 67
+      },
+      {
+       "n": "Ajo",
+       "c": 3
+      }
+     ]
+    },
+    {
+     "t": "Añade el pimentón y mezcla apenas unos segundos. Incorpora de inmediato la coliflor escurrida: si el pimentón se queda solo en el aceite caliente, amarga.",
+     "usa": [
+      {
+       "n": "Paprika",
+       "c": 14
+      }
+     ]
+    },
+    {
+     "t": "Remueve hasta que todos los floretes queden cubiertos del aceite rojizo. Ajusta la sal y espolvorea el cebollín.",
+     "usa": [
+      {
+       "n": "Cebollín",
+       "c": 2
+      }
+     ]
+    }
+   ],
+   "notas": "Ojo con el aceite: la receta original pide 4 a 5 cucharadas para dos porciones, y eso son casi 600 kcal de pura grasa. Se conservó la cantidad del autor, pero con la mitad queda igual de bien y baja a unas 230 kcal por porción. El pimentón también va alto; si no te gusta tan intenso, empieza con la mitad. Embarazo: sin problema, es verdura cocida."
+  },
+  {
+   "id": "sunomono-pepino",
+   "nombre": "Sunomono de pepino",
+   "emoji": "🥒",
+   "familia": "Guarnición",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 30,
+   "kcal": 54,
+   "proteina": 1,
+   "tags": [
+    "Ligero",
+    "Económico"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pepino",
+     "c": 250
+    },
+    {
+     "n": "Salsa de soya",
+     "c": 20
+    },
+    {
+     "n": "Vinagre de arroz",
+     "c": 100
+    },
+    {
+     "n": "Azúcar",
+     "c": 15
+    },
+    {
+     "n": "Ajonjolí",
+     "c": 2
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Lava el pepino y córtalo en rodajas muy finas. Mézclalo con sal y déjalo soltar agua unos 10 minutos.",
+     "usa": [
+      {
+       "n": "Pepino",
+       "c": 250
+      }
+     ]
+    },
+    {
+     "t": "Exprime suavemente las rodajas y tira el líquido. La receta original no indica enjuagarlas.",
+     "usa": []
+    },
+    {
+     "t": "Mezcla la salsa de soya, el vinagre de arroz y el azúcar hasta que el azúcar se disuelva por completo.",
+     "usa": [
+      {
+       "n": "Salsa de soya",
+       "c": 20
+      },
+      {
+       "n": "Vinagre de arroz",
+       "c": 100
+      },
+      {
+       "n": "Azúcar",
+       "c": 15
+      }
+     ]
+    },
+    {
+     "t": "Vierte el aliño sobre el pepino escurrido, mezcla y deja macerar al menos 15 minutos.",
+     "usa": []
+    },
+    {
+     "t": "Sirve el pepino con la cantidad de aliño que quieras y espolvorea el ajonjolí.",
+     "usa": [
+      {
+       "n": "Ajonjolí",
+       "c": 2
+      }
+     ]
+    }
+   ],
+   "notas": "El azúcar suena a mucho, pero la mayor parte del aliño se queda en el plato y no se come: de los 15 g apenas pasa una fracción. La sal del primer paso también se va casi toda con el agua que suelta el pepino. Embarazo: sin problema; solo lava bien el pepino antes de rebanarlo."
+  },
+  {
+   "id": "quinoa-cocida",
+   "nombre": "Quinoa cocida",
+   "emoji": "🌾",
+   "familia": "Despensa casera",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 25,
+   "kcal": 156,
+   "proteina": 6,
+   "tags": [
+    "Económico",
+    "Apto embarazo"
+   ],
+   "ingredientes": [
+    {
+     "n": "Quinoa",
+     "c": 170
+    },
+    {
+     "n": "Ajo",
+     "c": 1
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Enjuaga la quinoa en un colador fino y escúrrela bien. Ese enjuague le quita el amargor y no es opcional.",
+     "usa": [
+      {
+       "n": "Quinoa",
+       "c": 170
+      }
+     ]
+    },
+    {
+     "t": "Ponla en una olla a fuego medio alto, sin aceite, y remueve 2 o 3 minutos para secarla y tostarla ligeramente.",
+     "usa": []
+    },
+    {
+     "t": "Agrega 300 ml de agua, sal y el diente de ajo. Tapa y deja que rompa el hervor.",
+     "usa": [
+      {
+       "n": "Ajo",
+       "c": 1
+      }
+     ]
+    },
+    {
+     "t": "Baja el fuego y cuece unos 15 minutos, hasta que el grano esté tierno y no quede agua en el fondo.",
+     "usa": []
+    },
+    {
+     "t": "Apaga, retira el ajo y suelta el grano con un tenedor. Rinde unas 3 tazas cocidas.",
+     "usa": []
+    }
+   ],
+   "notas": "Es una base, no un platillo: se prepara para tener lista y usarla en bowls y ensaladas durante la semana. Aguanta 4 días en el refrigerador. Embarazo: sin problema."
+  },
+  {
+   "id": "wraps-lechuga-pollo",
+   "nombre": "Wraps de lechuga con pollo y aguacate",
+   "emoji": "🥬",
+   "familia": "Platillo",
+   "grupo": "Pollo",
+   "categoria": "Comida",
+   "porciones": 4,
+   "tiempo": 30,
+   "kcal": 387,
+   "proteina": 32,
+   "tags": [
+    "Alto en proteína",
+    "Ligero"
+   ],
+   "ingredientes": [
+    {
+     "n": "Pechuga de pollo",
+     "c": 500
+    },
+    {
+     "n": "Lechuga mantequilla",
+     "c": 150
+    },
+    {
+     "n": "Aguacate",
+     "c": 2
+    },
+    {
+     "n": "Jitomate cherry",
+     "c": 40
+    },
+    {
+     "n": "Cebolla morada",
+     "c": 40
+    },
+    {
+     "n": "Chile jalapeño",
+     "c": 25
+    },
+    {
+     "n": "Cilantro",
+     "c": 6
+    },
+    {
+     "n": "Limón",
+     "c": 2
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 15
+    },
+    {
+     "n": "Ajo en polvo",
+     "c": 0.7
+    },
+    {
+     "n": "Yogur griego natural",
+     "c": 60
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Sazona la pechuga con sal, pimienta y un poco de ajo en polvo, cocínala hasta que no quede nada rosa por dentro y deshébrala.",
+     "usa": [
+      {
+       "n": "Pechuga de pollo",
+       "c": 500
+      }
+     ]
+    },
+    {
+     "t": "Lava y seca las hojas de lechuga, que van a ser la tortilla. Pica el jitomate cherry, la cebolla morada, el jalapeño sin semillas y el cilantro.",
+     "usa": [
+      {
+       "n": "Lechuga mantequilla",
+       "c": 150
+      },
+      {
+       "n": "Jitomate cherry",
+       "c": 40
+      },
+      {
+       "n": "Cebolla morada",
+       "c": 40
+      },
+      {
+       "n": "Chile jalapeño",
+       "c": 25
+      },
+      {
+       "n": "Cilantro",
+       "c": 6
+      }
+     ]
+    },
+    {
+     "t": "Machaca el aguacate con el jugo de limón, el aceite de oliva y el ajo en polvo, hasta dejarlo cremoso pero con trozos.",
+     "usa": [
+      {
+       "n": "Aguacate",
+       "c": 2
+      },
+      {
+       "n": "Limón",
+       "c": 2
+      },
+      {
+       "n": "Aceite de oliva",
+       "c": 15
+      },
+      {
+       "n": "Ajo en polvo",
+       "c": 0.7
+      }
+     ]
+    },
+    {
+     "t": "Incorpora el pollo deshebrado y todo lo picado al aguacate. Mezcla suavemente para no deshacerlo.",
+     "usa": []
+    },
+    {
+     "t": "Reparte el relleno entre las hojas de lechuga y termina cada wrap con una cucharada de yogur griego.",
+     "usa": [
+      {
+       "n": "Yogur griego natural",
+       "c": 60
+      }
+     ]
+    }
+   ],
+   "notas": "Embarazo: el pollo debe quedar completamente cocido y la lechuga hay que lavarla y desinfectarla muy bien, porque va cruda. El peso del pollo es estimado: la fuente dice «2 pechugas» sin dar gramos. Para el táper, lleva las hojas aparte y arma el wrap al momento de comer, o se aguadan."
+  },
+  {
+   "id": "rollitos-zanahoria-atun",
+   "nombre": "Rollitos de zanahoria con atún y aguacate",
+   "emoji": "🥕",
+   "familia": "Platillo",
+   "grupo": "Pescado",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 30,
+   "kcal": 488,
+   "proteina": 38,
+   "tags": [
+    "Alto en proteína",
+    "Omega 3"
+   ],
+   "ingredientes": [
+    {
+     "n": "Zanahoria",
+     "c": 160
+    },
+    {
+     "n": "Huevo",
+     "c": 2
+    },
+    {
+     "n": "Mozzarella",
+     "c": 100
+    },
+    {
+     "n": "Cebolla blanca",
+     "c": 30
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 5
+    },
+    {
+     "n": "Atún en lata",
+     "c": 160
+    },
+    {
+     "n": "Maíz en grano",
+     "c": 50
+    },
+    {
+     "n": "Aguacate",
+     "c": 0.5
+    },
+    {
+     "n": "Queso crema",
+     "c": 30
+    },
+    {
+     "n": "Cilantro",
+     "c": 4
+    },
+    {
+     "n": "Rúcula",
+     "c": 20
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Ralla la zanahoria y mézclala con el huevo, la mozzarella, la cebolla picada muy fina y sal, hasta que el huevo quede bien integrado.",
+     "usa": [
+      {
+       "n": "Zanahoria",
+       "c": 160
+      },
+      {
+       "n": "Huevo",
+       "c": 2
+      },
+      {
+       "n": "Mozzarella",
+       "c": 100
+      },
+      {
+       "n": "Cebolla blanca",
+       "c": 30
+      }
+     ]
+    },
+    {
+     "t": "Unta la sartén con el aceite y extiende toda la mezcla en una capa pareja, lo bastante delgada para poder enrollarla después.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 5
+      }
+     ]
+    },
+    {
+     "t": "Tapa y cocina 8 minutos a fuego medio, hasta que el huevo cuaje y puedas levantar la base entera sin que se rompa.",
+     "usa": []
+    },
+    {
+     "t": "Mezcla el atún escurrido, el maíz, el aguacate y el queso crema, aplastando el aguacate para que una el relleno. Agrega el cilantro.",
+     "usa": [
+      {
+       "n": "Atún en lata",
+       "c": 160
+      },
+      {
+       "n": "Maíz en grano",
+       "c": 50
+      },
+      {
+       "n": "Aguacate",
+       "c": 0.5
+      },
+      {
+       "n": "Queso crema",
+       "c": 30
+      },
+      {
+       "n": "Cilantro",
+       "c": 4
+      }
+     ]
+    },
+    {
+     "t": "Pasa la base a una superficie plana y deja que pierda un poco de calor. Extiende el relleno y reparte la rúcula encima.",
+     "usa": [
+      {
+       "n": "Rúcula",
+       "c": 20
+      }
+     ]
+    },
+    {
+     "t": "Enrolla con cuidado, manteniendo el relleno adentro, y corta en rollitos.",
+     "usa": []
+    }
+   ],
+   "notas": "Embarazo: el huevo de la base debe quedar completamente cuajado y el atún en lata es de bajo mercurio, pero cuenta dentro de las 2 o 3 porciones de pescado por semana. Deja enfriar la base antes de enrollarla o se quiebra."
+  },
+  {
+   "id": "rollitos-verdes-espinaca",
+   "nombre": "Rollitos verdes de espinaca con atún",
+   "emoji": "🌯",
+   "familia": "Platillo",
+   "grupo": "Pescado",
+   "categoria": "Comida",
+   "porciones": 2,
+   "tiempo": 30,
+   "kcal": 291,
+   "proteina": 22,
+   "tags": [
+    "Ligero",
+    "Omega 3"
+   ],
+   "ingredientes": [
+    {
+     "n": "Huevo",
+     "c": 3
+    },
+    {
+     "n": "Espinaca fresca",
+     "c": 60
+    },
+    {
+     "n": "Cebolla en polvo",
+     "c": 0.6
+    },
+    {
+     "n": "Aceite de oliva",
+     "c": 5
+    },
+    {
+     "n": "Atún en lata",
+     "c": 80
+    },
+    {
+     "n": "Queso crema",
+     "c": 30
+    },
+    {
+     "n": "Aguacate",
+     "c": 0.5
+    },
+    {
+     "n": "Cilantro",
+     "c": 4
+    },
+    {
+     "n": "Rúcula",
+     "c": 20
+    }
+   ],
+   "pasos": [
+    {
+     "t": "Lava y escurre bien la espinaca.",
+     "usa": [
+      {
+       "n": "Espinaca fresca",
+       "c": 60
+      }
+     ]
+    },
+    {
+     "t": "Licúa el huevo con la espinaca, la cebolla en polvo, sal y pimienta, hasta obtener una mezcla verde uniforme.",
+     "usa": [
+      {
+       "n": "Huevo",
+       "c": 3
+      },
+      {
+       "n": "Cebolla en polvo",
+       "c": 0.6
+      }
+     ]
+    },
+    {
+     "t": "Engrasa una sartén antiadherente con el aceite, vierte toda la mezcla y extiéndela en una lámina fina y pareja.",
+     "usa": [
+      {
+       "n": "Aceite de oliva",
+       "c": 5
+      }
+     ]
+    },
+    {
+     "t": "Cocina a fuego medio y tapado hasta que el huevo cuaje por completo y la lámina se levante sin romperse.",
+     "usa": []
+    },
+    {
+     "t": "Mezcla el atún escurrido, el queso crema, el aguacate y el cilantro, aplastando el aguacate para integrar el relleno.",
+     "usa": [
+      {
+       "n": "Atún en lata",
+       "c": 80
+      },
+      {
+       "n": "Queso crema",
+       "c": 30
+      },
+      {
+       "n": "Aguacate",
+       "c": 0.5
+      },
+      {
+       "n": "Cilantro",
+       "c": 4
+      }
+     ]
+    },
+    {
+     "t": "Pasa la lámina a una superficie plana, extiende el relleno, reparte la rúcula, enrolla y corta en piezas.",
+     "usa": [
+      {
+       "n": "Rúcula",
+       "c": 20
+      }
+     ]
+    }
+   ],
+   "notas": "Embarazo: el huevo debe quedar totalmente cuajado y el atún cuenta dentro de las 2 o 3 porciones de pescado por semana. El video la llama «alta en proteína», pero con 22 g por porción se queda corta frente a los 30-40 g que buscamos en una comida fuerte: va mejor como cena ligera, o acompáñala con algo más."
   }
  ],
  "_familias": {

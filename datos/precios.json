@@ -3,24 +3,33 @@
  "fuente_url": "https://qqp.profeco.gob.mx/",
  "ciudad": "Ciudad Juárez",
  "estrategia": "percentil 75 entre cadenas — presupuesto de peor escenario",
- "actualizado": "2026-10-04T15:53:59+00:00",
+ "actualizado": "2026-10-04T18:01:16+00:00",
  "sin_fuente": [
   "Ajo en polvo, comino y paprika",
   "Ajo en polvo, paprika y perejil",
   "Ajonjolí",
   "Cebolla en polvo",
+  "Cebollín",
   "Chile chipotle adobado",
   "Chile en polvo",
+  "Coliflor",
   "Comino",
   "Filete de tilapia",
   "Fécula de maíz",
   "Jengibre fresco",
+  "Jitomate cherry",
+  "Lechuga mantequilla",
   "Lomo de atún",
+  "Mozzarella",
   "Orégano",
   "Paprika",
   "Perejil seco",
+  "Queso crema",
   "Queso parmesano",
-  "Salsa de soya"
+  "Quinoa",
+  "Rúcula",
+  "Salsa de soya",
+  "Vinagre de arroz"
  ],
  "fallos": {
   "Aceite de oliva": "sin observaciones",
@@ -49,11 +58,71 @@
   "Vinagre de manzana": "sin observaciones",
   "Yogur griego natural": "sin observaciones"
  },
- "alertas": [
-  "Zanahoria: 0.0150 -> 0.0260 (73%)"
+ "alertas": [],
+ "incoherencias_mayoreo": [
+  "Jitomate: margen demasiado apretado (tienda $28.90/kg vs mayoreo $25.00/kg = 1.16x)",
+  "Papa: margen inusualmente alto (tienda $59.00/kg vs mayoreo $12.00/kg = 4.92x)"
  ],
- "incoherencias_mayoreo": [],
- "contraste_mayoreo": {},
+ "contraste_mayoreo": {
+  "Cebolla blanca": {
+   "producto": "Cebolla Bola",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 32.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 54.99,
+   "margen": 1.72
+  },
+  "Cebolla morada": {
+   "producto": "Cebolla Bola",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 32.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 54.99,
+   "margen": 1.72
+  },
+  "Chile jalapeño": {
+   "producto": "Chile Jalapeño",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 20.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 26.1,
+   "margen": 1.31
+  },
+  "Jitomate": {
+   "producto": "Tomate Saladette",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 25.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 28.9,
+   "margen": 1.16,
+   "aviso": "margen demasiado apretado"
+  },
+  "Limón": {
+   "producto": "Limón c/semilla sin clasificación",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 24.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 42.0,
+   "margen": 1.75
+  },
+  "Papa": {
+   "producto": "Papa Alpha",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 12.0,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 59.0,
+   "margen": 4.92,
+   "aviso": "margen inusualmente alto"
+  },
+  "Zanahoria": {
+   "producto": "Zanahoria leña",
+   "mercado": "Mercado de Abasto de Cd. Juárez",
+   "precio_kg": 8.18,
+   "fecha": "02/10/2026",
+   "menudeo_kg": 25.99,
+   "margen": 3.18
+  }
+ },
  "precios": {
   "Aceite de oliva": {
    "precio_unidad": 0.269321,
@@ -201,6 +270,28 @@
     0.157895
    ],
    "fecha_observacion": "2026-09-17"
+  },
+  "Azúcar": {
+   "precio_unidad": 0.029444,
+   "mediana": 0.027778,
+   "criterio": "percentil 75 entre cadenas (escenario conservador)",
+   "unidad": "g",
+   "observaciones": 9,
+   "cadenas": [
+    "BODEGA AURRERA",
+    "SORIANA SUPER",
+    "WAL-MART"
+   ],
+   "mas_barato": {
+    "cadena": "BODEGA AURRERA",
+    "precio_unidad": 0.024444,
+    "producto": "AZÚCAR, AURRERA, BOLSA PLÁSTICO 900 GR. ESTÁNDAR"
+   },
+   "rango": [
+    0.024444,
+    0.032111
+   ],
+   "fecha_observacion": "2026-09-30"
   },
   "Brócoli": {
    "precio_unidad": 0.0519,
