@@ -1,8 +1,8 @@
 /* Service worker: la app abre aunque no haya internet. */
-const VERSION = 'recetas-v25';
+const VERSION = 'recetas-v26';
 const CONCHA = [
-  './', './index.html', './styles.css?v=25', './app.js?v=25', './github.js?v=25',
-  './manifest.webmanifest',
+  './', './index.html', './styles.css?v=26', './app.js?v=26', './github.js?v=26',
+  './manifest.webmanifest', './repartos.js?v=26',
   './assets/sunu-wordmark.png', './assets/fonts/manrope.ttf', './assets/fonts/cormorant-garamond-600.ttf',
   './icons/icon-512-maskable.png',
   './datos/recetas.json', './datos/precios.json', './datos/ingredientes.json',

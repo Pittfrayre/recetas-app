@@ -362,19 +362,60 @@ const porcionesDe= r  => diasDeRec(r.id).reduce((a,d)=>a+factorDia(d.k), 0);
 const multDe     = r  => porcionesDe(r) / r.porciones;
 const costoRec   = (r,m=1) => r.ingredientes.reduce((a,i)=>a+precioIng(i,m),0);
 
-/* Cada quien recibe exactamente 'su factor' de porciones base, así que la
-   cantidad por lonche no depende de cuántos días se repita la receta. */
+/* Asignar cada ingrediente una sola vez, incluso si se comparte entre
+   preparaciones. Las recetas nuevas pueden aportar su propio reparto;
+   sin clasificación, se muestran como una preparación completa. */
+function gruposReparto(r){
+  const cfg = r.reparto || REPARTOS_RECETAS[r.id] || {principal:r.nombre};
+  const lados = cfg.lados || [];
+  const grupos = [{nombre:cfg.principal || r.nombre, modo:cfg.modo || 'cocido', agua:cfg.agua || 0, ingredientes:[]}];
+  lados.forEach(l => grupos.push({...l, modo:l.modo || 'cocido', ingredientes:[]}));
+  for (const i of r.ingredientes){
+    const partes = lados.map(l => Number((l.ingredientes || {})[i.n] || 0));
+    const suma = partes.reduce((a,p)=>a+p,0);
+    if (partes.some(p=>!Number.isFinite(p) || p<0) || suma>1+1e-8){
+      return [{nombre:r.nombre, modo:'cocido', agua:0, ingredientes:r.ingredientes, factores:{}}];
+    }
+    if (suma<1-1e-8) grupos[0].ingredientes.push({...i,c:i.c*(1-suma)});
+    partes.forEach((p,k)=>{if(p>0) grupos[k+1].ingredientes.push({...i,c:i.c*p});});
+  }
+  return grupos.filter(g=>g.ingredientes.length).map(g=>({...g, factores:cfg.factores || {}}));
+}
+
+function pesoIngredienteServido(i, grupo){
+  const u = unidadDe(i), info = maestra(i.n) || {};
+  let gramos;
+  if (u==='g') gramos=i.c;
+  else if (u==='ml' && DENSIDAD_REPARTO[i.n]) gramos=i.c*DENSIDAD_REPARTO[i.n];
+  else if (u==='pz' && PESO_PIEZA_REPARTO[i.n]) gramos=i.c*PESO_PIEZA_REPARTO[i.n];
+  else return null; // No sumar ml/piezas como si fueran gramos.
+  let rendimiento = RENDIMIENTO_REPARTO[i.n] ?? 1;
+  if (grupo.modo==='sopa'){
+    // La hidratación y los jugos quedan en el caldo ya contabilizado.
+    rendimiento = i.n==='Caldo de pollo' ? 0.9 : 1;
+  } else if (grupo.modo!=='fresco' && info.pasillo==='Frutas y verduras' && u==='g') rendimiento=0.9;
+  rendimiento = grupo.factores[i.n] ?? rendimiento;
+  return gramos*rendimiento;
+}
+const fmtPesoServido = g => g===null ? 'Sin estimación' : `≈ ${g>0 ? Math.max(5,Math.round(g/5)*5) : 0} g`;
+
+/* Reparto preparado aproximado por persona y día; no multiplicar la ración
+   del táper por el número de días. Se incluyen también salsas y condimentos. */
 function reparto(r){
+  const grupos = gruposReparto(r).map(g => {
+    const pesos = g.ingredientes.map(i=>pesoIngredienteServido(i,g));
+    const peso = pesos.some(p=>p===null) ? null : pesos.reduce((a,p)=>a+p,0) + (g.agua || 0)*(g.modo==='fresco' ? 1 : 0.9);
+    return {n:g.nombre,peso};
+  });
   return diasDeRec(r.id).map(d => {
     const gente = comensales(d.k);
     return {
       dia: d,
       comensales: gente,
-      filas: r.ingredientes.map(i => ({
-        n:i.n, u:unidadDe(i),
-        por: gente.map(p => i.c * p.factor / r.porciones)
-      // Nada de "0.1 pz de cebolla": solo lo que vale la pena pesar
-      })).filter(f => f.por.length && Math.max(...f.por) >= (f.u==='pz' ? 0.5 : 10))
+      filas: grupos.map(g => ({
+        n:g.n,
+        por: gente.map(p => g.peso===null ? null : g.peso*p.factor/r.porciones)
+      }))
     };
   });
 }
@@ -914,16 +955,16 @@ function verReceta(id){
       const iguales = new Set(rp.map(firmaComensales)).size === 1;
       const bloques = iguales ? [rp[0]] : rp;
       return `
-        <div class="sec"><h2>Reparto por lonche</h2><span class="act">báscula</span></div>
+        <div class="sec"><h2>Reparto por lonche</h2><span class="act">peso preparado ≈</span></div>
         ${bloques.map(b => `
           ${iguales ? '' : `<p class="price-hint" style="text-align:left;padding:2px 4px 6px"><strong>${esc(b.dia.l)}</strong></p>`}
           <div class="card" ${iguales?'':'style="margin-bottom:12px"'}>
             <table class="split">
-              <thead><tr><th>Ingrediente</th>
+              <thead><tr><th>Preparación</th>
                 ${b.comensales.map(p=>`<th>${esc(corto(p.nombre))}</th>`).join('')}</tr></thead>
               <tbody>
                 ${b.filas.map(fl=>`<tr><td>${esc(fl.n)}</td>
-                  ${fl.por.map(v=>`<td>${fmtBascula(v,fl.u)}</td>`).join('')}</tr>`).join('')}
+                  ${fl.por.map(v=>`<td>${fmtPesoServido(v)}</td>`).join('')}</tr>`).join('')}
                 <tr class="tot"><td>Proteína</td>
                   ${b.comensales.map(p=>`<td>${Math.round(r.proteina*p.factor)} g</td>`).join('')}</tr>
                 <tr class="tot"><td>Calorías</td>
@@ -932,14 +973,14 @@ function verReceta(id){
             </table>
           </div>`).join('')}
         <p class="price-hint" style="text-align:left;padding:9px 4px 0">
-          Cantidades <strong>por lonche</strong>. ${iguales && rp.length>1
-            ? `Los ${rp.length} días comen los mismos, así que pesa esto en cada táper.`
+          Pesos <strong>aproximados del alimento preparado, por persona y día</strong>. ${iguales && rp.length>1
+            ? `Sirve estas cantidades en cada táper de los ${rp.length} días.`
             : (rp.length>1 ? 'Cada día come gente distinta, por eso va una tabla por día.' : '')}
-          Se omiten condimentos y cantidades muy chicas.
+          Incluyen los ingredientes de cada preparación; pueden variar por la cocción y el tamaño de las piezas.
         </p>`;
     })() : `
       <div class="sec"><h2>Reparto por lonche</h2></div>
-      <div class="note">Asigna esta receta a un día del plan y elige quién come, y aquí te digo cuántos gramos van en cada táper.</div>`}
+      <div class="note">Asigna esta receta a un día del plan y elige quién come para ver el peso aproximado de cada preparación por persona.</div>`}
 
     </section>
     <section class="recipe-method">
