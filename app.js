@@ -822,17 +822,19 @@ function cerrarSheet(){
 
 function verReceta(id){
   const r=rec(id), d=diasDe(id), m=d?multDe(r):1;
+  // Desde el Plan se cocina el total semanal; el catálogo conserva su vista.
+  const verPorcion = !S.recetaPlanDia && S.verPorcion;
   /* Dos vistas: una porción, o lo que de verdad tienes que cocinar. Si la
      receta está en el plan, eso incluye los días y quién come; si no, es la
      receta tal cual. Lo que no puede pasar es que la tarjeta de arriba diga
      4.6 porciones y la lista de ingredientes esté calculada para 4. */
   const escPlan = d ? m : 1;
-  const esc1 = S.verPorcion ? 1/r.porciones : escPlan;
+  const esc1 = verPorcion ? 1/r.porciones : escPlan;
   const porcionesReales = d ? porcionesDe(r) : r.porciones;
   const nDias = d;
   const rp=reparto(r);
   const diasTxt = d
-    ? DIAS.filter(x=>S.semana[x.k]===id).map(x=>x.l).join(', ')
+    ? diasDeRec(id).map(x=>x.l).join(', ')
     : null;
 
   abrirSheet(r.nombre, `
@@ -887,12 +889,12 @@ function verReceta(id){
     <section class="recipe-ingredients">
     <div class="sec">
       <h2>Ingredientes</h2>
-      <button class="act" id="togglePorcion">${S.verPorcion
+      ${S.recetaPlanDia ? '<span class="act">Total del plan</span>' : `<button class="act" id="togglePorcion">${verPorcion
         ? (nDias ? 'ver lo que necesito' : 'ver receta completa')
-        : 'ver 1 porción'}</button>
+        : 'ver 1 porción'}</button>`}
     </div>
     <p class="price-hint" style="text-align:left;padding:0 4px 8px">
-      ${S.verPorcion
+      ${verPorcion
         ? `Cantidades para <strong>una porción</strong>. La receta rinde ${r.porciones}.`
         : (nDias
             ? `Cantidades para <strong>tus ${nDias} día${nDias>1?'s':''}</strong>: ${porcionesReales.toFixed(1).replace('.0','')} porciones, la receta ×${escPlan.toFixed(2).replace(/\.?0+$/,'')}.`
@@ -941,7 +943,7 @@ function verReceta(id){
 
     </section>
     <section class="recipe-method">
-    <div class="sec"><h2>Preparación</h2>${S.verPorcion
+    <div class="sec"><h2>Preparación</h2>${verPorcion
       ? '<span class="act">1 porción</span>'
       : `<span class="act">${porcionesReales.toFixed(1).replace('.0','')} porciones</span>`}</div>
     <div class="card"><ol class="steps">${r.pasos.map(p=>{
