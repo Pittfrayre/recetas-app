@@ -671,7 +671,9 @@ function renderMandado(){
           ? ` Buscando lo barato bajarías hasta <strong>${mxn(S.lista.ahorro)}</strong>; donde más se ahorra es en <strong>${esc(S.lista.mejorCadena)}</strong>.`
           : ''}</p>
     </div>
+    <div class="shopping-groups">
     ${S.lista.grupos.map(g=>`
+      <section class="shopping-group">
       <div class="aisle"><span>${esc(g.pasillo)}</span><span>${mxn(g.items.reduce((a,i)=>a+i.precio,0))}</span></div>
       <div class="card">
         ${g.items.map(i=>{
@@ -685,7 +687,8 @@ function renderMandado(){
             <button class="item-p ${editado(i.n)?'edited':''}" data-precio="${esc(i.n)}">${mxn(i.precio)}</button>
           </div>`;
         }).join('')}
-      </div>`).join('')}
+      </div></section>`).join('')}
+    </div>
     <p class="price-hint">Toca cualquier precio para actualizarlo si cambió en la tienda.</p>
     <div style="margin-top:14px"><button class="btn ghost sm" id="shareList">Compartir lista</button></div>`;
 }
@@ -836,7 +839,9 @@ function verReceta(id){
     ${S.recetaPlanDia ? `<button class="btn ghost sm recipe-plan-back" data-volver-plan-dia="${S.recetaPlanDia}">
       ← Volver al ${esc(DIAS.find(x=>x.k===S.recetaPlanDia).l.toLowerCase())}
     </button>` : ''}
+    <div class="recipe-overview">
     <img class="hero-img" src="img/${r.id}-w.jpg" alt="">
+    <div class="recipe-overview-info">
     <div class="hero-t">
       <h4>${esc(r.nombre)}</h4>
       <div class="rmeta"><span>${r.tiempo} min</span><span>${r.categoria}</span><span>${mxn(costoRec(r,m))} en total</span></div>
@@ -876,7 +881,10 @@ function verReceta(id){
       </div>`}
 
     ${diasTxt?`<div class="note" style="margin:14px 0 6px"><b>En tu semana:</b> ${esc(diasTxt)}</div>`:''}
+    </div></div>
 
+    <div class="recipe-detail-grid">
+    <section class="recipe-ingredients">
     <div class="sec">
       <h2>Ingredientes</h2>
       <button class="act" id="togglePorcion">${S.verPorcion
@@ -931,6 +939,8 @@ function verReceta(id){
       <div class="sec"><h2>Reparto por lonche</h2></div>
       <div class="note">Asigna esta receta a un día del plan y elige quién come, y aquí te digo cuántos gramos van en cada táper.</div>`}
 
+    </section>
+    <section class="recipe-method">
     <div class="sec"><h2>Preparación</h2>${S.verPorcion
       ? '<span class="act">1 porción</span>'
       : `<span class="act">${porcionesReales.toFixed(1).replace('.0','')} porciones</span>`}</div>
@@ -948,6 +958,7 @@ function verReceta(id){
 
     <div class="sec"><h2>Notas del nutriólogo</h2></div>
     <div class="note">${esc(r.notas)}</div>
+    </section></div>
 
     <div style="margin-top:20px">
       <button class="btn ghost sm" data-edit="${r.id}">Editar receta</button>

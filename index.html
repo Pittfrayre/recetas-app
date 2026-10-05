@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 <title>Sunú · Recetas</title>
-<link rel="stylesheet" href="styles.css?v=23">
+<link rel="stylesheet" href="styles.css?v=24">
 </head>
 <body>
 
@@ -57,21 +57,25 @@
 
     <!-- ===== VISTA: PLAN ===== -->
     <section class="view" id="v-plan">
+      <div class="plan-layout">
       <div class="summary" id="planSummary"></div>
 
+      <div class="plan-week">
       <div class="sec">
         <h2>Semana</h2>
         <button class="act" id="clearWeek">Limpiar</button>
       </div>
       <div class="card" id="semana"></div>
+      </div>
 
-      <div style="margin-top:18px">
+      <div class="plan-action">
         <button class="btn" id="genList">
           <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 5h10M9 12h10M9 19h10M4.5 5h.01M4.5 12h.01M4.5 19h.01"/>
           </svg>
           Generar lista del mandado
         </button>
+      </div>
       </div>
     </section>
 
@@ -181,10 +185,10 @@
 
 <script>
   if ('serviceWorker' in navigator) {
-    addEventListener('load', () => navigator.serviceWorker.register('sw.js?v=23').catch(()=>{}));
+    addEventListener('load', () => navigator.serviceWorker.register('sw.js?v=24').catch(()=>{}));
   }
 </script>
-<script src="github.js?v=23"></script>
-<script src="app.js?v=23"></script>
+<script src="github.js?v=24"></script>
+<script src="app.js?v=24"></script>
 </body>
 </html>
